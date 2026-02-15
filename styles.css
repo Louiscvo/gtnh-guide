@@ -73,6 +73,35 @@ body {
     font-size: 0.9rem;
 }
 
+/* Language Selector */
+.lang-selector {
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #333;
+}
+
+.lang-selector select {
+    width: 100%;
+    padding: 10px 12px;
+    background: var(--bg-hover);
+    border: 1px solid #333;
+    border-radius: 8px;
+    color: var(--text-primary);
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.lang-selector select:hover {
+    border-color: var(--accent);
+}
+
+.lang-selector select:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 8px rgba(0, 212, 255, 0.3);
+}
+
 .nav-menu {
     list-style: none;
     flex: 1;

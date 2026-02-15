@@ -1,0 +1,132 @@
+{
+  "lang": "fr",
+  "meta": {
+    "title": "GTNH Guide Complet - GregTech New Horizons",
+    "description": "Le guide ultime pour le modpack le plus complexe de Minecraft"
+  },
+  "nav": {
+    "home": "Accueil",
+    "progression": "Progression",
+    "machines": "Machines",
+    "multiblocks": "Multiblocks",
+    "ores": "Minerais",
+    "quests": "Quêtes",
+    "space": "Espace",
+    "tools": "Outils",
+    "viewer3d": "Viewer 3D"
+  },
+  "home": {
+    "subtitle": "Le guide ultime pour le modpack le plus complexe de Minecraft",
+    "stats": {
+      "quests": "Quêtes",
+      "mods": "Mods",
+      "solo": "Solo",
+      "tiers": "Tiers"
+    },
+    "tierOverview": "Progression des Tiers",
+    "quickLinks": "Accès Rapide"
+  },
+  "machines": {
+    "title": "Machines GregTech",
+    "search": "Rechercher une machine...",
+    "categories": {
+      "all": "Toutes",
+      "processing": "Processing",
+      "forging": "Forging",
+      "separating": "Separating",
+      "chemistry": "Chemistry",
+      "heating": "Heating",
+      "oreProcessing": "Ore Processing",
+      "steam": "Steam"
+    },
+    "specs": {
+      "tier": "Tier",
+      "euPerTick": "EU/t",
+      "type": "Type",
+      "inputs": "Entrées",
+      "outputs": "Sorties"
+    }
+  },
+  "multiblocks": {
+    "title": "Multiblocks (198 structures)",
+    "search": "Rechercher un multiblock...",
+    "allTiers": "Tous les tiers",
+    "allCategories": "Toutes catégories",
+    "categories": {
+      "processing": "Processing",
+      "generator": "Générateurs",
+      "gt++": "GT++",
+      "utility": "Utilitaires",
+      "resource": "Ressources",
+      "storage": "Stockage",
+      "endgame": "Endgame"
+    }
+  },
+  "ores": {
+    "title": "Veines de Minerais (79 types)",
+    "structure": "Structure des Veines",
+    "height": "Hauteur",
+    "spacing": "Espacement",
+    "primary": "Primary",
+    "secondary": "Secondary",
+    "between": "Between",
+    "sporadic": "Sporadic",
+    "tips": "Tips Mining",
+    "allDimensions": "Toutes dimensions",
+    "allStages": "Tous les stades"
+  },
+  "quests": {
+    "title": "Questbook (3900+ quêtes)",
+    "info": "Le questbook guide votre progression à travers le modpack.",
+    "modTabs": "Onglets par Mod"
+  },
+  "space": {
+    "title": "Exploration Spatiale",
+    "rocketTiers": "Progression des Fusées",
+    "unlock": "Débloqué"
+  },
+  "tools": {
+    "title": "Outils & Ressources Externes"
+  },
+  "controls": {
+    "leftDrag": "Clic gauche + drag : Rotation",
+    "rightDrag": "Clic droit + drag : Pan",
+    "scroll": "Molette : Zoom",
+    "click": "Clic sur machine : Info"
+  },
+  "viewer": {
+    "selectTier": "Sélectionner un Tier",
+    "legend": "Légende",
+    "controls": "Contrôles",
+    "loading": "Chargement de la base..."
+  },
+  "tierNames": {
+    "steam": "Steam Age",
+    "lv": "Low Voltage (LV)",
+    "mv": "Medium Voltage (MV)",
+    "hv": "High Voltage (HV)",
+    "ev": "Extreme Voltage (EV)",
+    "iv": "Insane Voltage (IV)",
+    "luv": "Ludicrous Voltage (LuV)",
+    "zpm": "Zero Point Module (ZPM)",
+    "uv": "Ultimate Voltage (UV)",
+    "uhv": "Highly Ultimate Voltage (UHV)"
+  },
+  "tierDesc": {
+    "steam": "Chaudières, machines à vapeur",
+    "lv": "32 EU/t - Electric Blast Furnace",
+    "mv": "128 EU/t - Polyethylene",
+    "hv": "512 EU/t - Cleanroom",
+    "ev": "2048 EU/t - Système AE2",
+    "iv": "8192 EU/t - Assembly Line"
+  },
+  "machineTypes": {
+    "boiler": "Chaudière",
+    "furnace": "Four",
+    "generator": "Générateur",
+    "processing": "Traitement",
+    "multiblock": "Multiblock",
+    "storage": "Stockage",
+    "hatch": "Hatch"
+  }
+}

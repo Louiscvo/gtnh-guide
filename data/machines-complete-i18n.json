@@ -1,0 +1,597 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2025-02-15",
+  "dataSource": "https://gtnh.miraheze.org/wiki/",
+
+  "multiblocks": [
+    {
+      "id": "ebf",
+      "image": "textures/machines/EBF.png",
+      "wikiUrl": "https://gtnh.miraheze.org/wiki/Electric_Blast_Furnace",
+      "unlockTier": "LV",
+      "category": "processing",
+      "structure": {
+        "dimensions": "3x3x4",
+        "components": ["Heat-Proof Machine Casing", "Cupronickel Coils (LV) / Kanthal (MV+)", "1 Controller", "1+ Input Bus", "1+ Output Bus", "1+ Energy Hatch", "Optional: Maintenance Hatch"]
+      },
+      "names": {
+        "en": "Electric Blast Furnace",
+        "fr": "Four à Arc Électrique"
+      },
+      "power": {
+        "en": "LV: 120 EU/t (4A minimum = 2 energy hatches)\nMV: 480 EU/t\nHV: 1920 EU/t\nRequires minimum 4 amps for most recipes",
+        "fr": "LV: 120 EU/t (4A minimum = 2 energy hatches)\nMV: 480 EU/t\nHV: 1920 EU/t\nNécessite minimum 4 ampères pour la plupart des recettes"
+      },
+      "usage": {
+        "en": "Essential for smelting high-temperature materials: Steel (1000K), Aluminium (1700K), Titanium (1940K), Tungstensteel (3000K). Place items in input bus, output appears in output bus. Coil tier determines max temperature.",
+        "fr": "Essentiel pour fondre les matériaux haute température : Acier (1000K), Aluminium (1700K), Titane (1940K), Tungstensteel (3000K). Placez les items dans l'input bus, le résultat apparaît dans l'output bus. Le tier des bobines détermine la température max."
+      },
+      "dangers": {
+        "en": "⚠️ POLLUTION: Produces pollution - use Muffler Hatch\n⚠️ POWER DRAW: 4A minimum - single energy hatch will NOT work for most recipes\n⚠️ MAINTENANCE: Will stop working if maintenance issues occur",
+        "fr": "⚠️ POLLUTION : Produit de la pollution - utiliser Muffler Hatch\n⚠️ CONSOMMATION : 4A minimum - une seule energy hatch NE FONCTIONNERA PAS pour la plupart des recettes\n⚠️ MAINTENANCE : Arrêtera de fonctionner si problèmes de maintenance"
+      },
+      "tips": {
+        "en": "• Build wall-shared EBFs to save resources\n• Upgrade coils ASAP for higher temperature recipes\n• Use 2+ Energy Hatches for 4A recipes",
+        "fr": "• Construisez des EBF avec murs partagés pour économiser\n• Améliorez les bobines rapidement pour recettes haute température\n• Utilisez 2+ Energy Hatches pour recettes 4A"
+      }
+    },
+    {
+      "id": "lcr",
+      "image": "textures/machines/LargeChemicalReactor.png",
+      "wikiUrl": "https://gtnh.miraheze.org/wiki/Large_Chemical_Reactor",
+      "unlockTier": "HV",
+      "category": "chemistry",
+      "structure": {
+        "dimensions": "3x3x3",
+        "components": ["Chemically Inert Machine Casing", "PTFE Pipe Casing (center)", "1 Controller", "Input/Output Hatches", "Energy Hatch"]
+      },
+      "names": {
+        "en": "Large Chemical Reactor",
+        "fr": "Grand Réacteur Chimique"
+      },
+      "power": {
+        "en": "HV: 480-1920 EU/t depending on recipe\nRuns all Chemical Reactor recipes at same speed regardless of voltage",
+        "fr": "HV: 480-1920 EU/t selon la recette\nEffectue toutes les recettes du Chemical Reactor à même vitesse peu importe le voltage"
+      },
+      "usage": {
+        "en": "Performs ALL Chemical Reactor recipes. Essential for: Polyethylene, PVC, Polybenzimidazole, Epoxid. Can run multiple recipes simultaneously using different input/output hatches.",
+        "fr": "Effectue TOUTES les recettes du Chemical Reactor. Essentiel pour : Polyéthylène, PVC, Polybenzimidazole, Époxyde. Peut exécuter plusieurs recettes simultanément avec différents hatches."
+      },
+      "dangers": {
+        "en": "⚠️ FLUID MIXING: Wrong fluids in same hatch can void recipes\n⚠️ Recipe order matters - check NEI carefully",
+        "fr": "⚠️ MÉLANGE FLUIDES : Mauvais fluides dans le même hatch peut annuler les recettes\n⚠️ L'ordre des recettes compte - vérifiez NEI attentivement"
+      },
+      "tips": {
+        "en": "• Use multiple input hatches for different fluids\n• Separate incompatible recipes with different hatch setups\n• Essential upgrade from single-block Chemical Reactor",
+        "fr": "• Utilisez plusieurs input hatches pour différents fluides\n• Séparez les recettes incompatibles avec différents setups\n• Amélioration essentielle du Chemical Reactor single-block"
+      }
+    },
+    {
+      "id": "cleanroom",
+      "image": "textures/machines/Cleanroom.png",
+      "wikiUrl": "https://gtnh.miraheze.org/wiki/Cleanroom",
+      "unlockTier": "HV",
+      "category": "utility",
+      "structure": {
+        "dimensions": "Variable (min 3x3x4 interior)",
+        "components": ["Plascrete or Reinforced Glass walls/ceiling", "Cleanroom Controller on top center", "Filter Machine Casing under controller", "Door or Pressurised Door for entry"]
+      },
+      "names": {
+        "en": "Cleanroom",
+        "fr": "Salle Blanche"
+      },
+      "power": {
+        "en": "40 EU/t (very low)\nPowers from any LV+ source",
+        "fr": "40 EU/t (très faible)\nAlimentée par n'importe quelle source LV+"
+      },
+      "usage": {
+        "en": "Required for HV+ circuit assembly. Place LV machines INSIDE the cleanroom. Must be 100% sealed - any gap breaks cleanliness. Show cleanliness % in controller GUI.",
+        "fr": "Requise pour l'assemblage de circuits HV+. Placez les machines LV À L'INTÉRIEUR de la cleanroom. Doit être 100% étanche - toute fissure casse la propreté. Affiche le % de propreté dans l'interface du contrôleur."
+      },
+      "dangers": {
+        "en": "⚠️ LEAKS: Any unsealed block = 0% cleanliness = circuits fail\n⚠️ MACHINES: Only LV machines inside, higher tier voids circuits\n⚠️ SIZE: Too small = not enough space for automation",
+        "fr": "⚠️ FUITES : Tout bloc non scellé = 0% propreté = circuits échouent\n⚠️ MACHINES : Seulement machines LV à l'intérieur, tier supérieur détruit les circuits\n⚠️ TAILLE : Trop petit = pas assez d'espace pour automatisation"
+      },
+      "tips": {
+        "en": "• Build big enough for future automation (11x11x7 recommended)\n• Use Howler Alarm to detect when cleanliness drops\n• Door must be pressurised for 100% cleanliness",
+        "fr": "• Construisez assez grand pour l'automatisation future (11x11x7 recommandé)\n• Utilisez Howler Alarm pour détecter la chute de propreté\n• La porte doit être pressurisée pour 100% propreté"
+      }
+    },
+    {
+      "id": "vacuum_freezer",
+      "image": "textures/machines/Vacuum_Freezer.png",
+      "wikiUrl": "https://gtnh.miraheze.org/wiki/Vacuum_Freezer",
+      "unlockTier": "HV",
+      "category": "processing",
+      "structure": {
+        "dimensions": "3x3x3",
+        "components": ["Frost Proof Machine Casing", "1 Controller", "Input/Output Bus", "Energy Hatch"]
+      },
+      "names": {
+        "en": "Vacuum Freezer",
+        "fr": "Congélateur sous Vide"
+      },
+      "power": {
+        "en": "HV: 480 EU/t base\nScales with recipe complexity",
+        "fr": "HV: 480 EU/t de base\nScale avec la complexité de la recette"
+      },
+      "usage": {
+        "en": "Freezes hot ingots from EBF into regular ingots. Required for: Hot Titanium Ingot, Hot Tungstensteel, Hot Naquadah. Also freezes helium for superconductor production.",
+        "fr": "Congèle les lingots chauds de l'EBF en lingots normaux. Requis pour : Lingot de Titane Chaud, Tungstensteel Chaud, Naquadah Chaud. Congèle aussi l'hélium pour production de supraconducteurs."
+      },
+      "dangers": {
+        "en": "⚠️ HOT INGOTS: Don't store hot ingots too long - they may despawn\n⚠️ ROUTING: Automate hot ingot transfer from EBF immediately",
+        "fr": "⚠️ LINGOTS CHAUDS : Ne stockez pas les lingots chauds trop longtemps - ils peuvent disparaître\n⚠️ ROUTAGE : Automatisez le transfert des lingots chauds depuis l'EBF immédiatement"
+      },
+      "tips": {
+        "en": "• Build adjacent to EBF for easy automation\n• Use item pipes or AE2 for instant transfer\n• One Vacuum Freezer can handle multiple EBFs",
+        "fr": "• Construisez adjacent à l'EBF pour automatisation facile\n• Utilisez des pipes ou AE2 pour transfert instantané\n• Un Vacuum Freezer peut gérer plusieurs EBF"
+      }
+    },
+    {
+      "id": "distillation_tower",
+      "image": "textures/machines/DistillationTower.png",
+      "wikiUrl": "https://gtnh.miraheze.org/wiki/Distillation_Tower",
+      "unlockTier": "HV",
+      "category": "chemistry",
+      "structure": {
+        "dimensions": "3x3x(variable height)",
+        "components": ["Clean Stainless Steel Casing", "1 Controller (bottom center)", "1 Input Hatch (bottom)", "Output Hatches (one per layer)", "Energy Hatch"]
+      },
+      "names": {
+        "en": "Distillation Tower",
+        "fr": "Tour de Distillation"
+      },
+      "power": {
+        "en": "HV: 480 EU/t base\nHeight determines output variety",
+        "fr": "HV: 480 EU/t de base\nLa hauteur détermine la variété de sorties"
+      },
+      "usage": {
+        "en": "Separates fluids into multiple components. Oil → Sulfuric/Light/Heavy Fuel + Lubricant + Naphtha. Each output hatch extracts a different fluid based on layer position.",
+        "fr": "Sépare les fluides en plusieurs composants. Pétrole → Fuel Sulfurique/Léger/Lourd + Lubrifiant + Naphtha. Chaque output hatch extrait un fluide différent selon la position de la couche."
+      },
+      "dangers": {
+        "en": "⚠️ OUTPUT ORDER: Wrong hatch placement = wrong outputs\n⚠️ FLUID BACKUP: If any output is full, entire tower stops\n⚠️ HEIGHT: Must match recipe requirements exactly",
+        "fr": "⚠️ ORDRE SORTIES : Mauvais placement des hatches = mauvaises sorties\n⚠️ BACKUP FLUIDE : Si une sortie est pleine, toute la tour s'arrête\n⚠️ HAUTEUR : Doit correspondre exactement aux exigences de la recette"
+      },
+      "tips": {
+        "en": "• Check NEI for output order (bottom to top)\n• Use large fluid tanks or void excess fluids\n• Essential for oil processing chain",
+        "fr": "• Vérifiez NEI pour l'ordre des sorties (bas vers haut)\n• Utilisez de grands réservoirs ou videz les fluides en excès\n• Essentiel pour la chaîne de traitement du pétrole"
+      }
+    },
+    {
+      "id": "pyrolyse_oven",
+      "image": "textures/machines/PyrolyseOven.png",
+      "wikiUrl": "https://gtnh.miraheze.org/wiki/Pyrolyse_Oven",
+      "unlockTier": "MV",
+      "category": "processing",
+      "structure": {
+        "dimensions": "5x4x5",
+        "components": ["ULV Machine Casing", "Cupronickel Coils (center)", "1 Controller", "Input/Output Hatches", "Energy Hatch", "Muffler Hatch"]
+      },
+      "names": {
+        "en": "Pyrolyse Oven",
+        "fr": "Four de Pyrolyse"
+      },
+      "power": {
+        "en": "MV: 96-128 EU/t depending on recipe\nCoil tier affects speed",
+        "fr": "MV: 96-128 EU/t selon la recette\nLe tier des bobines affecte la vitesse"
+      },
+      "usage": {
+        "en": "Produces charcoal, wood tar, wood gas, wood vinegar from logs. Essential early chemistry source. Also processes coal into coal tar.",
+        "fr": "Produit charbon de bois, goudron, gaz de bois, vinaigre de bois à partir de bûches. Source essentielle pour la chimie précoce. Traite aussi le charbon en goudron de houille."
+      },
+      "dangers": {
+        "en": "⚠️ POLLUTION: High pollution output - muffler hatch REQUIRED\n⚠️ FLAMMABLE: Wood products can be dangerous near lava/fire",
+        "fr": "⚠️ POLLUTION : Production élevée de pollution - muffler hatch OBLIGATOIRE\n⚠️ INFLAMMABLE : Les produits du bois peuvent être dangereux près du feu/lave"
+      },
+      "tips": {
+        "en": "• Use Nitrogen for charcoal (best ratio)\n• Wood Vinegar → Calcium Acetate → Acetone\n• Build early MV for chemistry bootstrap",
+        "fr": "• Utilisez l'Azote pour le charbon de bois (meilleur ratio)\n• Vinaigre de bois → Acétate de Calcium → Acétone\n• Construisez tôt en MV pour bootstrap chimie"
+      }
+    },
+    {
+      "id": "coke_oven",
+      "image": "textures/machines/CokeOven.png",
+      "wikiUrl": "https://gtnh.miraheze.org/wiki/Coke_Oven",
+      "unlockTier": "Steam",
+      "category": "primitive",
+      "structure": {
+        "dimensions": "3x3x3",
+        "components": ["Coke Oven Bricks (26 blocks)", "No power required"]
+      },
+      "names": {
+        "en": "Coke Oven",
+        "fr": "Four à Coke"
+      },
+      "power": {
+        "en": "NO POWER REQUIRED\nPassive processing - just wait",
+        "fr": "AUCUNE ÉNERGIE REQUISE\nTraitement passif - il suffit d'attendre"
+      },
+      "usage": {
+        "en": "Converts coal/charcoal into coke coal + creosote oil. Coke coal burns 2x longer. Creosote needed for torches and treated wood.",
+        "fr": "Convertit charbon/charbon de bois en coke + huile de créosote. Le coke brûle 2x plus longtemps. Créosote nécessaire pour torches et bois traité."
+      },
+      "dangers": {
+        "en": "⚠️ SLOW: Very slow processing - build 4-8 ovens minimum\n⚠️ NO GUI: Right-click to insert items, hopper to extract",
+        "fr": "⚠️ LENT : Traitement très lent - construisez 4-8 fours minimum\n⚠️ PAS D'INTERFACE : Clic droit pour insérer, hopper pour extraire"
+      },
+      "tips": {
+        "en": "• Build many ovens in parallel (8+ recommended)\n• Use hoppers below for automatic output\n• Creosote stored in internal tank (right-click with bucket)",
+        "fr": "• Construisez plusieurs fours en parallèle (8+ recommandé)\n• Utilisez des hoppers en dessous pour extraction auto\n• Créosote stockée dans réservoir interne (clic droit avec seau)"
+      }
+    },
+    {
+      "id": "assembly_line",
+      "image": "textures/machines/AssemblyLine.png",
+      "wikiUrl": "https://gtnh.miraheze.org/wiki/Assembly_Line",
+      "unlockTier": "IV",
+      "category": "endgame",
+      "structure": {
+        "dimensions": "Variable length (5+ slices)",
+        "components": ["Assembly Line Casing", "Input Bus per slice", "Data Access Hatch", "Energy Hatch (IV+)", "Output Bus at end"]
+      },
+      "names": {
+        "en": "Assembly Line",
+        "fr": "Chaîne de Montage"
+      },
+      "power": {
+        "en": "IV: 8192 EU/t minimum\nMost recipes require 30k-120k EU/t\nUse multiple IV or LuV energy hatches",
+        "fr": "IV: 8192 EU/t minimum\nLa plupart des recettes nécessitent 30k-120k EU/t\nUtilisez plusieurs energy hatches IV ou LuV"
+      },
+      "usage": {
+        "en": "Required for ALL IV+ components. Uses Data Stick recipes from Research Station. Up to 16 input slots in sequence. Items must be in correct order in input buses.",
+        "fr": "Requis pour TOUS les composants IV+. Utilise les recettes Data Stick de la Research Station. Jusqu'à 16 slots d'entrée en séquence. Les items doivent être dans le bon ordre dans les input buses."
+      },
+      "dangers": {
+        "en": "⚠️ ORDER CRITICAL: Items in wrong bus = recipe fails\n⚠️ DATA STICK: Must scan recipe first in Research Station\n⚠️ POWER HUNGRY: Can drain entire power grid if not prepared",
+        "fr": "⚠️ ORDRE CRITIQUE : Items dans mauvais bus = recette échoue\n⚠️ DATA STICK : Doit scanner la recette d'abord dans Research Station\n⚠️ GOURMAND : Peut vider tout le réseau électrique si pas préparé"
+      },
+      "tips": {
+        "en": "• Use AE2 with ME Interfaces for automation\n• Scan all recipes before starting production\n• Keep Data Sticks organized by product",
+        "fr": "• Utilisez AE2 avec ME Interfaces pour automatisation\n• Scannez toutes les recettes avant production\n• Gardez les Data Sticks organisés par produit"
+      }
+    },
+    {
+      "id": "implosion_compressor",
+      "image": "textures/machines/ImplosionCompressor.png",
+      "wikiUrl": "https://gtnh.miraheze.org/wiki/Implosion_Compressor",
+      "unlockTier": "HV",
+      "category": "processing",
+      "structure": {
+        "dimensions": "3x3x3",
+        "components": ["Solid Steel Machine Casing", "1 Controller", "Input/Output Bus", "Energy Hatch", "Muffler Hatch"]
+      },
+      "names": {
+        "en": "Implosion Compressor",
+        "fr": "Compresseur à Implosion"
+      },
+      "power": {
+        "en": "HV: 480 EU/t\nQuick recipes but expensive inputs",
+        "fr": "HV: 480 EU/t\nRecettes rapides mais entrées coûteuses"
+      },
+      "usage": {
+        "en": "Uses explosives (ITNT, Dynamite) to compress materials. Creates Industrial Diamonds from diamond dust. Required for advanced circuits and drill bits.",
+        "fr": "Utilise des explosifs (ITNT, Dynamite) pour comprimer les matériaux. Crée des Diamants Industriels à partir de poussière de diamant. Requis pour circuits avancés et mèches de forage."
+      },
+      "dangers": {
+        "en": "⚠️ EXPLOSIVES: Uses TNT - don't carry extra in inventory near machine\n⚠️ POLLUTION: High pollution - muffler required\n⚠️ NOISE: Very loud operation",
+        "fr": "⚠️ EXPLOSIFS : Utilise du TNT - ne portez pas d'extra dans l'inventaire près de la machine\n⚠️ POLLUTION : Pollution élevée - muffler requis\n⚠️ BRUIT : Opération très bruyante"
+      },
+      "tips": {
+        "en": "• ITNT is most efficient explosive\n• One run produces 2-3 industrial diamonds\n• Essential for IV-tier circuits",
+        "fr": "• ITNT est l'explosif le plus efficace\n• Un cycle produit 2-3 diamants industriels\n• Essentiel pour circuits tier IV"
+      }
+    },
+    {
+      "id": "fusion_reactor_t1",
+      "image": "textures/machines/FusionReactorT1.png",
+      "wikiUrl": "https://gtnh.miraheze.org/wiki/Fusion_Reactor",
+      "unlockTier": "LuV",
+      "category": "endgame",
+      "structure": {
+        "dimensions": "15x15x3 (ring)",
+        "components": ["Fusion Machine Casing Mk I", "Fusion Coils", "Superconductor Cables", "Input/Output Hatches", "Energy Hatches"]
+      },
+      "names": {
+        "en": "Fusion Reactor Mk I",
+        "fr": "Réacteur à Fusion Mk I"
+      },
+      "power": {
+        "en": "STARTUP: 160,000,000 EU\nOUTPUT: 32,768+ EU/t net positive\nRequires massive energy buffer for startup",
+        "fr": "DÉMARRAGE : 160,000,000 EU\nSORTIE : 32,768+ EU/t net positif\nNécessite un énorme buffer d'énergie pour démarrer"
+      },
+      "usage": {
+        "en": "Fuses light elements into heavy elements. Produces Europium plasma, Lutetium, Americium. Net positive energy once running.",
+        "fr": "Fusionne des éléments légers en éléments lourds. Produit plasma d'Europium, Lutétium, Américium. Énergie nette positive une fois en marche."
+      },
+      "dangers": {
+        "en": "⚠️ STARTUP COST: 160M EU needed BEFORE it produces anything\n⚠️ PLASMA: Hot plasma can void if output not handled\n⚠️ CONTINUOUS: Must run continuously or restart cost applies",
+        "fr": "⚠️ COÛT DÉMARRAGE : 160M EU nécessaires AVANT toute production\n⚠️ PLASMA : Le plasma chaud peut être perdu si sortie pas gérée\n⚠️ CONTINU : Doit tourner en continu sinon coût de redémarrage"
+      },
+      "tips": {
+        "en": "• Use Lapotronic Supercapacitor for startup energy\n• Route plasma directly to Plasma Generators\n• Build Mk II ASAP for better recipes",
+        "fr": "• Utilisez Supercondensateur Lapotronique pour énergie démarrage\n• Routez le plasma directement vers Générateurs Plasma\n• Construisez Mk II rapidement pour meilleures recettes"
+      }
+    }
+  ],
+
+  "steamMachines": [
+    {
+      "id": "bronze_boiler_small",
+      "category": "generator",
+      "names": {
+        "en": "Small Bronze Boiler",
+        "fr": "Petite Chaudière en Bronze"
+      },
+      "power": {
+        "en": "OUTPUT: 120 Steam/t\nFUEL: Coal, Charcoal, Wood (solid fuels)",
+        "fr": "SORTIE : 120 Vapeur/t\nCOMBUSTIBLE : Charbon, Charbon de bois, Bois (combustibles solides)"
+      },
+      "usage": {
+        "en": "First steam generator. Place water source block above (or pump water in). Produces steam for steam machines. Automatically refills from water above.",
+        "fr": "Premier générateur de vapeur. Placez un bloc source d'eau au-dessus (ou pompez l'eau). Produit de la vapeur pour machines à vapeur. Se remplit auto depuis l'eau au-dessus."
+      },
+      "dangers": {
+        "en": "⚠️ EXPLOSION: Running dry (no water) causes explosion!\n⚠️ OVERFLOW: Too much steam with no output causes explosion!\n⚠️ FUEL: Keep fuel supply constant",
+        "fr": "⚠️ EXPLOSION : Fonctionner à sec (sans eau) cause explosion !\n⚠️ DÉBORDEMENT : Trop de vapeur sans sortie cause explosion !\n⚠️ COMBUSTIBLE : Gardez l'approvisionnement constant"
+      },
+      "tips": {
+        "en": "• ALWAYS keep water above or piped in\n• Use steam pipes to distribute to machines\n• Build 4+ boilers for reliable steam supply",
+        "fr": "• TOUJOURS garder de l'eau au-dessus ou pompée\n• Utilisez des pipes vapeur pour distribuer aux machines\n• Construisez 4+ chaudières pour approvisionnement fiable"
+      }
+    },
+    {
+      "id": "steam_macerator",
+      "category": "processing",
+      "names": {
+        "en": "Steam Macerator",
+        "fr": "Macérateur à Vapeur"
+      },
+      "power": {
+        "en": "INPUT: ~6 Steam/t per operation\nProcessing time varies by recipe",
+        "fr": "ENTRÉE : ~6 Vapeur/t par opération\nTemps de traitement varie selon recette"
+      },
+      "usage": {
+        "en": "First ore doubling machine. Crushes ore into crushed ore (2x yield). Essential for resource efficiency in Steam Age.",
+        "fr": "Première machine de doublement de minerai. Broie le minerai en minerai concassé (2x rendement). Essentiel pour l'efficacité des ressources au Steam Age."
+      },
+      "dangers": {
+        "en": "⚠️ STEAM LOSS: If steam supply interrupted, progress resets\n⚠️ SLOW: Much slower than LV version",
+        "fr": "⚠️ PERTE VAPEUR : Si approvisionnement interrompu, progression reset\n⚠️ LENT : Beaucoup plus lent que version LV"
+      },
+      "tips": {
+        "en": "• Priority machine - build first\n• Always double ores before smelting\n• Upgrade to LV ASAP",
+        "fr": "• Machine prioritaire - construisez en premier\n• Doublez toujours les minerais avant de fondre\n• Passez en LV dès que possible"
+      }
+    },
+    {
+      "id": "steam_forge_hammer",
+      "category": "forging",
+      "names": {
+        "en": "Steam Forge Hammer",
+        "fr": "Marteau-pilon à Vapeur"
+      },
+      "power": {
+        "en": "INPUT: ~8 Steam/t per operation",
+        "fr": "ENTRÉE : ~8 Vapeur/t par opération"
+      },
+      "usage": {
+        "en": "Creates plates from ingots (3 ingots → 2 plates). Essential for early metal working. Also crushes ores.",
+        "fr": "Crée des plaques à partir de lingots (3 lingots → 2 plaques). Essentiel pour le travail des métaux précoce. Broie aussi les minerais."
+      },
+      "dangers": {
+        "en": "⚠️ MATERIAL LOSS: 3 ingots → 2 plates (33% loss)",
+        "fr": "⚠️ PERTE MATÉRIAU : 3 lingots → 2 plaques (33% perte)"
+      },
+      "tips": {
+        "en": "• Use Bending Machine (LV) for lossless plates\n• Good for quick plate production in Steam Age\n• Can also macerate ores",
+        "fr": "• Utilisez Bending Machine (LV) pour plaques sans perte\n• Bon pour production rapide de plaques au Steam Age\n• Peut aussi macérer les minerais"
+      }
+    },
+    {
+      "id": "steam_alloy_smelter",
+      "category": "heating",
+      "names": {
+        "en": "Steam Alloy Smelter",
+        "fr": "Four à Alliages à Vapeur"
+      },
+      "power": {
+        "en": "INPUT: ~10 Steam/t per operation",
+        "fr": "ENTRÉE : ~10 Vapeur/t par opération"
+      },
+      "usage": {
+        "en": "Creates alloys without electricity. Essential for: Bronze (Copper + Tin), Brass, Early alloys for LV progression.",
+        "fr": "Crée des alliages sans électricité. Essentiel pour : Bronze (Cuivre + Étain), Laiton, Premiers alliages pour progression LV."
+      },
+      "dangers": {
+        "en": "⚠️ SLOW: Takes longer than electric version",
+        "fr": "⚠️ LENT : Prend plus de temps que version électrique"
+      },
+      "tips": {
+        "en": "• Essential for making Bronze for LV machines\n• Can make most basic alloys\n• Build 2+ for parallel production",
+        "fr": "• Essentiel pour faire du Bronze pour machines LV\n• Peut faire la plupart des alliages basiques\n• Construisez 2+ pour production parallèle"
+      }
+    }
+  ],
+
+  "singleblocks": [
+    {
+      "id": "macerator",
+      "category": "oreProcessing",
+      "tiers": ["LV", "MV", "HV", "EV", "IV"],
+      "priority": "critical",
+      "names": {
+        "en": "Macerator",
+        "fr": "Macérateur"
+      },
+      "power": {
+        "en": "LV: 2 EU/t | MV: 8 EU/t | HV: 32 EU/t\nSpeed scales with tier",
+        "fr": "LV: 2 EU/t | MV: 8 EU/t | HV: 32 EU/t\nVitesse scale avec le tier"
+      },
+      "usage": {
+        "en": "CRITICAL: First step in ore processing. Ore → Crushed Ore (2x output). Run ALL ores through macerator before smelting.",
+        "fr": "CRITIQUE : Première étape du traitement des minerais. Minerai → Minerai Concassé (2x sortie). Passez TOUS les minerais au macérateur avant de fondre."
+      },
+      "dangers": {
+        "en": "⚠️ SKIPPING: Smelting raw ore = 50% resource loss!",
+        "fr": "⚠️ NÉGLIGER : Fondre le minerai brut = 50% perte de ressources !"
+      },
+      "tips": {
+        "en": "• ALWAYS macerate before smelting\n• Chain: Macerator → Ore Washer → Thermal Centrifuge\n• Priority upgrade to MV for faster processing",
+        "fr": "• TOUJOURS macérer avant de fondre\n• Chaîne : Macérateur → Ore Washer → Thermal Centrifuge\n• Priorité upgrade MV pour traitement plus rapide"
+      }
+    },
+    {
+      "id": "chemical_reactor",
+      "category": "chemistry",
+      "tiers": ["LV", "MV", "HV", "EV", "IV"],
+      "priority": "high",
+      "names": {
+        "en": "Chemical Reactor",
+        "fr": "Réacteur Chimique"
+      },
+      "power": {
+        "en": "LV: 30 EU/t | MV: 120 EU/t | HV: 480 EU/t",
+        "fr": "LV: 30 EU/t | MV: 120 EU/t | HV: 480 EU/t"
+      },
+      "usage": {
+        "en": "Performs chemical reactions. Essential for: Sulfuric Acid, Polyethylene, PVC, Lubricant. Use before LCR is available.",
+        "fr": "Effectue des réactions chimiques. Essentiel pour : Acide Sulfurique, Polyéthylène, PVC, Lubrifiant. Utilisez avant que LCR soit disponible."
+      },
+      "dangers": {
+        "en": "⚠️ FLUIDS: Some recipes require specific fluid amounts\n⚠️ VOIDING: Wrong inputs can void materials",
+        "fr": "⚠️ FLUIDES : Certaines recettes nécessitent des quantités spécifiques\n⚠️ PERTE : Mauvaises entrées peuvent perdre des matériaux"
+      },
+      "tips": {
+        "en": "• Upgrade to Large Chemical Reactor in HV\n• Check NEI for exact fluid amounts\n• Build multiple for parallel chemistry",
+        "fr": "• Passez au Grand Réacteur Chimique en HV\n• Vérifiez NEI pour quantités exactes de fluides\n• Construisez plusieurs pour chimie parallèle"
+      }
+    },
+    {
+      "id": "circuit_assembler",
+      "category": "processing",
+      "tiers": ["LV", "MV", "HV", "EV", "IV", "LuV", "ZPM", "UV"],
+      "priority": "high",
+      "names": {
+        "en": "Circuit Assembler",
+        "fr": "Assembleur de Circuits"
+      },
+      "power": {
+        "en": "Varies by circuit tier\nHV+: Must be in Cleanroom",
+        "fr": "Varie selon le tier de circuit\nHV+ : Doit être dans Cleanroom"
+      },
+      "usage": {
+        "en": "Assembles circuits from components. Each tier produces better circuits. HV+ circuits REQUIRE cleanroom or they void!",
+        "fr": "Assemble des circuits à partir de composants. Chaque tier produit de meilleurs circuits. Circuits HV+ NÉCESSITENT cleanroom ou ils sont perdus !"
+      },
+      "dangers": {
+        "en": "⚠️ CLEANROOM: HV+ without cleanroom = circuits destroyed!\n⚠️ SOLDERING: Some circuits need specific soldering alloy",
+        "fr": "⚠️ CLEANROOM : HV+ sans cleanroom = circuits détruits !\n⚠️ SOUDURE : Certains circuits nécessitent alliage de soudure spécifique"
+      },
+      "tips": {
+        "en": "• Place INSIDE cleanroom for HV+\n• Use Soldering Alloy for better yields\n• Automate with AE2 for mass production",
+        "fr": "• Placez À L'INTÉRIEUR de la cleanroom pour HV+\n• Utilisez Alliage de Soudure pour meilleurs rendements\n• Automatisez avec AE2 pour production de masse"
+      }
+    }
+  ],
+
+  "ae2": [
+    {
+      "id": "me_controller",
+      "category": "network",
+      "names": {
+        "en": "ME Controller",
+        "fr": "Contrôleur ME"
+      },
+      "power": {
+        "en": "Base: 6 EU/t per controller block\nScales with network size",
+        "fr": "Base : 6 EU/t par bloc contrôleur\nScale avec taille du réseau"
+      },
+      "usage": {
+        "en": "Brain of AE2 network. Provides 32 channels per face. Only ONE controller cluster per network. Connect drives, terminals, interfaces.",
+        "fr": "Cerveau du réseau AE2. Fournit 32 canaux par face. UN SEUL cluster de contrôleurs par réseau. Connectez drives, terminaux, interfaces."
+      },
+      "dangers": {
+        "en": "⚠️ SHAPE: Must be rectangular (no L-shapes or gaps)\n⚠️ CHANNELS: Exceeding 32 channels per face = network crash\n⚠️ POWER: No power = entire network offline",
+        "fr": "⚠️ FORME : Doit être rectangulaire (pas de formes en L ou trous)\n⚠️ CANAUX : Dépasser 32 canaux par face = crash réseau\n⚠️ ÉNERGIE : Pas d'énergie = réseau entier hors ligne"
+      },
+      "tips": {
+        "en": "• Start with single controller, expand as needed\n• Use dense cables (32 channels) from controller\n• Plan channel usage before building",
+        "fr": "• Commencez avec un seul contrôleur, étendez au besoin\n• Utilisez câbles denses (32 canaux) depuis le contrôleur\n• Planifiez l'usage des canaux avant construction"
+      }
+    },
+    {
+      "id": "me_drive",
+      "category": "storage",
+      "names": {
+        "en": "ME Drive",
+        "fr": "Lecteur ME"
+      },
+      "power": {
+        "en": "2 EU/t per drive\n+ power per cell type",
+        "fr": "2 EU/t par lecteur\n+ énergie par type de cellule"
+      },
+      "usage": {
+        "en": "Holds 10 storage cells. Main item/fluid storage. Cells sorted by type: 1k, 4k, 16k, 64k, 256k, 1024k, 4096k. Higher = more storage.",
+        "fr": "Contient 10 cellules de stockage. Stockage principal items/fluides. Cellules triées par type : 1k, 4k, 16k, 64k, 256k, 1024k, 4096k. Plus = plus de stockage."
+      },
+      "dangers": {
+        "en": "⚠️ FULL: Full cells prevent new items from entering\n⚠️ EXTRACTION: Breaking drive with cells can lose items if inventory full",
+        "fr": "⚠️ PLEIN : Cellules pleines empêchent nouveaux items d'entrer\n⚠️ EXTRACTION : Casser le lecteur avec cellules peut perdre items si inventaire plein"
+      },
+      "tips": {
+        "en": "• Use cell priority for sorting (higher = first)\n• Partition cells for specific items\n• Use Fluid Storage Bus for tank access",
+        "fr": "• Utilisez priorité des cellules pour tri (plus haut = premier)\n• Partitionnez cellules pour items spécifiques\n• Utilisez Fluid Storage Bus pour accès réservoirs"
+      }
+    },
+    {
+      "id": "crafting_cpu",
+      "category": "autocrafting",
+      "names": {
+        "en": "Crafting CPU",
+        "fr": "CPU de Craft"
+      },
+      "power": {
+        "en": "Varies by coprocessors\n~1-10 EU/t per active craft",
+        "fr": "Varie selon coprocesseurs\n~1-10 EU/t par craft actif"
+      },
+      "usage": {
+        "en": "Performs autocrafting. Requires: Crafting Storage (stores intermediate items), Coprocessors (parallel crafts). More coprocessors = faster.",
+        "fr": "Effectue l'autocraft. Nécessite : Crafting Storage (stocke items intermédiaires), Coprocesseurs (crafts parallèles). Plus de coprocesseurs = plus rapide."
+      },
+      "dangers": {
+        "en": "⚠️ STUCK CRAFTS: Incomplete recipes can lock CPU\n⚠️ SIZE: Small storage = complex recipes fail",
+        "fr": "⚠️ CRAFTS BLOQUÉS : Recettes incomplètes peuvent bloquer CPU\n⚠️ TAILLE : Petit stockage = recettes complexes échouent"
+      },
+      "tips": {
+        "en": "• Start with 64k storage + 4 coprocessors\n• Build multiple CPUs for parallel jobs\n• Cancel stuck crafts in terminal",
+        "fr": "• Commencez avec stockage 64k + 4 coprocesseurs\n• Construisez plusieurs CPUs pour jobs parallèles\n• Annulez crafts bloqués dans le terminal"
+      }
+    },
+    {
+      "id": "molecular_assembler",
+      "category": "autocrafting",
+      "names": {
+        "en": "Molecular Assembler",
+        "fr": "Assembleur Moléculaire"
+      },
+      "power": {
+        "en": "8 EU/t per assembler\nFaster with acceleration cards",
+        "fr": "8 EU/t par assembleur\nPlus rapide avec cartes d'accélération"
+      },
+      "usage": {
+        "en": "Physical crafting unit. Place adjacent to ME Interface with patterns. One assembler = one craft at a time. More assemblers = more parallel crafts.",
+        "fr": "Unité de craft physique. Placez adjacent à ME Interface avec patterns. Un assembleur = un craft à la fois. Plus d'assembleurs = plus de crafts parallèles."
+      },
+      "dangers": {
+        "en": "⚠️ PLACEMENT: Must touch Interface to work\n⚠️ SLOW: Without acceleration cards, very slow",
+        "fr": "⚠️ PLACEMENT : Doit toucher Interface pour fonctionner\n⚠️ LENT : Sans cartes d'accélération, très lent"
+      },
+      "tips": {
+        "en": "• Surround Interface with 6 assemblers\n• Add Acceleration Cards for speed\n• Use for simple crafting recipes only",
+        "fr": "• Entourez Interface avec 6 assembleurs\n• Ajoutez Cartes d'Accélération pour vitesse\n• Utilisez pour recettes de craft simples uniquement"
+      }
+    }
+  ]
+}

@@ -1,0 +1,464 @@
+{
+  "multiblocks": [
+    {
+      "id": "ebf",
+      "image": "textures/machines/EBF.png",
+      "wikiUrl": "https://gtnh.miraheze.org/wiki/Electric_Blast_Furnace",
+      "unlockTier": "LV",
+      "euPerTick": "120 (LV), 480 (MV), 1920 (HV)",
+      "maxTemp": "1801K (Nichrome), 2700K (Kanthal), 3600K (TPV-Alloy)",
+      "names": {
+        "en": "Electric Blast Furnace",
+        "fr": "Four à Arc Électrique"
+      },
+      "descriptions": {
+        "en": "Essential multiblock for smelting high-temperature materials. Required for steel, aluminium, titanium, tungsten, and most advanced alloys. Requires 4 amps minimum (2 energy hatches) for proper operation.",
+        "fr": "Multiblock essentiel pour fondre les matériaux haute température. Requis pour l'acier, l'aluminium, le titane, le tungstène et la plupart des alliages avancés. Nécessite 4A minimum (2 energy hatches) pour fonctionner correctement."
+      }
+    },
+    {
+      "id": "lcr",
+      "image": "textures/machines/LargeChemicalReactor.png",
+      "wikiUrl": "https://gtnh.miraheze.org/wiki/Large_Chemical_Reactor",
+      "unlockTier": "HV",
+      "euPerTick": "Up to 1920 (HV)",
+      "names": {
+        "en": "Large Chemical Reactor",
+        "fr": "Grand Réacteur Chimique"
+      },
+      "descriptions": {
+        "en": "Performs all Chemical Reactor recipes at 100% efficiency. Can run multiple recipes simultaneously. Essential for polymer production and complex chemistry.",
+        "fr": "Effectue toutes les recettes du Chemical Reactor à 100% d'efficacité. Peut exécuter plusieurs recettes simultanément. Essentiel pour la production de polymères et la chimie complexe."
+      }
+    },
+    {
+      "id": "cleanroom",
+      "image": "textures/machines/Cleanroom.png",
+      "wikiUrl": "https://gtnh.miraheze.org/wiki/Cleanroom",
+      "unlockTier": "HV",
+      "euPerTick": "40",
+      "names": {
+        "en": "Cleanroom",
+        "fr": "Salle Blanche"
+      },
+      "descriptions": {
+        "en": "Required for advanced circuit assembly (HV+). Must contain an LV machine inside. Filter and controller on top. Glass/plascrete walls.",
+        "fr": "Requise pour l'assemblage de circuits avancés (HV+). Doit contenir une machine LV à l'intérieur. Filtre et contrôleur sur le dessus. Murs en verre/plascrete."
+      }
+    },
+    {
+      "id": "vacuum_freezer",
+      "image": "textures/machines/Vacuum_Freezer.png",
+      "wikiUrl": "https://gtnh.miraheze.org/wiki/Vacuum_Freezer",
+      "unlockTier": "HV",
+      "euPerTick": "480",
+      "names": {
+        "en": "Vacuum Freezer",
+        "fr": "Congélateur sous Vide"
+      },
+      "descriptions": {
+        "en": "Freezes hot ingots from the EBF. Essential for processing hot materials like tungsten, titanium, and advanced alloys.",
+        "fr": "Congèle les lingots chauds provenant de l'EBF. Essentiel pour traiter les matériaux chauds comme le tungstène, le titane et les alliages avancés."
+      }
+    },
+    {
+      "id": "distillation_tower",
+      "image": "textures/machines/DistillationTower.png",
+      "wikiUrl": "https://gtnh.miraheze.org/wiki/Distillation_Tower",
+      "unlockTier": "HV",
+      "euPerTick": "480",
+      "names": {
+        "en": "Distillation Tower",
+        "fr": "Tour de Distillation"
+      },
+      "descriptions": {
+        "en": "Separates oil and other fluids into multiple components. Each output hatch on a different layer extracts a different fluid. Essential for oil processing.",
+        "fr": "Sépare le pétrole et autres fluides en composants multiples. Chaque output hatch sur une couche différente extrait un fluide différent. Essentiel pour le traitement du pétrole."
+      }
+    },
+    {
+      "id": "pyrolyse_oven",
+      "image": "textures/machines/PyrolyseOven.png",
+      "wikiUrl": "https://gtnh.miraheze.org/wiki/Pyrolyse_Oven",
+      "unlockTier": "MV",
+      "euPerTick": "128",
+      "names": {
+        "en": "Pyrolyse Oven",
+        "fr": "Four de Pyrolyse"
+      },
+      "descriptions": {
+        "en": "Produces charcoal, wood tar, wood vinegar, and other products from wood. Essential for getting charcoal and early chemistry materials.",
+        "fr": "Produit du charbon de bois, du goudron, du vinaigre de bois et d'autres produits à partir du bois. Essentiel pour obtenir du charbon de bois et des matériaux de chimie précoces."
+      }
+    },
+    {
+      "id": "coke_oven",
+      "image": "textures/machines/CokeOven.png",
+      "wikiUrl": "https://gtnh.miraheze.org/wiki/Coke_Oven",
+      "unlockTier": "Steam",
+      "euPerTick": "0 (passive)",
+      "names": {
+        "en": "Coke Oven",
+        "fr": "Four à Coke"
+      },
+      "descriptions": {
+        "en": "Steam age primitive multiblock. Produces coke coal and creosote oil from coal or charcoal. Build multiple for faster production.",
+        "fr": "Multiblock primitif de l'âge Steam. Produit du coke et de l'huile de créosote à partir de charbon. Construisez-en plusieurs pour une production plus rapide."
+      }
+    },
+    {
+      "id": "assembly_line",
+      "image": "textures/machines/AssemblyLine.png",
+      "wikiUrl": "https://gtnh.miraheze.org/wiki/Assembly_Line",
+      "unlockTier": "IV",
+      "euPerTick": "8192+",
+      "names": {
+        "en": "Assembly Line",
+        "fr": "Chaîne de Montage"
+      },
+      "descriptions": {
+        "en": "Required for all IV+ components. Up to 16 input slots in sequence. Uses Data Stick recipes from Research Station. Can be automated with AE2.",
+        "fr": "Requise pour tous les composants IV+. Jusqu'à 16 slots d'entrée en séquence. Utilise les recettes Data Stick de la Research Station. Peut être automatisée avec AE2."
+      }
+    },
+    {
+      "id": "implosion_compressor",
+      "image": "textures/machines/ImplosionCompressor.png",
+      "wikiUrl": "https://gtnh.miraheze.org/wiki/Implosion_Compressor",
+      "unlockTier": "HV",
+      "euPerTick": "480",
+      "names": {
+        "en": "Implosion Compressor",
+        "fr": "Compresseur à Implosion"
+      },
+      "descriptions": {
+        "en": "Uses ITNT or other explosives to compress gems and create industrial diamonds. Required for advanced circuits.",
+        "fr": "Utilise du TNT industriel ou autres explosifs pour comprimer les gemmes et créer des diamants industriels. Requis pour les circuits avancés."
+      }
+    },
+    {
+      "id": "fusion_reactor_t1",
+      "image": "textures/machines/FusionReactorT1.png",
+      "wikiUrl": "https://gtnh.miraheze.org/wiki/Fusion_Reactor",
+      "unlockTier": "LuV",
+      "euPerTick": "32768+",
+      "names": {
+        "en": "Fusion Reactor Mk I",
+        "fr": "Réacteur à Fusion Mk I"
+      },
+      "descriptions": {
+        "en": "Endgame power generation and material production. Produces europium plasma and other advanced materials. Requires 160M EU startup.",
+        "fr": "Production d'énergie et de matériaux endgame. Produit du plasma d'europium et d'autres matériaux avancés. Nécessite 160M EU au démarrage."
+      }
+    },
+    {
+      "id": "fusion_reactor_t2",
+      "image": "textures/machines/FusionReactorT2.png",
+      "wikiUrl": "https://gtnh.miraheze.org/wiki/Fusion_Reactor",
+      "unlockTier": "ZPM",
+      "euPerTick": "131072+",
+      "names": {
+        "en": "Fusion Reactor Mk II",
+        "fr": "Réacteur à Fusion Mk II"
+      },
+      "descriptions": {
+        "en": "Advanced fusion reactor. Produces americium plasma and other high-tier materials. Requires 640M EU startup.",
+        "fr": "Réacteur à fusion avancé. Produit du plasma d'américium et d'autres matériaux de haut niveau. Nécessite 640M EU au démarrage."
+      }
+    },
+    {
+      "id": "fusion_reactor_t3",
+      "image": "textures/machines/FusionReactorT3.png",
+      "wikiUrl": "https://gtnh.miraheze.org/wiki/Fusion_Reactor",
+      "unlockTier": "UV",
+      "euPerTick": "524288+",
+      "names": {
+        "en": "Fusion Reactor Mk III",
+        "fr": "Réacteur à Fusion Mk III"
+      },
+      "descriptions": {
+        "en": "Ultimate fusion reactor. Produces neutronium and cosmic materials. Required for endgame progression.",
+        "fr": "Réacteur à fusion ultime. Produit du neutronium et des matériaux cosmiques. Requis pour la progression endgame."
+      }
+    }
+  ],
+  "singleblocks": [
+    {
+      "id": "macerator",
+      "type": "oreProcessing",
+      "tiers": ["LV", "MV", "HV", "EV", "IV"],
+      "priority": "critical",
+      "names": {
+        "en": "Macerator",
+        "fr": "Macérateur"
+      },
+      "descriptions": {
+        "en": "Doubles ore output by crushing ore into crushed ore. First machine in ore processing chain. Essential for resource efficiency.",
+        "fr": "Double le rendement du minerai en le broyant en minerai concassé. Première machine de la chaîne de traitement. Essentiel pour l'efficacité des ressources."
+      }
+    },
+    {
+      "id": "chemical_reactor",
+      "type": "chemistry",
+      "tiers": ["LV", "MV", "HV", "EV", "IV"],
+      "priority": "high",
+      "names": {
+        "en": "Chemical Reactor",
+        "fr": "Réacteur Chimique"
+      },
+      "descriptions": {
+        "en": "Performs chemical reactions. Essential for polyethylene, PVC, and most chemistry recipes. Single block version, upgraded to LCR in HV.",
+        "fr": "Effectue des réactions chimiques. Essentiel pour le polyéthylène, le PVC et la plupart des recettes de chimie. Version single block, amélioré en LCR au HV."
+      }
+    },
+    {
+      "id": "bending_machine",
+      "type": "forging",
+      "tiers": ["LV", "MV", "HV", "EV", "IV"],
+      "priority": "high",
+      "names": {
+        "en": "Bending Machine",
+        "fr": "Machine à Cintrer"
+      },
+      "descriptions": {
+        "en": "Creates plates, rods, and cables from ingots. Essential for most crafting recipes requiring metal shapes.",
+        "fr": "Crée des plaques, tiges et câbles à partir de lingots. Essentiel pour la plupart des recettes nécessitant des formes métalliques."
+      }
+    },
+    {
+      "id": "wiremill",
+      "type": "forging",
+      "tiers": ["LV", "MV", "HV", "EV", "IV"],
+      "priority": "high",
+      "names": {
+        "en": "Wiremill",
+        "fr": "Tréfileuse"
+      },
+      "descriptions": {
+        "en": "Produces wires for cables. Wire → Fine Wire → Cable with Rubber. Essential for power infrastructure.",
+        "fr": "Produit des fils pour les câbles. Fil → Fil fin → Câble avec Caoutchouc. Essentiel pour l'infrastructure électrique."
+      }
+    },
+    {
+      "id": "circuit_assembler",
+      "type": "processing",
+      "tiers": ["LV", "MV", "HV", "EV", "IV", "LuV", "ZPM", "UV"],
+      "priority": "high",
+      "names": {
+        "en": "Circuit Assembler",
+        "fr": "Assembleur de Circuits"
+      },
+      "descriptions": {
+        "en": "Assembles circuits from components. Higher tiers produce better circuits. Requires cleanroom for HV+ circuits.",
+        "fr": "Assemble des circuits à partir de composants. Les tiers supérieurs produisent de meilleurs circuits. Nécessite cleanroom pour circuits HV+."
+      }
+    },
+    {
+      "id": "alloy_smelter",
+      "type": "heating",
+      "tiers": ["LV", "MV", "HV", "EV", "IV"],
+      "priority": "high",
+      "names": {
+        "en": "Alloy Smelter",
+        "fr": "Four à Alliages"
+      },
+      "descriptions": {
+        "en": "Smelts alloys from multiple materials. Bronze, Invar, Electrum, and many other alloys. Alternative to furnace for some recipes.",
+        "fr": "Fond des alliages à partir de plusieurs matériaux. Bronze, Invar, Électrum et bien d'autres alliages. Alternative au four pour certaines recettes."
+      }
+    },
+    {
+      "id": "electrolyzer",
+      "type": "separating",
+      "tiers": ["LV", "MV", "HV", "EV", "IV"],
+      "priority": "high",
+      "names": {
+        "en": "Electrolyzer",
+        "fr": "Électrolyseur"
+      },
+      "descriptions": {
+        "en": "Electrolyzes materials into components. Essential for hydrogen, oxygen, chlorine, and many other elements.",
+        "fr": "Électrolyse les matériaux en composants. Essentiel pour l'hydrogène, l'oxygène, le chlore et de nombreux autres éléments."
+      }
+    },
+    {
+      "id": "centrifuge",
+      "type": "separating",
+      "tiers": ["LV", "MV", "HV", "EV", "IV"],
+      "names": {
+        "en": "Centrifuge",
+        "fr": "Centrifugeuse"
+      },
+      "descriptions": {
+        "en": "Separates materials by density. Essential for ore processing and material refinement. Produces rare earths from various sources.",
+        "fr": "Sépare les matériaux par densité. Essentiel pour le traitement des minerais et le raffinage des matériaux. Produit des terres rares."
+      }
+    },
+    {
+      "id": "ore_washer",
+      "type": "oreProcessing",
+      "tiers": ["LV", "MV", "HV", "EV", "IV"],
+      "names": {
+        "en": "Ore Washing Plant",
+        "fr": "Station de Lavage"
+      },
+      "descriptions": {
+        "en": "Washes crushed ore to increase yield. Produces purified ore + stone dust + tiny pile of byproducts.",
+        "fr": "Lave le minerai concassé pour augmenter le rendement. Produit minerai purifié + poussière de pierre + tas de sous-produits."
+      }
+    },
+    {
+      "id": "thermal_centrifuge",
+      "type": "oreProcessing",
+      "tiers": ["MV", "HV", "EV", "IV"],
+      "names": {
+        "en": "Thermal Centrifuge",
+        "fr": "Centrifugeuse Thermique"
+      },
+      "descriptions": {
+        "en": "Heats and centrifuges purified ore for maximum yield. Final step in optimal ore processing chain.",
+        "fr": "Chauffe et centrifuge le minerai purifié pour un rendement maximum. Dernière étape de la chaîne de traitement optimal."
+      }
+    },
+    {
+      "id": "assembler",
+      "type": "processing",
+      "tiers": ["LV", "MV", "HV", "EV", "IV", "LuV", "ZPM", "UV"],
+      "names": {
+        "en": "Assembler",
+        "fr": "Assembleur"
+      },
+      "descriptions": {
+        "en": "Assembles components into items. Most crafting recipes can be done here with fluid support. Essential automation machine.",
+        "fr": "Assemble des composants en items. La plupart des recettes de craft peuvent être faites ici avec support fluide. Machine d'automatisation essentielle."
+      }
+    },
+    {
+      "id": "extruder",
+      "type": "forging",
+      "tiers": ["MV", "HV", "EV", "IV", "LuV"],
+      "names": {
+        "en": "Extruder",
+        "fr": "Extrudeuse"
+      },
+      "descriptions": {
+        "en": "Extrudes hot ingots into various shapes using different molds. More efficient than individual machines for many recipes.",
+        "fr": "Extrude des lingots chauds en diverses formes utilisant différents moules. Plus efficace que les machines individuelles pour beaucoup de recettes."
+      }
+    }
+  ],
+  "steam": [
+    {
+      "id": "bronze_boiler_small",
+      "names": {
+        "en": "Small Bronze Boiler",
+        "fr": "Petite Chaudière en Bronze"
+      },
+      "descriptions": {
+        "en": "First steam generator. Burns solid fuels to produce 120 Steam/t. Place water source above and pump below.",
+        "fr": "Premier générateur de vapeur. Brûle des combustibles solides pour produire 120 Vapeur/t. Placez une source d'eau au-dessus et une pompe en dessous."
+      }
+    },
+    {
+      "id": "bronze_boiler_high_pressure",
+      "names": {
+        "en": "High Pressure Bronze Boiler",
+        "fr": "Chaudière Bronze Haute Pression"
+      },
+      "descriptions": {
+        "en": "Produces 300 Steam/t at high pressure. Requires more fuel but provides more steam per tick.",
+        "fr": "Produit 300 Vapeur/t à haute pression. Nécessite plus de combustible mais fournit plus de vapeur par tick."
+      }
+    },
+    {
+      "id": "steam_macerator",
+      "names": {
+        "en": "Steam Macerator",
+        "fr": "Macérateur à Vapeur"
+      },
+      "descriptions": {
+        "en": "Steam-powered ore crusher. First machine to double ore output. Essential for Steam Age progression.",
+        "fr": "Broyeur de minerai à vapeur. Première machine à doubler le rendement. Essentiel pour la progression Steam Age."
+      }
+    },
+    {
+      "id": "steam_forge_hammer",
+      "names": {
+        "en": "Steam Forge Hammer",
+        "fr": "Marteau-pilon à Vapeur"
+      },
+      "descriptions": {
+        "en": "Creates plates from ingots (3 ingots → 2 plates). Essential for early plate production.",
+        "fr": "Crée des plaques à partir de lingots (3 lingots → 2 plaques). Essentiel pour la production précoce de plaques."
+      }
+    },
+    {
+      "id": "steam_alloy_smelter",
+      "names": {
+        "en": "Steam Alloy Smelter",
+        "fr": "Four à Alliages à Vapeur"
+      },
+      "descriptions": {
+        "en": "Creates alloys without electricity. Essential for bronze production in Steam Age.",
+        "fr": "Crée des alliages sans électricité. Essentiel pour la production de bronze pendant le Steam Age."
+      }
+    }
+  ],
+  "ae2": [
+    {
+      "id": "me_controller",
+      "names": {
+        "en": "ME Controller",
+        "fr": "Contrôleur ME"
+      },
+      "descriptions": {
+        "en": "Brain of the AE2 network. Provides 32 channels per face. One per network. Requires power and fluix crystals.",
+        "fr": "Cerveau du réseau AE2. Fournit 32 canaux par face. Un par réseau. Nécessite de l'énergie et des cristaux de fluix."
+      }
+    },
+    {
+      "id": "me_drive",
+      "names": {
+        "en": "ME Drive",
+        "fr": "Lecteur ME"
+      },
+      "descriptions": {
+        "en": "Holds 10 storage cells. Main item storage for AE2 network. Connect to controller with cables.",
+        "fr": "Contient 10 cellules de stockage. Stockage principal pour le réseau AE2. Connecter au contrôleur avec des câbles."
+      }
+    },
+    {
+      "id": "crafting_cpu",
+      "names": {
+        "en": "Crafting CPU",
+        "fr": "CPU de Craft"
+      },
+      "descriptions": {
+        "en": "Performs autocrafting. Requires storage + coprocessors. More coprocessors = more parallel crafts.",
+        "fr": "Effectue l'autocraft. Nécessite stockage + coprocesseurs. Plus de coprocesseurs = plus de crafts parallèles."
+      }
+    },
+    {
+      "id": "molecular_assembler",
+      "names": {
+        "en": "Molecular Assembler",
+        "fr": "Assembleur Moléculaire"
+      },
+      "descriptions": {
+        "en": "Physical crafting unit. Place adjacent to interface. More assemblers = faster crafting. Essential for automation.",
+        "fr": "Unité de craft physique. Placer adjacent à l'interface. Plus d'assembleurs = craft plus rapide. Essentiel pour l'automatisation."
+      }
+    },
+    {
+      "id": "me_interface",
+      "names": {
+        "en": "ME Interface",
+        "fr": "Interface ME"
+      },
+      "descriptions": {
+        "en": "Connects AE2 to machines. Can push/pull items and fluids. Set patterns for autocrafting recipes.",
+        "fr": "Connecte AE2 aux machines. Peut push/pull items et fluides. Définir les patterns pour les recettes d'autocraft."
+      }
+    }
+  ]
+}
