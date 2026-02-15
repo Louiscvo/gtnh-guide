@@ -313,6 +313,138 @@
         "en": "• Use Lapotronic Supercapacitor for startup energy\n• Route plasma directly to Plasma Generators\n• Build Mk II ASAP for better recipes",
         "fr": "• Utilisez Supercondensateur Lapotronique pour énergie démarrage\n• Routez le plasma directement vers Générateurs Plasma\n• Construisez Mk II rapidement pour meilleures recettes"
       }
+    },
+    {
+      "id": "bbf",
+      "wikiUrl": "https://gtnh.miraheze.org/wiki/Bricked_Blast_Furnace",
+      "unlockTier": "Steam",
+      "category": "processing",
+      "names": {
+        "en": "Bricked Blast Furnace",
+        "fr": "Haut Fourneau en Briques"
+      },
+      "usage": {
+        "en": "First multiblock! Produces Steel from Iron without electricity. Uses solid fuels. Very slow but essential for progression to LV.",
+        "fr": "Premier multiblock ! Produit de l'Acier à partir du Fer sans électricité. Utilise combustibles solides. Très lent mais essentiel pour progresser vers LV."
+      },
+      "dangers": {
+        "en": "⚠️ SLOW: 12 minutes per steel ingot\n⚠️ BUILD MANY: You need 4-8 BBFs minimum",
+        "fr": "⚠️ LENT : 12 minutes par lingot d'acier\n⚠️ CONSTRUISEZ PLUSIEURS : Vous avez besoin de 4-8 BBF minimum"
+      }
+    },
+    {
+      "id": "oil_cracker",
+      "wikiUrl": "https://gtnh.miraheze.org/wiki/Oil_Cracking_Unit",
+      "unlockTier": "HV",
+      "category": "chemistry",
+      "names": {
+        "en": "Oil Cracking Unit",
+        "fr": "Unité de Craquage"
+      },
+      "usage": {
+        "en": "Cracks heavy oil into light fuels. Essential for plastic production chain. Use Steam or Hydrogen for different results.",
+        "fr": "Craque le pétrole lourd en carburants légers. Essentiel pour chaîne production plastique. Utilisez Vapeur ou Hydrogène pour résultats différents."
+      },
+      "dangers": {
+        "en": "⚠️ FLUID ROUTING: Wrong fluids = voided products\n⚠️ NEEDS STEAM: Large quantities of steam required",
+        "fr": "⚠️ ROUTAGE FLUIDES : Mauvais fluides = produits perdus\n⚠️ BESOIN VAPEUR : Grandes quantités de vapeur requises"
+      }
+    },
+    {
+      "id": "large_boiler_bronze",
+      "wikiUrl": "https://gtnh.miraheze.org/wiki/Large_Bronze_Boiler",
+      "unlockTier": "LV",
+      "category": "generator",
+      "names": {
+        "en": "Large Bronze Boiler",
+        "fr": "Grande Chaudière Bronze"
+      },
+      "usage": {
+        "en": "First large steam generator. 16,000 L/s steam output. Uses solid fuels efficiently. Essential for powering multiple steam machines.",
+        "fr": "Premier grand générateur vapeur. 16,000 L/s sortie vapeur. Utilise combustibles solides efficacement. Essentiel pour alimenter plusieurs machines à vapeur."
+      },
+      "dangers": {
+        "en": "⚠️ EXPLOSION RISK: Keep water supply constant!\n⚠️ MAINTENANCE: Requires regular maintenance hatch attention",
+        "fr": "⚠️ RISQUE EXPLOSION : Gardez l'approvisionnement en eau constant !\n⚠️ MAINTENANCE : Nécessite attention régulière du maintenance hatch"
+      }
+    },
+    {
+      "id": "large_gas_turbine",
+      "wikiUrl": "https://gtnh.miraheze.org/wiki/Large_Gas_Turbine",
+      "unlockTier": "EV",
+      "category": "generator",
+      "names": {
+        "en": "Large Gas Turbine",
+        "fr": "Grande Turbine à Gaz"
+      },
+      "usage": {
+        "en": "Burns gas fuels for EU. Uses Natural Gas, Methane, Ethylene. High output but requires fuel infrastructure.",
+        "fr": "Brûle des carburants gazeux pour EU. Utilise Gaz Naturel, Méthane, Éthylène. Haute sortie mais nécessite infrastructure de carburant."
+      }
+    },
+    {
+      "id": "nuclear_reactor",
+      "wikiUrl": "https://gtnh.miraheze.org/wiki/Nuclear_Reactor",
+      "unlockTier": "IV",
+      "category": "generator",
+      "names": {
+        "en": "Nuclear Reactor",
+        "fr": "Réacteur Nucléaire"
+      },
+      "usage": {
+        "en": "Uses uranium fuel rods for massive EU generation. Requires careful cooling and fuel management. High output but complex operation.",
+        "fr": "Utilise des barres de combustible uranium pour génération massive d'EU. Nécessite refroidissement et gestion carburant minutieux. Haute sortie mais opération complexe."
+      },
+      "dangers": {
+        "en": "⚠️ MELTDOWN: Overheating destroys reactor and surroundings!\n⚠️ RADIATION: Handle fuel rods with radiation protection\n⚠️ COOLANT: Never let coolant run out",
+        "fr": "⚠️ FUSION : Surchauffe détruit le réacteur et environs !\n⚠️ RADIATION : Manipulez les barres avec protection anti-radiation\n⚠️ REFROIDISSEUR : Ne jamais laisser le refroidisseur manquer"
+      }
+    },
+    {
+      "id": "void_miner",
+      "wikiUrl": "https://gtnh.miraheze.org/wiki/Void_Miner",
+      "unlockTier": "LuV",
+      "category": "resource",
+      "names": {
+        "en": "Void Miner",
+        "fr": "Foreuse du Vide"
+      },
+      "usage": {
+        "en": "Mines ores from the void. No terrain destruction. Tier determines ore types available. Requires massive power.",
+        "fr": "Mine des minerais depuis le vide. Pas de destruction de terrain. Le tier détermine les types de minerais disponibles. Nécessite puissance massive."
+      }
+    },
+    {
+      "id": "pcb_factory",
+      "wikiUrl": "https://gtnh.miraheze.org/wiki/PCB_Factory",
+      "unlockTier": "ZPM",
+      "category": "endgame",
+      "names": {
+        "en": "PCB Factory",
+        "fr": "Usine à PCB"
+      },
+      "usage": {
+        "en": "Produces circuit boards at massive scale. Endgame circuit production. Requires Bio Lab for enzymes.",
+        "fr": "Produit des cartes de circuits à échelle massive. Production de circuits endgame. Nécessite Bio Lab pour enzymes."
+      }
+    },
+    {
+      "id": "stargate",
+      "wikiUrl": "https://gtnh.miraheze.org/wiki/Stargate",
+      "unlockTier": "UHV",
+      "category": "endgame",
+      "names": {
+        "en": "Stargate",
+        "fr": "Porte des Étoiles"
+      },
+      "usage": {
+        "en": "Final goal of GTNH! Instant transport between dimensions. Requires all endgame materials and massive power.",
+        "fr": "Objectif final de GTNH ! Transport instantané entre dimensions. Nécessite tous les matériaux endgame et puissance massive."
+      },
+      "tips": {
+        "en": "• Congratulations if you're building this!\n• You've completed the modpack!",
+        "fr": "• Félicitations si vous construisez ça !\n• Vous avez terminé le modpack !"
+      }
     }
   ],
 
