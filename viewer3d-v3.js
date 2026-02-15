@@ -760,6 +760,175 @@ function generateRealisticBases() {
         // PLATLINE (~50 étapes)
         { id: 'platline_setup', pos: [120, 1, 130], label: 'PLATLINE - 50 étapes!' }
     ];
+
+    // ===========================================
+    // CÂBLES ET PIPES - Comment tout connecter
+    // ===========================================
+
+    // === STEAM - Pipes bronze pour la vapeur ===
+    BASE_CONFIGS.steam.cables = [
+        // Chaudières vers buffer vapeur central
+        { from: [2, 1, 2], to: [7, 1, 2], type: 'pipe_bronze', label: 'Vapeur chaudières' },
+        { from: [7, 1, 2], to: [12, 1, 2], type: 'pipe_bronze' },
+        { from: [7, 1, 2], to: [7, 1, 5], type: 'pipe_bronze', label: 'Vers buffer' },
+
+        // Buffer vers machines vapeur
+        { from: [7, 1, 5], to: [7, 1, 10], type: 'pipe_bronze', label: 'Distribution' },
+        { from: [2, 1, 10], to: [10, 1, 10], type: 'pipe_bronze', label: 'Ligne macérateurs' },
+
+        // Vers metal processing
+        { from: [7, 1, 10], to: [7, 1, 14], type: 'pipe_bronze' },
+        { from: [2, 1, 14], to: [14, 1, 14], type: 'pipe_bronze', label: 'Ligne forgeage' },
+
+        // Item transport (hoppers/pipes)
+        { from: [6, 1, 10], to: [6, 1, 14], type: 'pipe_item', label: 'Items crushed → forge' },
+        { from: [10, 1, 14], to: [10, 1, 20], type: 'pipe_item', label: 'Output → stockage' }
+    ];
+
+    // === LV - Câbles tin + pipes steel ===
+    BASE_CONFIGS.lv.cables = [
+        // Turbines vers battery buffer
+        { from: [2, 1, 26], to: [16, 1, 26], type: 'cable_tin_4x', label: '8 turbines → buffer' },
+        { from: [9, 1, 26], to: [9, 1, 28], type: 'cable_tin_4x', label: 'Vers buffer 16x' },
+
+        // Buffer principal vers distribution
+        { from: [9, 1, 28], to: [9, 1, 32], type: 'cable_tin_4x', label: 'Main power line' },
+        { from: [9, 1, 32], to: [9, 1, 36], type: 'cable_tin_4x' },
+        { from: [9, 1, 36], to: [9, 1, 40], type: 'cable_tin_4x' },
+        { from: [9, 1, 40], to: [9, 1, 44], type: 'cable_tin_4x' },
+
+        // Distribution vers lignes de machines
+        { from: [2, 1, 32], to: [12, 1, 32], type: 'cable_tin_1x', label: 'Ligne priorité' },
+        { from: [2, 1, 36], to: [16, 1, 36], type: 'cable_tin_1x', label: 'Ligne ore processing' },
+        { from: [2, 1, 40], to: [18, 1, 40], type: 'cable_tin_1x', label: 'Ligne metal' },
+        { from: [2, 1, 44], to: [24, 1, 44], type: 'cable_tin_1x', label: 'Ligne chimie' },
+
+        // VERS EBF - 4A minimum!
+        { from: [9, 1, 28], to: [32, 1, 28], type: 'cable_tin_4x', label: '4A vers EBF!' },
+        { from: [32, 1, 28], to: [32, 1, 29], type: 'cable_tin_4x' },
+        { from: [32, 1, 29], to: [34, 1, 29], type: 'cable_tin_4x', label: '2x energy hatch' },
+
+        // Ore processing flow (items)
+        { from: [2, 1, 36], to: [2, 1, 40], type: 'pipe_item', label: 'Crushed → alloy' },
+        { from: [6, 1, 36], to: [8, 1, 36], type: 'pipe_item', label: 'Macerator → washer' },
+        { from: [10, 1, 36], to: [12, 1, 36], type: 'pipe_item', label: 'Washer → centri' },
+
+        // Fluides (eau pour ore washer)
+        { from: [8, 1, 34], to: [8, 1, 36], type: 'pipe_steel', label: 'Eau → ore washer' },
+        { from: [10, 1, 34], to: [10, 1, 36], type: 'pipe_steel' }
+    ];
+
+    // === MV - Câbles copper ===
+    BASE_CONFIGS.mv.cables = [
+        // Générateurs MV vers transfo
+        { from: [36, 1, 26], to: [46, 1, 26], type: 'cable_copper_4x', label: 'Gens MV' },
+        { from: [41, 1, 26], to: [41, 1, 28], type: 'cable_copper_4x', label: 'Vers buffer MV' },
+
+        // Distribution MV
+        { from: [41, 1, 28], to: [41, 1, 36], type: 'cable_copper_4x', label: 'Main MV' },
+        { from: [41, 1, 36], to: [41, 1, 40], type: 'cable_copper_4x' },
+        { from: [36, 1, 36], to: [58, 1, 36], type: 'cable_copper_1x', label: 'Machines MV' },
+        { from: [36, 1, 40], to: [52, 1, 40], type: 'cable_copper_1x' },
+
+        // Vers Pyrolyse
+        { from: [41, 1, 28], to: [50, 1, 28], type: 'cable_copper_4x', label: 'Vers Pyrolyse' },
+        { from: [50, 1, 28], to: [50, 1, 30], type: 'cable_copper_4x' },
+
+        // Fluides Pyrolyse
+        { from: [52, 1, 30], to: [52, 1, 35], type: 'pipe_steel', label: 'Éthylène out' },
+        { from: [54, 1, 30], to: [54, 1, 35], type: 'pipe_steel', label: 'Wood tar out' }
+    ];
+
+    // === HV - Câbles gold ===
+    BASE_CONFIGS.hv.cables = [
+        // Générateurs HV
+        { from: [60, 1, 26], to: [70, 1, 26], type: 'cable_gold_4x', label: 'Turbines HV' },
+        { from: [65, 1, 26], to: [65, 1, 28], type: 'cable_gold_4x' },
+
+        // Main HV distribution
+        { from: [65, 1, 28], to: [65, 1, 36], type: 'cable_gold_4x', label: 'Main HV' },
+        { from: [65, 1, 36], to: [65, 1, 50], type: 'cable_gold_4x' },
+        { from: [65, 1, 50], to: [65, 1, 60], type: 'cable_gold_4x' },
+        { from: [65, 1, 60], to: [65, 1, 70], type: 'cable_gold_4x' },
+
+        // Vers multiblocks
+        { from: [65, 1, 36], to: [72, 1, 36], type: 'cable_gold_4x', label: 'Vers LCR' },
+        { from: [72, 1, 36], to: [78, 1, 36], type: 'cable_gold_4x', label: 'Vers Vacuum' },
+        { from: [78, 1, 36], to: [84, 1, 36], type: 'cable_gold_4x', label: 'Vers Distillation' },
+
+        { from: [65, 1, 50], to: [72, 1, 50], type: 'cable_gold_4x', label: 'Vers Implosion' },
+        { from: [72, 1, 50], to: [78, 1, 50], type: 'cable_gold_4x', label: 'Vers Oil Cracker' },
+        { from: [78, 1, 50], to: [84, 1, 50], type: 'cable_gold_4x', label: 'Vers Multi Smelter' },
+
+        // Vers Cleanroom
+        { from: [65, 1, 50], to: [60, 1, 50], type: 'cable_gold_4x', label: 'Vers Cleanroom' },
+
+        // Fluides multiblocks
+        { from: [84, 1, 36], to: [84, 1, 45], type: 'pipe_stainless', label: 'Distillation outputs' },
+        { from: [78, 1, 50], to: [78, 1, 55], type: 'pipe_stainless', label: 'Cracked fuel' }
+    ];
+
+    // === EV - Câbles aluminium ===
+    BASE_CONFIGS.ev.cables = [
+        // Power EV
+        { from: [90, 1, 26], to: [102, 1, 26], type: 'cable_aluminium_4x', label: 'Power EV' },
+        { from: [96, 1, 26], to: [96, 1, 32], type: 'cable_aluminium_4x' },
+        { from: [96, 1, 32], to: [98, 1, 32], type: 'cable_aluminium_4x', label: 'Vers Supercap' },
+
+        // Main distribution EV
+        { from: [98, 1, 32], to: [98, 1, 50], type: 'cable_aluminium_4x', label: 'Main EV' },
+        { from: [98, 1, 50], to: [98, 1, 70], type: 'cable_aluminium_4x' },
+        { from: [98, 1, 70], to: [98, 1, 80], type: 'cable_aluminium_4x' },
+
+        // Vers AE2
+        { from: [98, 1, 50], to: [102, 1, 50], type: 'cable_aluminium_4x', label: 'Vers AE2' },
+        { from: [102, 1, 50], to: [102, 1, 54], type: 'cable_aluminium_4x', label: 'Energy Acceptor' },
+
+        // ME Network (câbles ME)
+        { from: [90, 1, 50], to: [93, 1, 50], type: 'me_cable', label: 'ME Network' },
+        { from: [91, 1, 50], to: [91, 1, 48], type: 'me_cable', label: 'Vers terminaux' },
+        { from: [93, 1, 50], to: [96, 1, 50], type: 'me_cable', label: 'Vers drives' },
+        { from: [96, 1, 50], to: [100, 1, 50], type: 'me_cable' },
+        { from: [98, 1, 50], to: [98, 1, 54], type: 'me_cable', label: 'Vers crafting' },
+        { from: [96, 1, 54], to: [100, 1, 54], type: 'me_cable', label: 'Assemblers' },
+
+        // Vers ore processing
+        { from: [98, 1, 70], to: [90, 1, 70], type: 'cable_aluminium_4x', label: 'Vers Ind. Centri' },
+        { from: [90, 1, 70], to: [108, 1, 70], type: 'cable_aluminium_4x', label: 'Ore processing line' }
+    ];
+
+    // === IV - Câbles tungsten ===
+    BASE_CONFIGS.iv.cables = [
+        // Power IV massive
+        { from: [120, 1, 26], to: [146, 1, 26], type: 'cable_tungsten_4x', label: 'Power IV' },
+        { from: [133, 1, 26], to: [133, 1, 34], type: 'cable_tungsten_4x' },
+        { from: [130, 1, 34], to: [133, 1, 34], type: 'cable_tungsten_4x', label: 'Transfo' },
+
+        // Main IV
+        { from: [133, 1, 34], to: [133, 1, 50], type: 'cable_tungsten_4x', label: 'Main IV' },
+        { from: [133, 1, 50], to: [133, 1, 70], type: 'cable_tungsten_4x' },
+        { from: [133, 1, 70], to: [133, 1, 80], type: 'cable_tungsten_4x' },
+        { from: [133, 1, 80], to: [133, 1, 95], type: 'cable_tungsten_4x' },
+        { from: [133, 1, 95], to: [133, 1, 110], type: 'cable_tungsten_4x' },
+        { from: [133, 1, 110], to: [133, 1, 130], type: 'cable_tungsten_4x' },
+
+        // Vers Assembly Line
+        { from: [133, 1, 50], to: [120, 1, 50], type: 'cable_tungsten_4x', label: 'Assembly Line!' },
+
+        // Vers Processing
+        { from: [133, 1, 70], to: [120, 1, 70], type: 'cable_tungsten_4x' },
+        { from: [120, 1, 70], to: [150, 1, 70], type: 'cable_tungsten_4x', label: 'Processing line' },
+
+        { from: [133, 1, 80], to: [120, 1, 80], type: 'cable_tungsten_4x' },
+        { from: [120, 1, 80], to: [156, 1, 80], type: 'cable_tungsten_4x', label: 'ABS line' },
+
+        // Vers Mega multiblocks
+        { from: [133, 1, 95], to: [120, 1, 95], type: 'cable_tungsten_4x', label: 'Volcanus' },
+        { from: [133, 1, 95], to: [142, 1, 95], type: 'cable_tungsten_4x', label: 'Mega EBF' },
+
+        // Vers Platline
+        { from: [133, 1, 130], to: [120, 1, 130], type: 'cable_tungsten_4x', label: 'PLATLINE' }
+    ];
 }
 
 // Initialiser les layouts
