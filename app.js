@@ -10,6 +10,33 @@ function getLang() {
 // Load all data
 async function loadData() {
     try {
+        // Try Supabase first if configured
+        if (window.SupabaseDB && window.SupabaseDB.isConfigured) {
+            console.log('Loading from Supabase...');
+            await window.SupabaseDB.init();
+
+            const [tiers, machines, ores] = await Promise.all([
+                window.SupabaseDB.getTiers(getLang()),
+                window.SupabaseDB.getMachines(getLang()),
+                window.SupabaseDB.getOreVeins(getLang())
+            ]);
+
+            if (tiers && machines) {
+                mainData = { tiers };
+                machineDataI18n = transformSupabaseMachines(machines);
+                machineData = { multiblocks: machines.filter(m => m.category === 'multiblock') };
+                oreData = { veins: { all: ores || [] } };
+                questData = null;
+                currentLang = getLang();
+
+                console.log('Data loaded from Supabase');
+                initApp();
+                return;
+            }
+        }
+
+        // Fallback to local JSON files
+        console.log('Loading from local JSON files...');
         const [main, machines, machinesI18n, ores, quests] = await Promise.all([
             fetch('data/gtnh-database.json').then(r => r.json()),
             fetch('data/machines.json').then(r => r.json()),
@@ -31,6 +58,51 @@ async function loadData() {
         // Fallback: try to load from embedded data
         initAppWithFallback();
     }
+}
+
+// Transform Supabase machines to app format
+function transformSupabaseMachines(machines) {
+    const result = {
+        multiblocks: [],
+        singleblocks: [],
+        steamMachines: [],
+        ae2: []
+    };
+
+    for (const m of machines) {
+        const transformed = {
+            id: m.id,
+            category: m.type,
+            unlockTier: m.unlockTier,
+            image: m.image,
+            wikiUrl: m.wikiUrl,
+            tiers: m.tiers,
+            priority: m.priority,
+            names: m.names,
+            power: m.power,
+            usage: m.usage,
+            dangers: m.dangers,
+            tips: m.tips,
+            structure: m.structure
+        };
+
+        switch (m.category) {
+            case 'multiblock':
+                result.multiblocks.push(transformed);
+                break;
+            case 'singleblock':
+                result.singleblocks.push(transformed);
+                break;
+            case 'steam':
+                result.steamMachines.push(transformed);
+                break;
+            case 'ae2':
+                result.ae2.push(transformed);
+                break;
+        }
+    }
+
+    return result;
 }
 
 function initAppWithFallback() {
