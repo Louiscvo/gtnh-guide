@@ -7,37 +7,12 @@ function getLang() {
     return window.I18N?.currentLang || localStorage.getItem('gtnh-lang') || 'fr';
 }
 
-// Load all data
+// Load all data - Always use local JSON files for reliability
 async function loadData() {
     try {
-        // Try Supabase first if configured
-        if (window.SupabaseDB && window.SupabaseDB.isConfigured) {
-            console.log('Loading from Supabase...');
-            await window.SupabaseDB.init();
-
-            const [tiers, machines, ores] = await Promise.all([
-                window.SupabaseDB.getTiers(getLang()),
-                window.SupabaseDB.getMachines(getLang()),
-                window.SupabaseDB.getOreVeins(getLang())
-            ]);
-
-            if (tiers && machines) {
-                mainData = { tiers };
-                machineDataI18n = transformSupabaseMachines(machines);
-                machineData = { multiblocks: machines.filter(m => m.category === 'multiblock') };
-                oreData = { veins: { all: ores || [] } };
-                questData = null;
-                currentLang = getLang();
-
-                console.log('Data loaded from Supabase');
-                initApp();
-                return;
-            }
-        }
-
-        // Fallback to local JSON files
         console.log('Loading from local JSON files...');
-        const [main, machines, machinesI18n, ores, quests] = await Promise.all([
+
+        const results = await Promise.allSettled([
             fetch('data/gtnh-database.json').then(r => r.json()),
             fetch('data/machines.json').then(r => r.json()),
             fetch('data/machines-complete-i18n.json').then(r => r.json()),
@@ -45,17 +20,33 @@ async function loadData() {
             fetch('data/questbook.json').then(r => r.json())
         ]);
 
-        mainData = main;
-        machineData = machines;
-        machineDataI18n = machinesI18n;
-        oreData = ores;
-        questData = quests;
+        // Extract data with fallbacks
+        mainData = results[0].status === 'fulfilled' ? results[0].value : null;
+        machineData = results[1].status === 'fulfilled' ? results[1].value : null;
+        machineDataI18n = results[2].status === 'fulfilled' ? results[2].value : null;
+        oreData = results[3].status === 'fulfilled' ? results[3].value : null;
+        questData = results[4].status === 'fulfilled' ? results[4].value : null;
+
         currentLang = getLang();
+
+        // Log what we loaded
+        console.log('Data loaded:', {
+            tiers: mainData?.tiers?.length || 0,
+            machines: Object.keys(machineData?.singleblocks || {}).length,
+            multiblocks: machineData?.multiblocks?.length || 0,
+            i18nMultiblocks: machineDataI18n?.multiblocks?.length || 0,
+            oreVeins: Object.keys(oreData?.veins || {}).length
+        });
+
+        if (!mainData?.tiers) {
+            console.warn('No tier data found, using fallback');
+            initAppWithFallback();
+            return;
+        }
 
         initApp();
     } catch (error) {
         console.error('Error loading data:', error);
-        // Fallback: try to load from embedded data
         initAppWithFallback();
     }
 }
@@ -126,16 +117,28 @@ function initAppWithFallback() {
 }
 
 function initApp() {
-    setupNavigation();
-    renderTierGrid();
-    renderTierDetails();
-    renderMachines();
-    renderMultiblocks();
-    renderOres();
-    renderQuests();
-    setupSearch();
-    setupFilters();
-    setupMobileMenu();
+    console.log('Initializing app...');
+    console.log('mainData:', mainData ? 'loaded' : 'missing');
+    console.log('machineData:', machineData ? 'loaded' : 'missing');
+    console.log('machineDataI18n:', machineDataI18n ? 'loaded' : 'missing');
+    console.log('oreData:', oreData ? 'loaded' : 'missing');
+    console.log('questData:', questData ? 'loaded' : 'missing');
+
+    try {
+        setupNavigation();
+        renderTierGrid();
+        renderTierDetails();
+        renderMachines();
+        renderMultiblocks();
+        renderOres();
+        renderQuests();
+        setupSearch();
+        setupFilters();
+        setupMobileMenu();
+        console.log('App initialized successfully');
+    } catch (error) {
+        console.error('Error in initApp:', error);
+    }
 }
 
 // Navigation
@@ -265,26 +268,37 @@ function filterTier(tierId) {
 // Machines
 function renderMachines() {
     const grid = document.getElementById('machinesGrid');
-    if (!grid || !machineData) return;
+    if (!grid) {
+        console.log('machinesGrid not found');
+        return;
+    }
+    if (!machineData) {
+        console.log('machineData not loaded');
+        grid.innerHTML = '<p style="color: var(--accent);">Chargement des machines...</p>';
+        return;
+    }
 
     let allMachines = [];
 
     // Singleblocks
     if (machineData.singleblocks) {
         Object.entries(machineData.singleblocks).forEach(([category, machines]) => {
-            machines.forEach(m => {
-                allMachines.push({ ...m, category });
-            });
+            if (Array.isArray(machines)) {
+                machines.forEach(m => {
+                    allMachines.push({ ...m, category });
+                });
+            }
         });
     }
 
     // Steam machines
-    if (machineData.steamMachines) {
+    if (machineData.steamMachines && Array.isArray(machineData.steamMachines)) {
         machineData.steamMachines.forEach(m => {
             allMachines.push({ ...m, category: 'steam' });
         });
     }
 
+    console.log('Total machines to render:', allMachines.length);
     renderMachineGrid(allMachines);
 
     // Category filter
@@ -439,9 +453,27 @@ window.showMachineDetail = function(id) {
 // Multiblocks
 function renderMultiblocks() {
     const grid = document.getElementById('multiblocksGrid');
-    if (!grid || !machineData?.multiblocks) return;
+    if (!grid) {
+        console.log('multiblocksGrid not found');
+        return;
+    }
 
-    renderMultiblockGrid(machineData.multiblocks);
+    // Get multiblocks from either machineData or machineDataI18n
+    let multiblocks = machineData?.multiblocks || [];
+
+    // If empty, try i18n data
+    if (multiblocks.length === 0 && machineDataI18n?.multiblocks) {
+        multiblocks = machineDataI18n.multiblocks;
+    }
+
+    if (!multiblocks || multiblocks.length === 0) {
+        console.log('No multiblocks found');
+        grid.innerHTML = '<p style="color: var(--accent);">Aucun multiblock trouvé</p>';
+        return;
+    }
+
+    console.log('Multiblocks to render:', multiblocks.length);
+    renderMultiblockGrid(multiblocks);
 
     // Filters
     document.getElementById('multiblockTier')?.addEventListener('change', filterMultiblocks);
@@ -484,17 +516,19 @@ function renderMultiblockGrid(multiblocks) {
     grid.querySelectorAll('.multiblock-card').forEach(card => {
         card.addEventListener('click', (e) => {
             if (e.target.tagName === 'A') return;
-            const mb = machineData.multiblocks.find(m => m.id === card.dataset.id);
+            const multiblocks = machineData?.multiblocks || machineDataI18n?.multiblocks || [];
+            const mb = multiblocks.find(m => m.id === card.dataset.id);
             if (mb) showMultiblockDetail(mb);
         });
     });
 }
 
 function filterMultiblocks() {
-    const tier = document.getElementById('multiblockTier').value;
-    const category = document.getElementById('multiblockCategory').value;
+    const tier = document.getElementById('multiblockTier')?.value || 'all';
+    const category = document.getElementById('multiblockCategory')?.value || 'all';
 
-    let filtered = machineData.multiblocks;
+    let multiblocks = machineData?.multiblocks || machineDataI18n?.multiblocks || [];
+    let filtered = multiblocks;
 
     if (tier !== 'all') {
         filtered = filtered.filter(m => m.unlockTier === tier);
@@ -605,15 +639,27 @@ window.hideMultiblockDetail = function() {
 // Ores
 function renderOres() {
     const grid = document.getElementById('oresGrid');
-    if (!grid || !oreData?.veins) return;
+    if (!grid) {
+        console.log('oresGrid not found');
+        return;
+    }
+
+    if (!oreData?.veins) {
+        console.log('No ore data found');
+        grid.innerHTML = '<p style="color: var(--accent);">Données des minerais non trouvées</p>';
+        return;
+    }
 
     let allOres = [];
     Object.entries(oreData.veins).forEach(([stage, veins]) => {
-        veins.forEach(v => {
-            allOres.push({ ...v, stage });
-        });
+        if (Array.isArray(veins)) {
+            veins.forEach(v => {
+                allOres.push({ ...v, stage });
+            });
+        }
     });
 
+    console.log('Total ores to render:', allOres.length);
     renderOreGrid(allOres);
 
     // Filters
@@ -660,9 +706,17 @@ function filterOres(allOres) {
 function renderQuests() {
     const chaptersGrid = document.getElementById('chaptersGrid');
     const modGrid = document.getElementById('modGrid');
-    if (!chaptersGrid || !questData?.questbook?.chapters) return;
 
-    chaptersGrid.innerHTML = questData.questbook.chapters.map(ch => `
+    // Support both structures: questData.chapters or questData.questbook.chapters
+    const chapters = questData?.chapters || questData?.questbook?.chapters;
+    const modTabs = questData?.modSpecificTabs || questData?.questbook?.modSpecificTabs;
+
+    if (!chaptersGrid || !chapters) {
+        console.log('No quest chapters found');
+        return;
+    }
+
+    chaptersGrid.innerHTML = chapters.map(ch => `
         <div class="chapter-card">
             <h3>${ch.name}</h3>
             <p>${ch.description}</p>
@@ -676,8 +730,8 @@ function renderQuests() {
         </div>
     `).join('');
 
-    if (modGrid && questData.questbook.modSpecificTabs) {
-        modGrid.innerHTML = questData.questbook.modSpecificTabs.map(mod => `
+    if (modGrid && modTabs) {
+        modGrid.innerHTML = modTabs.map(mod => `
             <div class="mod-card">
                 <h3>${mod.name}</h3>
                 <p>${mod.description}</p>
