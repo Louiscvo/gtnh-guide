@@ -321,33 +321,41 @@ function renderMachineGrid(machines) {
     const grid = document.getElementById('machinesGrid');
     const lang = getLang();
 
+    if (!machines || machines.length === 0) {
+        grid.innerHTML = '<p style="color: var(--accent);">Aucune machine trouvée</p>';
+        return;
+    }
+
     grid.innerHTML = machines.map(m => {
         // Check if we have i18n data for this machine
         const i18nData = findMachineI18n(m.name || m.id);
 
-        let name = m.name;
+        // Base data
+        let name = m.name || m.id || 'Machine';
         let description = m.function || m.description || '';
         let power = '';
         let dangers = '';
         let image = '';
 
+        // Enhance with i18n if available
         if (i18nData) {
-            name = i18nData.names?.[lang] || i18nData.names?.en || m.name;
+            name = i18nData.names?.[lang] || i18nData.names?.en || name;
             description = i18nData.usage?.[lang] || i18nData.usage?.en || description;
             power = i18nData.power?.[lang] || i18nData.power?.en || '';
             dangers = i18nData.dangers?.[lang] || i18nData.dangers?.en || '';
             image = i18nData.image || '';
         }
 
+        const shortDesc = description || 'Machine GregTech';
+
         return `
             <div class="machine-card ${m.priority ? 'priority-' + m.priority : ''}" data-machine-id="${m.id || m.name}">
                 ${image ? `<img src="${image}" alt="${name}" class="machine-img" onerror="this.style.display='none'">` : ''}
                 <h3>${name}</h3>
-                <p>${description}</p>
+                <p>${shortDesc}</p>
                 ${m.tiers ? `<span class="tiers">${m.tiers.join(' • ')}</span>` : ''}
                 ${power ? `<div class="power-info"><strong>⚡ ${lang === 'fr' ? 'Énergie' : 'Power'}:</strong> ${power.split('\n')[0]}</div>` : ''}
                 ${dangers ? `<div class="dangers">${dangers.split('\n')[0]}</div>` : ''}
-                <button class="details-btn" onclick="showMachineDetail('${m.id || m.name}')">${lang === 'fr' ? 'Voir détails' : 'View details'}</button>
             </div>
         `;
     }).join('');
@@ -484,28 +492,40 @@ function renderMultiblockGrid(multiblocks) {
     const grid = document.getElementById('multiblocksGrid');
     const lang = getLang();
 
+    if (!multiblocks || multiblocks.length === 0) {
+        grid.innerHTML = '<p style="color: var(--accent);">Aucun multiblock trouvé</p>';
+        return;
+    }
+
     grid.innerHTML = multiblocks.map(m => {
-        // Get i18n data
-        const i18nData = findMachineI18n(m.id || m.name);
+        // Get i18n data - try multiple ID variations
+        let i18nData = findMachineI18n(m.id);
+        if (!i18nData) i18nData = findMachineI18n(m.name);
 
-        let name = m.name;
-        let description = m.description;
-        let image = '';
+        // Base data from machines.json
+        let name = m.name || m.id;
+        let description = m.description || '';
+        let image = m.imageUrl || '';
         let dangers = '';
+        let unlockTier = m.unlockTier || 'LV';
 
+        // Enhance with i18n data if available
         if (i18nData) {
-            name = i18nData.names?.[lang] || i18nData.names?.en || m.name;
-            description = i18nData.usage?.[lang] || i18nData.usage?.en || m.description;
-            image = i18nData.image || '';
+            name = i18nData.names?.[lang] || i18nData.names?.en || name;
+            description = i18nData.usage?.[lang] || i18nData.usage?.en || description;
+            image = i18nData.image || image;
             dangers = i18nData.dangers?.[lang] || i18nData.dangers?.en || '';
         }
 
+        // Truncate description
+        const shortDesc = description ? (description.length > 100 ? description.substring(0, 100) + '...' : description) : 'Aucune description';
+
         return `
-            <div class="multiblock-card" data-id="${m.id}" data-tier="${m.unlockTier}" data-category="${m.category}">
-                ${image ? `<img src="${image}" alt="${name}" class="machine-img" onerror="this.style.display='none'">` : ''}
+            <div class="multiblock-card" data-id="${m.id || m.name}" data-tier="${unlockTier}" data-category="${m.category || 'processing'}">
+                ${image ? `<img src="${image}" alt="${name}" class="machine-img" onerror="this.style.display='none'">` : '<div class="no-image">🏗️</div>'}
                 <h3>${name}</h3>
-                <p>${description ? description.substring(0, 120) + (description.length > 120 ? '...' : '') : ''}</p>
-                <span class="tier-badge">${m.unlockTier}</span>
+                <p>${shortDesc}</p>
+                <span class="tier-badge">${unlockTier}</span>
                 ${dangers ? `<div class="dangers">${dangers.split('\n')[0]}</div>` : ''}
                 <button class="details-btn">${lang === 'fr' ? 'Voir détails' : 'View details'}</button>
             </div>
@@ -546,24 +566,27 @@ function showMultiblockDetail(mb) {
     const lang = getLang();
 
     // Get i18n data if available
-    const i18nData = findMachineI18n(mb.id || mb.name);
+    let i18nData = findMachineI18n(mb.id);
+    if (!i18nData) i18nData = findMachineI18n(mb.name);
 
-    let name = mb.name;
-    let description = mb.description;
+    // Base data from machines.json
+    let name = mb.name || mb.id;
+    let description = mb.description || '';
     let power = '';
-    let usage = '';
+    let usage = description;
     let dangers = '';
-    let tips = '';
+    let tips = mb.tips ? (Array.isArray(mb.tips) ? mb.tips.join('\n') : mb.tips) : '';
     let image = mb.imageUrl || '';
     let wikiUrl = mb.wikiUrl || '';
     let structure = mb.structure;
 
+    // Enhance with i18n if available
     if (i18nData) {
-        name = i18nData.names?.[lang] || i18nData.names?.en || mb.name;
-        usage = i18nData.usage?.[lang] || i18nData.usage?.en || mb.description;
+        name = i18nData.names?.[lang] || i18nData.names?.en || name;
+        usage = i18nData.usage?.[lang] || i18nData.usage?.en || usage;
         power = i18nData.power?.[lang] || i18nData.power?.en || '';
         dangers = i18nData.dangers?.[lang] || i18nData.dangers?.en || '';
-        tips = i18nData.tips?.[lang] || i18nData.tips?.en || '';
+        tips = i18nData.tips?.[lang] || i18nData.tips?.en || tips;
         image = i18nData.image || image;
         wikiUrl = i18nData.wikiUrl || wikiUrl;
         structure = i18nData.structure || structure;
