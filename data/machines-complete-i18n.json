@@ -316,6 +316,7 @@
     },
     {
       "id": "bbf",
+      "image": "textures/machines/BrickedBlastFurnace.png",
       "wikiUrl": "https://gtnh.miraheze.org/wiki/Bricked_Blast_Furnace",
       "unlockTier": "Steam",
       "category": "processing",
@@ -334,6 +335,7 @@
     },
     {
       "id": "oil_cracker",
+      "image": "textures/machines/OilCracker.png",
       "wikiUrl": "https://gtnh.miraheze.org/wiki/Oil_Cracking_Unit",
       "unlockTier": "HV",
       "category": "chemistry",
@@ -352,7 +354,8 @@
     },
     {
       "id": "large_boiler_bronze",
-      "wikiUrl": "https://gtnh.miraheze.org/wiki/Large_Bronze_Boiler",
+      "image": "textures/machines/LargeBoilerBronze.png",
+      "wikiUrl": "https://gtnh.miraheze.org/wiki/Large_Boiler",
       "unlockTier": "LV",
       "category": "generator",
       "names": {
@@ -448,6 +451,7 @@
     },
     {
       "id": "mega_vacuum_freezer",
+      "image": "textures/machines/MegaVacuumFreezer.png",
       "wikiUrl": "https://gtnh.miraheze.org/wiki/Mega_Vacuum_Freezer",
       "unlockTier": "IV",
       "category": "processing",
@@ -466,6 +470,7 @@
     },
     {
       "id": "volcanus",
+      "image": "textures/machines/Volcanus.png",
       "wikiUrl": "https://gtnh.miraheze.org/wiki/Volcanus",
       "unlockTier": "IV",
       "category": "processing",
@@ -480,6 +485,7 @@
     },
     {
       "id": "industrial_centrifuge",
+      "image": "textures/machines/IndustrialCentrifuge.png",
       "wikiUrl": "https://gtnh.miraheze.org/wiki/Industrial_Centrifuge",
       "unlockTier": "EV",
       "category": "processing",
