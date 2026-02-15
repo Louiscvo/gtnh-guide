@@ -255,6 +255,51 @@ J'ai parcouru les 11 pages de repositories GitHub GTNewHorizons et collecté la 
 
 ---
 
+## Session 4 - 15 Février 2025 (continuation)
+
+### Améliorations majeures du viewer 3D
+
+#### 1. Viewer3D v2 créé (`viewer3d-v2.js`)
+Nouveau moteur avec les fonctionnalités demandées :
+
+**Bases progressives** :
+- Chaque tier hérite automatiquement des machines du tier précédent
+- Steam → LV → MV → HV → EV → IV
+- Les machines sont conservées et de nouvelles sont ajoutées
+
+**Structure du bâtiment** :
+- Sol avec grille visible
+- Murs transparents (15% opacité) pour voir l'intérieur
+- Colonnes aux 4 coins
+- Poutres horizontales pour la structure
+
+**Câbles connectés** :
+- Utilisation de `TubeGeometry` Three.js
+- Connexion visuelle entre machines
+- Types de câbles : `pipe_bronze`, `cable_lv`, `cable_mv`, `cable_hv`
+- Coudes automatiques quand les machines ne sont pas alignées
+
+**Machines définies** : ~128 machines avec :
+- Nom en français
+- Type (generator, processing, multiblock, ae2, storage, hatch, etc.)
+- Tier (steam, lv, mv, hv, ev, iv)
+- Couleur distinctive
+- Taille (1x1x1 ou multiblock)
+
+#### 2. Documentation complète des 270 mods GTNH
+
+Fichier `data/gtnh-all-mods.json` mis à jour avec :
+- **270 mods** documentés (tous les repos GTNewHorizons)
+- **18 catégories** : core, tech, magic, tools, farming, storage, transport, space, decoration, utility, endgame, dimension, world, defense, quests, interface, scripting, misc
+- **~2500 machines** estimées au total
+- Description en français pour chaque mod
+- URLs des textures GitHub
+
+#### 3. Corrections
+- `viewer3d.html` pointe maintenant vers `viewer3d-v2.js`
+
+---
+
 ## Historique des commits
 
 | Date | Commit | Description |
@@ -263,3 +308,4 @@ J'ai parcouru les 11 pages de repositories GitHub GTNewHorizons et collecté la 
 | 2025-02-15 | Viewer3D v1 | Premier viewer 3D (basique) |
 | 2025-02-15 | DEVLOG | Ajout de ce fichier de suivi |
 | 2025-02-15 | Database v2 | Base de données complète ~300 machines |
+| 2025-02-15 | Viewer3D v2 | Bases progressives, structure, câbles, 270 mods |
