@@ -1,20 +1,29 @@
 // GTNH Guide Application
-let mainData, machineData, oreData, questData;
+let mainData, machineData, machineDataI18n, oreData, questData;
+let currentLang = 'fr';
+
+// Get current language
+function getLang() {
+    return window.I18N?.currentLang || localStorage.getItem('gtnh-lang') || 'fr';
+}
 
 // Load all data
 async function loadData() {
     try {
-        const [main, machines, ores, quests] = await Promise.all([
+        const [main, machines, machinesI18n, ores, quests] = await Promise.all([
             fetch('data/gtnh-database.json').then(r => r.json()),
             fetch('data/machines.json').then(r => r.json()),
+            fetch('data/machines-complete-i18n.json').then(r => r.json()),
             fetch('data/ore-veins.json').then(r => r.json()),
             fetch('data/questbook.json').then(r => r.json())
         ]);
 
         mainData = main;
         machineData = machines;
+        machineDataI18n = machinesI18n;
         oreData = ores;
         questData = quests;
+        currentLang = getLang();
 
         initApp();
     } catch (error) {
@@ -224,15 +233,135 @@ function renderMachines() {
 
 function renderMachineGrid(machines) {
     const grid = document.getElementById('machinesGrid');
-    grid.innerHTML = machines.map(m => `
-        <div class="machine-card ${m.priority ? 'priority-' + m.priority : ''}">
-            <h3>${m.name}</h3>
-            <p>${m.function || m.description || ''}</p>
-            ${m.tiers ? `<span class="tiers">${m.tiers.join(' • ')}</span>` : ''}
-            ${m.steamUsage ? `<p><strong>Steam:</strong> ${m.steamUsage}</p>` : ''}
-            ${m.output ? `<p><strong>Output:</strong> ${m.output}</p>` : ''}
+    const lang = getLang();
+
+    grid.innerHTML = machines.map(m => {
+        // Check if we have i18n data for this machine
+        const i18nData = findMachineI18n(m.name || m.id);
+
+        let name = m.name;
+        let description = m.function || m.description || '';
+        let power = '';
+        let dangers = '';
+        let image = '';
+
+        if (i18nData) {
+            name = i18nData.names?.[lang] || i18nData.names?.en || m.name;
+            description = i18nData.usage?.[lang] || i18nData.usage?.en || description;
+            power = i18nData.power?.[lang] || i18nData.power?.en || '';
+            dangers = i18nData.dangers?.[lang] || i18nData.dangers?.en || '';
+            image = i18nData.image || '';
+        }
+
+        return `
+            <div class="machine-card ${m.priority ? 'priority-' + m.priority : ''}" data-machine-id="${m.id || m.name}">
+                ${image ? `<img src="${image}" alt="${name}" class="machine-img" onerror="this.style.display='none'">` : ''}
+                <h3>${name}</h3>
+                <p>${description}</p>
+                ${m.tiers ? `<span class="tiers">${m.tiers.join(' • ')}</span>` : ''}
+                ${power ? `<div class="power-info"><strong>⚡ ${lang === 'fr' ? 'Énergie' : 'Power'}:</strong> ${power.split('\n')[0]}</div>` : ''}
+                ${dangers ? `<div class="dangers">${dangers.split('\n')[0]}</div>` : ''}
+                <button class="details-btn" onclick="showMachineDetail('${m.id || m.name}')">${lang === 'fr' ? 'Voir détails' : 'View details'}</button>
+            </div>
+        `;
+    }).join('');
+}
+
+// Find i18n data for a machine
+function findMachineI18n(id) {
+    if (!machineDataI18n) return null;
+
+    // Search in multiblocks
+    let found = machineDataI18n.multiblocks?.find(m =>
+        m.id === id || m.names?.en?.toLowerCase().includes(id.toLowerCase()) || m.names?.fr?.toLowerCase().includes(id.toLowerCase())
+    );
+    if (found) return found;
+
+    // Search in singleblocks
+    found = machineDataI18n.singleblocks?.find(m =>
+        m.id === id || m.names?.en?.toLowerCase().includes(id.toLowerCase()) || m.names?.fr?.toLowerCase().includes(id.toLowerCase())
+    );
+    if (found) return found;
+
+    // Search in steam machines
+    found = machineDataI18n.steamMachines?.find(m =>
+        m.id === id || m.names?.en?.toLowerCase().includes(id.toLowerCase()) || m.names?.fr?.toLowerCase().includes(id.toLowerCase())
+    );
+    if (found) return found;
+
+    // Search in AE2
+    found = machineDataI18n.ae2?.find(m =>
+        m.id === id || m.names?.en?.toLowerCase().includes(id.toLowerCase()) || m.names?.fr?.toLowerCase().includes(id.toLowerCase())
+    );
+
+    return found;
+}
+
+// Show machine detail modal
+window.showMachineDetail = function(id) {
+    const lang = getLang();
+    const i18nData = findMachineI18n(id);
+
+    if (!i18nData) {
+        console.log('No i18n data found for:', id);
+        return;
+    }
+
+    const name = i18nData.names?.[lang] || i18nData.names?.en || id;
+    const usage = i18nData.usage?.[lang] || i18nData.usage?.en || '';
+    const power = i18nData.power?.[lang] || i18nData.power?.en || '';
+    const dangers = i18nData.dangers?.[lang] || i18nData.dangers?.en || '';
+    const tips = i18nData.tips?.[lang] || i18nData.tips?.en || '';
+    const image = i18nData.image || '';
+    const wikiUrl = i18nData.wikiUrl || '';
+
+    // Create modal
+    const modal = document.createElement('div');
+    modal.className = 'machine-modal';
+    modal.innerHTML = `
+        <div class="modal-content">
+            <button class="close-modal" onclick="this.parentElement.parentElement.remove()">×</button>
+            ${image ? `<img src="${image}" alt="${name}" class="modal-img">` : ''}
+            <h2>${name}</h2>
+
+            ${power ? `
+            <div class="info-section power-section">
+                <h3>⚡ ${lang === 'fr' ? 'Alimentation' : 'Power'}</h3>
+                <pre>${power}</pre>
+            </div>
+            ` : ''}
+
+            ${usage ? `
+            <div class="info-section usage-section">
+                <h3>📖 ${lang === 'fr' ? 'Utilisation' : 'Usage'}</h3>
+                <p>${usage}</p>
+            </div>
+            ` : ''}
+
+            ${dangers ? `
+            <div class="info-section danger-section">
+                <h3>⚠️ ${lang === 'fr' ? 'Dangers' : 'Warnings'}</h3>
+                <pre>${dangers}</pre>
+            </div>
+            ` : ''}
+
+            ${tips ? `
+            <div class="info-section tips-section">
+                <h3>💡 ${lang === 'fr' ? 'Conseils' : 'Tips'}</h3>
+                <pre>${tips}</pre>
+            </div>
+            ` : ''}
+
+            ${wikiUrl ? `<a href="${wikiUrl}" target="_blank" class="wiki-btn">📚 Wiki</a>` : ''}
         </div>
-    `).join('');
+    `;
+
+    document.body.appendChild(modal);
+
+    // Close on background click
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) modal.remove();
+    });
 }
 
 // Multiblocks
@@ -249,15 +378,35 @@ function renderMultiblocks() {
 
 function renderMultiblockGrid(multiblocks) {
     const grid = document.getElementById('multiblocksGrid');
-    grid.innerHTML = multiblocks.map(m => `
-        <div class="multiblock-card" data-id="${m.id}" data-tier="${m.unlockTier}" data-category="${m.category}">
-            <h3>${m.name}</h3>
-            <p>${m.description}</p>
-            <span class="tier-badge">${m.unlockTier}</span>
-            ${m.bonus ? `<p class="bonus"><strong>Bonus:</strong> ${m.bonus}</p>` : ''}
-            ${m.wikiUrl ? `<a href="${m.wikiUrl}" target="_blank" style="color: var(--accent); font-size: 0.85rem;">Wiki →</a>` : ''}
-        </div>
-    `).join('');
+    const lang = getLang();
+
+    grid.innerHTML = multiblocks.map(m => {
+        // Get i18n data
+        const i18nData = findMachineI18n(m.id || m.name);
+
+        let name = m.name;
+        let description = m.description;
+        let image = '';
+        let dangers = '';
+
+        if (i18nData) {
+            name = i18nData.names?.[lang] || i18nData.names?.en || m.name;
+            description = i18nData.usage?.[lang] || i18nData.usage?.en || m.description;
+            image = i18nData.image || '';
+            dangers = i18nData.dangers?.[lang] || i18nData.dangers?.en || '';
+        }
+
+        return `
+            <div class="multiblock-card" data-id="${m.id}" data-tier="${m.unlockTier}" data-category="${m.category}">
+                ${image ? `<img src="${image}" alt="${name}" class="machine-img" onerror="this.style.display='none'">` : ''}
+                <h3>${name}</h3>
+                <p>${description ? description.substring(0, 120) + (description.length > 120 ? '...' : '') : ''}</p>
+                <span class="tier-badge">${m.unlockTier}</span>
+                ${dangers ? `<div class="dangers">${dangers.split('\n')[0]}</div>` : ''}
+                <button class="details-btn">${lang === 'fr' ? 'Voir détails' : 'View details'}</button>
+            </div>
+        `;
+    }).join('');
 
     // Click to show detail
     grid.querySelectorAll('.multiblock-card').forEach(card => {
@@ -288,43 +437,91 @@ function filterMultiblocks() {
 function showMultiblockDetail(mb) {
     const detail = document.getElementById('multiblockDetail');
     const grid = document.getElementById('multiblocksGrid');
+    const lang = getLang();
+
+    // Get i18n data if available
+    const i18nData = findMachineI18n(mb.id || mb.name);
+
+    let name = mb.name;
+    let description = mb.description;
+    let power = '';
+    let usage = '';
+    let dangers = '';
+    let tips = '';
+    let image = mb.imageUrl || '';
+    let wikiUrl = mb.wikiUrl || '';
+    let structure = mb.structure;
+
+    if (i18nData) {
+        name = i18nData.names?.[lang] || i18nData.names?.en || mb.name;
+        usage = i18nData.usage?.[lang] || i18nData.usage?.en || mb.description;
+        power = i18nData.power?.[lang] || i18nData.power?.en || '';
+        dangers = i18nData.dangers?.[lang] || i18nData.dangers?.en || '';
+        tips = i18nData.tips?.[lang] || i18nData.tips?.en || '';
+        image = i18nData.image || image;
+        wikiUrl = i18nData.wikiUrl || wikiUrl;
+        structure = i18nData.structure || structure;
+    }
 
     grid.style.display = 'none';
     detail.style.display = 'block';
 
     detail.innerHTML = `
-        <button class="back-btn" onclick="hideMultiblockDetail()">← Retour</button>
-        <h2>${mb.name}</h2>
-        <p>${mb.description}</p>
+        <button class="back-btn" onclick="hideMultiblockDetail()">← ${lang === 'fr' ? 'Retour' : 'Back'}</button>
+
+        ${image ? `<img src="${image}" alt="${name}" class="multiblock-detail-img">` : ''}
+
+        <h2>${name}</h2>
 
         <div class="structure-info">
             <div><strong>Tier:</strong> ${mb.unlockTier}</div>
-            <div><strong>Catégorie:</strong> ${mb.category}</div>
+            <div><strong>${lang === 'fr' ? 'Catégorie' : 'Category'}:</strong> ${mb.category}</div>
             ${mb.bonus ? `<div><strong>Bonus:</strong> ${mb.bonus}</div>` : ''}
-            ${mb.euOutput ? `<div><strong>Output:</strong> ${mb.euOutput}</div>` : ''}
         </div>
 
-        ${mb.structure ? `
-        <h3>Structure</h3>
-        <div class="structure-info">
-            ${mb.structure.dimensions ? `<div><strong>Dimensions:</strong> ${mb.structure.dimensions}</div>` : ''}
-            ${mb.structure.controller ? `<div><strong>Controller:</strong> ${mb.structure.controller}</div>` : ''}
-            ${mb.structure.mainBlocks ? `<div><strong>Main Blocks:</strong> ${mb.structure.mainBlocks}</div>` : ''}
+        ${power ? `
+        <div class="info-section power-section">
+            <h3>⚡ ${lang === 'fr' ? 'Alimentation' : 'Power'}</h3>
+            <pre>${power}</pre>
         </div>
-        ${mb.structure.coils ? `<p><strong>Coils:</strong> ${mb.structure.coils.join(', ')}</p>` : ''}
         ` : ''}
 
-        ${mb.hatches ? `<p><strong>Hatches:</strong> ${mb.hatches.join(', ')}</p>` : ''}
-
-        ${mb.tips ? `
-        <h3>Tips</h3>
-        <ul>
-            ${mb.tips.map(t => `<li>${t}</li>`).join('')}
-        </ul>
+        ${usage ? `
+        <div class="info-section usage-section">
+            <h3>📖 ${lang === 'fr' ? 'Utilisation' : 'Usage'}</h3>
+            <p>${usage}</p>
+        </div>
         ` : ''}
 
-        ${mb.wikiUrl ? `<a href="${mb.wikiUrl}" target="_blank" class="wiki-link">Voir sur le Wiki →</a>` : ''}
-        ${mb.imageUrl ? `<br><br><img src="${mb.imageUrl}" alt="${mb.name}" style="max-width: 100%; border-radius: 8px;">` : ''}
+        ${dangers ? `
+        <div class="info-section danger-section">
+            <h3>⚠️ ${lang === 'fr' ? 'Dangers & Avertissements' : 'Dangers & Warnings'}</h3>
+            <pre>${dangers}</pre>
+        </div>
+        ` : ''}
+
+        ${structure ? `
+        <div class="info-section structure-section">
+            <h3>🏗️ Structure</h3>
+            <div class="structure-info">
+                ${structure.dimensions ? `<div><strong>Dimensions:</strong> ${structure.dimensions}</div>` : ''}
+                ${structure.components ? `
+                <div><strong>${lang === 'fr' ? 'Composants' : 'Components'}:</strong>
+                    <ul>${structure.components.map(c => `<li>${c}</li>`).join('')}</ul>
+                </div>
+                ` : ''}
+            </div>
+        </div>
+        ` : ''}
+
+        ${tips ? `
+        <div class="info-section tips-section">
+            <h3>💡 ${lang === 'fr' ? 'Conseils' : 'Tips'}</h3>
+            <pre>${tips}</pre>
+        </div>
+        ` : ''}
+
+        ${wikiUrl ? `<a href="${wikiUrl}" target="_blank" class="wiki-btn">📚 ${lang === 'fr' ? 'Voir sur le Wiki' : 'View on Wiki'}</a>` : ''}
     `;
 }
 

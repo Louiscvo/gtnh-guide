@@ -809,3 +809,260 @@ h2 {
 .multiblock-detail .wiki-link:hover {
     background: var(--accent-hover);
 }
+
+/* Machine Card Images */
+.machine-card {
+    position: relative;
+}
+
+.machine-card .machine-img {
+    width: 100%;
+    max-height: 150px;
+    object-fit: contain;
+    background: #1a1a25;
+    border-radius: 8px 8px 0 0;
+    margin-bottom: 10px;
+}
+
+.machine-card .power-info {
+    font-size: 0.8rem;
+    color: #00d4ff;
+    margin: 8px 0;
+    padding: 5px;
+    background: rgba(0, 212, 255, 0.1);
+    border-radius: 4px;
+}
+
+.machine-card .dangers {
+    font-size: 0.8rem;
+    color: #ff6b6b;
+    margin: 5px 0;
+    padding: 5px;
+    background: rgba(255, 107, 107, 0.1);
+    border-radius: 4px;
+}
+
+.machine-card .details-btn {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+    padding: 8px;
+    background: var(--accent);
+    color: var(--bg-dark);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.2s;
+}
+
+.machine-card .details-btn:hover {
+    background: var(--accent-hover);
+    transform: translateY(-2px);
+}
+
+/* Machine Modal */
+.machine-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px;
+    overflow-y: auto;
+}
+
+.machine-modal .modal-content {
+    background: var(--bg-card);
+    border-radius: 16px;
+    padding: 30px;
+    max-width: 800px;
+    width: 100%;
+    position: relative;
+    border: 1px solid #333;
+}
+
+.machine-modal .close-modal {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: #ff4444;
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.machine-modal .close-modal:hover {
+    background: #ff6666;
+    transform: scale(1.1);
+}
+
+.machine-modal .modal-img {
+    width: 100%;
+    max-height: 300px;
+    object-fit: contain;
+    background: #1a1a25;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+.machine-modal h2 {
+    color: var(--accent);
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+}
+
+/* Info Sections */
+.info-section {
+    margin: 20px 0;
+    padding: 15px;
+    border-radius: 10px;
+    border-left: 4px solid;
+}
+
+.info-section h3 {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.info-section pre {
+    white-space: pre-wrap;
+    font-family: inherit;
+    margin: 0;
+    line-height: 1.6;
+}
+
+.info-section p {
+    line-height: 1.6;
+}
+
+.power-section {
+    background: rgba(0, 212, 255, 0.1);
+    border-color: #00d4ff;
+}
+
+.power-section h3 {
+    color: #00d4ff;
+}
+
+.usage-section {
+    background: rgba(0, 255, 136, 0.1);
+    border-color: #00ff88;
+}
+
+.usage-section h3 {
+    color: #00ff88;
+}
+
+.danger-section {
+    background: rgba(255, 107, 107, 0.15);
+    border-color: #ff6b6b;
+}
+
+.danger-section h3 {
+    color: #ff6b6b;
+}
+
+.danger-section pre {
+    color: #ffaaaa;
+}
+
+.structure-section {
+    background: rgba(255, 200, 0, 0.1);
+    border-color: #ffc800;
+}
+
+.structure-section h3 {
+    color: #ffc800;
+}
+
+.structure-section ul {
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.structure-section li {
+    margin: 5px 0;
+    color: #ddd;
+}
+
+.tips-section {
+    background: rgba(136, 100, 255, 0.1);
+    border-color: #8864ff;
+}
+
+.tips-section h3 {
+    color: #8864ff;
+}
+
+.tips-section pre {
+    color: #bbaaff;
+}
+
+.wiki-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 25px;
+    background: var(--accent);
+    color: var(--bg-dark);
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: all 0.2s;
+}
+
+.wiki-btn:hover {
+    background: var(--accent-hover);
+    transform: translateY(-2px);
+}
+
+/* Multiblock Detail Image */
+.multiblock-detail-img {
+    width: 100%;
+    max-height: 350px;
+    object-fit: contain;
+    background: #1a1a25;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+/* Back Button */
+.back-btn {
+    padding: 10px 20px;
+    background: #333;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: all 0.2s;
+}
+
+.back-btn:hover {
+    background: #444;
+}
+
+/* Mobile Modal */
+@media (max-width: 768px) {
+    .machine-modal {
+        padding: 20px;
+    }
+
+    .machine-modal .modal-content {
+        padding: 20px;
+    }
+
+    .info-section {
+        padding: 12px;
+    }
+}
