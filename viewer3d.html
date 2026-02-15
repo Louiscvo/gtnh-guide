@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GTNH Base Viewer 3D</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #0a0a0f;
+            color: #e0e0e0;
+            overflow: hidden;
+        }
+
+        #container {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+        }
+
+        #canvas {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        /* UI Overlay */
+        .ui-panel {
+            position: absolute;
+            background: rgba(10, 10, 20, 0.95);
+            border: 1px solid #333;
+            border-radius: 12px;
+            padding: 20px;
+            z-index: 100;
+        }
+
+        /* Tier Selector */
+        #tierPanel {
+            top: 20px;
+            left: 20px;
+            width: 280px;
+        }
+
+        #tierPanel h2 {
+            color: #00d4ff;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .tier-btn {
+            display: block;
+            width: 100%;
+            padding: 12px 15px;
+            margin: 5px 0;
+            background: #1a1a25;
+            border: 2px solid #333;
+            border-radius: 8px;
+            color: #e0e0e0;
+            cursor: pointer;
+            text-align: left;
+            transition: all 0.2s;
+        }
+
+        .tier-btn:hover {
+            border-color: #00d4ff;
+            background: #252535;
+        }
+
+        .tier-btn.active {
+            border-color: #00d4ff;
+            background: rgba(0, 212, 255, 0.2);
+        }
+
+        .tier-btn .tier-name {
+            font-weight: bold;
+            display: block;
+        }
+
+        .tier-btn .tier-desc {
+            font-size: 0.8rem;
+            color: #888;
+        }
+
+        /* Machine Info Panel */
+        #infoPanel {
+            top: 20px;
+            right: 20px;
+            width: 320px;
+            display: none;
+        }
+
+        #infoPanel.visible {
+            display: block;
+        }
+
+        #infoPanel h3 {
+            color: #00d4ff;
+            margin-bottom: 10px;
+        }
+
+        #infoPanel .machine-type {
+            color: #ff9900;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        #infoPanel p {
+            color: #aaa;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+
+        #infoPanel .specs {
+            background: #1a1a25;
+            padding: 10px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+        }
+
+        #infoPanel .specs div {
+            padding: 3px 0;
+        }
+
+        #infoPanel .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            color: #888;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Controls Help */
+        #controlsHelp {
+            bottom: 20px;
+            left: 20px;
+            font-size: 0.85rem;
+            padding: 15px;
+        }
+
+        #controlsHelp h4 {
+            color: #00d4ff;
+            margin-bottom: 8px;
+        }
+
+        #controlsHelp p {
+            color: #888;
+            margin: 3px 0;
+        }
+
+        /* Legend */
+        #legend {
+            bottom: 20px;
+            right: 20px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        #legend h4 {
+            color: #00d4ff;
+            margin-bottom: 10px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin: 5px 0;
+            font-size: 0.85rem;
+        }
+
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+            margin-right: 10px;
+            border: 1px solid #444;
+        }
+
+        /* Loading */
+        #loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            z-index: 200;
+        }
+
+        #loading.hidden {
+            display: none;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid #333;
+            border-top-color: #00d4ff;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Stats */
+        #stats {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(10, 10, 20, 0.9);
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            border: 1px solid #333;
+        }
+
+        #stats span {
+            margin: 0 15px;
+        }
+
+        #stats .label {
+            color: #888;
+        }
+
+        #stats .value {
+            color: #00d4ff;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <canvas id="canvas"></canvas>
+
+        <div id="loading">
+            <div class="spinner"></div>
+            <p>Chargement de la base...</p>
+        </div>
+
+        <div id="stats">
+            <span><span class="label">Tier:</span> <span class="value" id="currentTier">Steam</span></span>
+            <span><span class="label">Machines:</span> <span class="value" id="machineCount">0</span></span>
+            <span><span class="label">EU/t:</span> <span class="value" id="euProduction">0</span></span>
+        </div>
+
+        <div class="ui-panel" id="tierPanel">
+            <h2>Sélectionner un Tier</h2>
+            <button class="tier-btn active" data-tier="steam">
+                <span class="tier-name">Steam Age</span>
+                <span class="tier-desc">Chaudières, machines à vapeur</span>
+            </button>
+            <button class="tier-btn" data-tier="lv">
+                <span class="tier-name">Low Voltage (LV)</span>
+                <span class="tier-desc">32 EU/t - Electric Blast Furnace</span>
+            </button>
+            <button class="tier-btn" data-tier="mv">
+                <span class="tier-name">Medium Voltage (MV)</span>
+                <span class="tier-desc">128 EU/t - Polyethylene</span>
+            </button>
+            <button class="tier-btn" data-tier="hv">
+                <span class="tier-name">High Voltage (HV)</span>
+                <span class="tier-desc">512 EU/t - Cleanroom</span>
+            </button>
+            <button class="tier-btn" data-tier="ev">
+                <span class="tier-name">Extreme Voltage (EV)</span>
+                <span class="tier-desc">2048 EU/t - AE2 System</span>
+            </button>
+        </div>
+
+        <div class="ui-panel" id="infoPanel">
+            <button class="close-btn" onclick="hideInfo()">&times;</button>
+            <h3 id="infoName">Machine Name</h3>
+            <div class="machine-type" id="infoType">Type</div>
+            <p id="infoDesc">Description</p>
+            <div class="specs" id="infoSpecs"></div>
+        </div>
+
+        <div class="ui-panel" id="controlsHelp">
+            <h4>Contrôles</h4>
+            <p>🖱️ Clic gauche + drag : Rotation</p>
+            <p>🖱️ Clic droit + drag : Pan</p>
+            <p>🖱️ Molette : Zoom</p>
+            <p>🖱️ Clic sur machine : Info</p>
+        </div>
+
+        <div class="ui-panel" id="legend">
+            <h4>Légende</h4>
+            <div id="legendContent"></div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="viewer3d.js"></script>
+</body>
+</html>
