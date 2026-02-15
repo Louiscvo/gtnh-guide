@@ -1,0 +1,464 @@
+{
+  "metadata": {
+    "version": "2.0.0",
+    "lastUpdated": "2025-02-15",
+    "totalMachines": 1200,
+    "source": "GT5-Unofficial, FTB Wiki, GTNH Wiki"
+  },
+  "voltageTiers": [
+    {"id": 0, "name": "ULV", "fullName": "Ultra Low Voltage", "euPerTick": 8, "color": "#C8C8C8"},
+    {"id": 1, "name": "LV", "fullName": "Low Voltage", "euPerTick": 32, "color": "#DCDCDC"},
+    {"id": 2, "name": "MV", "fullName": "Medium Voltage", "euPerTick": 128, "color": "#FF6400"},
+    {"id": 3, "name": "HV", "fullName": "High Voltage", "euPerTick": 512, "color": "#FFFF00"},
+    {"id": 4, "name": "EV", "fullName": "Extreme Voltage", "euPerTick": 2048, "color": "#808080"},
+    {"id": 5, "name": "IV", "fullName": "Insane Voltage", "euPerTick": 8192, "color": "#F0F0F5"},
+    {"id": 6, "name": "LuV", "fullName": "Ludicrous Voltage", "euPerTick": 32768, "color": "#F090F5"},
+    {"id": 7, "name": "ZPM", "fullName": "Zero Point Module", "euPerTick": 131072, "color": "#00FFFF"},
+    {"id": 8, "name": "UV", "fullName": "Ultimate Voltage", "euPerTick": 524288, "color": "#00C800"},
+    {"id": 9, "name": "UHV", "fullName": "Ultimate High Voltage", "euPerTick": 2097152, "color": "#FF0000"},
+    {"id": 10, "name": "UEV", "fullName": "Ultimate Extreme Voltage", "euPerTick": 8388608, "color": "#AA00FF"},
+    {"id": 11, "name": "UIV", "fullName": "Ultimate Insane Voltage", "euPerTick": 33554432, "color": "#00FF00"},
+    {"id": 12, "name": "UMV", "fullName": "Ultimate Mega Voltage", "euPerTick": 134217728, "color": "#FF00FF"},
+    {"id": 13, "name": "UXV", "fullName": "Ultimate Extended Voltage", "euPerTick": 536870912, "color": "#0000FF"},
+    {"id": 14, "name": "MAX", "fullName": "Maximum Voltage", "euPerTick": 2147483640, "color": "#FFFFFF"}
+  ],
+  "mods": {
+    "gregtech": {
+      "name": "GregTech 5 Unofficial",
+      "machines": 500,
+      "color": "#FF6600"
+    },
+    "ae2": {
+      "name": "Applied Energistics 2",
+      "machines": 80,
+      "color": "#00BFFF"
+    },
+    "tinkers": {
+      "name": "Tinkers Construct",
+      "machines": 25,
+      "color": "#FF4500"
+    },
+    "thaumcraft": {
+      "name": "Thaumcraft 4",
+      "machines": 60,
+      "color": "#9400D3"
+    },
+    "enderio": {
+      "name": "EnderIO",
+      "machines": 50,
+      "color": "#228B22"
+    },
+    "forestry": {
+      "name": "Forestry",
+      "machines": 40,
+      "color": "#8B4513"
+    },
+    "railcraft": {
+      "name": "Railcraft",
+      "machines": 35,
+      "color": "#696969"
+    },
+    "galacticraft": {
+      "name": "Galacticraft",
+      "machines": 45,
+      "color": "#1E90FF"
+    },
+    "bloodmagic": {
+      "name": "Blood Magic",
+      "machines": 30,
+      "color": "#8B0000"
+    },
+    "botania": {
+      "name": "Botania",
+      "machines": 50,
+      "color": "#32CD32"
+    },
+    "ic2": {
+      "name": "IndustrialCraft 2",
+      "machines": 40,
+      "color": "#FFD700"
+    },
+    "gtplusplus": {
+      "name": "GT++",
+      "machines": 100,
+      "color": "#FF00FF"
+    }
+  },
+  "gregtech": {
+    "singleblocks": {
+      "processing": [
+        {"id": "assembler", "name": "Assembler", "nameFr": "Assembleur", "tiers": ["LV","MV","HV","EV","IV","LuV","ZPM","UV"], "function": "Assemble des composants en items", "category": "processing"},
+        {"id": "circuit_assembler", "name": "Circuit Assembler", "nameFr": "Assembleur de Circuits", "tiers": ["LV","MV","HV","EV","IV","LuV","ZPM","UV"], "function": "Assemble les circuits", "critical": true},
+        {"id": "mixer", "name": "Mixer", "nameFr": "Mixeur", "tiers": ["LV","MV","HV","EV","IV"], "function": "Mélange les matériaux"},
+        {"id": "laser_engraver", "name": "Laser Engraver", "nameFr": "Graveur Laser", "tiers": ["MV","HV","EV","IV","LuV","ZPM","UV"], "function": "Grave les wafers et circuits"},
+        {"id": "cutting_machine", "name": "Cutting Machine", "nameFr": "Découpeuse", "tiers": ["LV","MV","HV","EV","IV"], "function": "Coupe les matériaux"},
+        {"id": "slicer", "name": "Slicer", "nameFr": "Trancheuse", "tiers": ["LV","MV","HV","EV"], "function": "Tranche les matériaux"},
+        {"id": "compressor", "name": "Compressor", "nameFr": "Compresseur", "tiers": ["LV","MV","HV","EV","IV"], "function": "Compresse les items en blocs"},
+        {"id": "autoclave", "name": "Autoclave", "nameFr": "Autoclave", "tiers": ["LV","MV","HV","EV","IV","LuV","ZPM","UV"], "function": "Traite sous pression"},
+        {"id": "auto_workbench", "name": "Auto Workbench", "nameFr": "Établi Auto", "tiers": ["LV"], "function": "Crafting automatisé"}
+      ],
+      "forging": [
+        {"id": "bending_machine", "name": "Bending Machine", "nameFr": "Plieuse", "tiers": ["LV","MV","HV","EV","IV"], "function": "Crée plaques, tiges, câbles", "critical": true},
+        {"id": "forming_press", "name": "Forming Press", "nameFr": "Presse", "tiers": ["LV","MV","HV","EV","IV"], "function": "Forme les matériaux"},
+        {"id": "forge_hammer", "name": "Forge Hammer", "nameFr": "Marteau-Pilon", "tiers": ["LV","MV","HV","EV","IV"], "function": "Écrase minerais, crée plaques"},
+        {"id": "extruder", "name": "Extruder", "nameFr": "Extrudeuse", "tiers": ["MV","HV","EV","IV","LuV"], "function": "Extrude en formes"},
+        {"id": "lathe", "name": "Lathe", "nameFr": "Tour", "tiers": ["LV","MV","HV","EV","IV"], "function": "Crée tiges et boulons"},
+        {"id": "wiremill", "name": "Wiremill", "nameFr": "Tréfileuse", "tiers": ["LV","MV","HV","EV","IV"], "function": "Produit fils pour câbles", "critical": true},
+        {"id": "fluid_solidifier", "name": "Fluid Solidifier", "nameFr": "Solidifieur", "tiers": ["LV","MV","HV","EV","IV"], "function": "Solidifie les fluides"}
+      ],
+      "separating": [
+        {"id": "extractor", "name": "Extractor", "nameFr": "Extracteur", "tiers": ["LV","MV","HV","EV","IV"], "function": "Extrait items des blocs"},
+        {"id": "fluid_extractor", "name": "Fluid Extractor", "nameFr": "Extracteur Fluide", "tiers": ["LV","MV","HV","EV","IV"], "function": "Extrait fluides des items"},
+        {"id": "centrifuge", "name": "Centrifuge", "nameFr": "Centrifugeuse", "tiers": ["LV","MV","HV","EV","IV"], "function": "Sépare par densité", "critical": true},
+        {"id": "electrolyzer", "name": "Electrolyzer", "nameFr": "Électrolyseur", "tiers": ["LV","MV","HV","EV","IV"], "function": "Électrolyse matériaux", "critical": true},
+        {"id": "electromagnetic_separator", "name": "EM Separator", "nameFr": "Séparateur EM", "tiers": ["LV","MV","HV","EV","IV"], "function": "Sépare magnétiquement"},
+        {"id": "polarizer", "name": "Polarizer", "nameFr": "Polariseur", "tiers": ["LV","MV","HV","EV","IV"], "function": "Polarise matériaux"},
+        {"id": "thermal_centrifuge", "name": "Thermal Centrifuge", "nameFr": "Centrifugeuse Thermique", "tiers": ["MV","HV","EV","IV"], "function": "Chauffe et centrifuge"}
+      ],
+      "chemistry": [
+        {"id": "chemical_reactor", "name": "Chemical Reactor", "nameFr": "Réacteur Chimique", "tiers": ["LV","MV","HV","EV","IV"], "function": "Réactions chimiques", "critical": true},
+        {"id": "distillery", "name": "Distillery", "nameFr": "Distillerie", "tiers": ["LV","MV","HV","EV","IV"], "function": "Distille fluides"},
+        {"id": "brewery", "name": "Brewery", "nameFr": "Brasserie", "tiers": ["LV","MV","HV"], "function": "Brasse potions et fluides"},
+        {"id": "fermenter", "name": "Fermenter", "nameFr": "Fermenteur", "tiers": ["LV","MV","HV","EV"], "function": "Fermente matériaux"},
+        {"id": "chemical_bath", "name": "Chemical Bath", "nameFr": "Bain Chimique", "tiers": ["LV","MV","HV","EV","IV"], "function": "Traite avec produits chimiques"}
+      ],
+      "heating": [
+        {"id": "electric_furnace", "name": "Electric Furnace", "nameFr": "Four Électrique", "tiers": ["LV","MV","HV","EV","IV"], "function": "Fait fondre les items"},
+        {"id": "alloy_smelter", "name": "Alloy Smelter", "nameFr": "Fonderie Alliages", "tiers": ["LV","MV","HV","EV","IV"], "function": "Fond les alliages", "critical": true},
+        {"id": "fluid_heater", "name": "Fluid Heater", "nameFr": "Chauffeur Fluide", "tiers": ["LV","MV","HV","EV","IV"], "function": "Chauffe fluides"},
+        {"id": "arc_furnace", "name": "Arc Furnace", "nameFr": "Four à Arc", "tiers": ["LV","MV","HV","EV","IV"], "function": "Fond métaux rapidement"},
+        {"id": "plasma_arc_furnace", "name": "Plasma Arc Furnace", "nameFr": "Four Plasma", "tiers": ["IV","LuV","ZPM","UV"], "function": "Fond avec plasma"}
+      ],
+      "oreProcessing": [
+        {"id": "macerator", "name": "Macerator", "nameFr": "Macérateur", "tiers": ["LV","MV","HV","EV","IV"], "function": "Double rendement minerai", "critical": true},
+        {"id": "ore_washer", "name": "Ore Washer", "nameFr": "Laveur Minerai", "tiers": ["LV","MV","HV","EV","IV"], "function": "Lave pour meilleur rendement"},
+        {"id": "sifter", "name": "Sifter", "nameFr": "Tamis", "tiers": ["LV","MV","HV","EV","IV"], "function": "Tamise matériaux"},
+        {"id": "pump", "name": "Pump", "nameFr": "Pompe", "tiers": ["LV","MV","HV","EV","IV"], "function": "Pompe fluides du sol"},
+        {"id": "miner", "name": "Miner", "nameFr": "Mineur", "tiers": ["LV","MV","HV","EV","IV"], "function": "Minage automatisé"}
+      ],
+      "generators": [
+        {"id": "combustion_generator", "name": "Combustion Generator", "nameFr": "Générateur Combustion", "tiers": ["LV","MV","HV"], "function": "Génère EU avec carburant"},
+        {"id": "gas_turbine", "name": "Gas Turbine", "nameFr": "Turbine Gaz", "tiers": ["LV","MV","HV","EV","IV"], "function": "Génère EU avec gaz"},
+        {"id": "steam_turbine", "name": "Steam Turbine", "nameFr": "Turbine Vapeur", "tiers": ["LV","MV","HV"], "function": "Convertit vapeur en EU"},
+        {"id": "plasma_generator", "name": "Plasma Generator", "nameFr": "Générateur Plasma", "tiers": ["EV","IV","LuV"], "function": "Génère EU avec plasma"},
+        {"id": "magic_energy_converter", "name": "Magic Energy Converter", "nameFr": "Convertisseur Magie", "tiers": ["LV","MV","HV"], "function": "Convertit vis en EU"},
+        {"id": "naquadah_reactor", "name": "Naquadah Reactor", "nameFr": "Réacteur Naquadah", "tiers": ["EV","IV","LuV","ZPM","UV"], "function": "Génère massive EU"}
+      ],
+      "storage": [
+        {"id": "quantum_chest", "name": "Quantum Chest", "nameFr": "Coffre Quantique", "tiers": ["HV","EV","IV","LuV","ZPM","UV"], "function": "Stockage massif items"},
+        {"id": "quantum_tank", "name": "Quantum Tank", "nameFr": "Réservoir Quantique", "tiers": ["HV","EV","IV","LuV","ZPM","UV"], "function": "Stockage massif fluides"},
+        {"id": "super_chest", "name": "Super Chest", "nameFr": "Super Coffre", "tiers": ["LV","MV","HV","EV"], "function": "Stockage moyen items"},
+        {"id": "super_tank", "name": "Super Tank", "nameFr": "Super Réservoir", "tiers": ["LV","MV","HV","EV"], "function": "Stockage moyen fluides"}
+      ],
+      "utility": [
+        {"id": "battery_buffer", "name": "Battery Buffer", "nameFr": "Buffer Batteries", "tiers": ["ULV","LV","MV","HV","EV","IV","LuV","ZPM","UV"], "function": "Stocke EU dans batteries"},
+        {"id": "battery_charger", "name": "Battery Charger", "nameFr": "Chargeur Batteries", "tiers": ["LV","MV","HV","EV","IV","LuV","ZPM","UV"], "function": "Charge batteries"},
+        {"id": "transformer", "name": "Transformer", "nameFr": "Transformateur", "tiers": ["ULV-LV","LV-MV","MV-HV","HV-EV","EV-IV","IV-LuV","LuV-ZPM","ZPM-UV"], "function": "Convertit voltage"},
+        {"id": "energy_hatch", "name": "Energy Hatch", "nameFr": "Trappe Énergie", "tiers": ["ULV","LV","MV","HV","EV","IV","LuV","ZPM","UV","UHV"], "function": "Entrée énergie multiblocs"},
+        {"id": "dynamo_hatch", "name": "Dynamo Hatch", "nameFr": "Trappe Dynamo", "tiers": ["ULV","LV","MV","HV","EV","IV","LuV","ZPM","UV","UHV"], "function": "Sortie énergie multiblocs"},
+        {"id": "input_bus", "name": "Input Bus", "nameFr": "Bus Entrée", "tiers": ["ULV","LV","MV","HV","EV","IV","LuV","ZPM","UV"], "function": "Entrée items multiblocs"},
+        {"id": "output_bus", "name": "Output Bus", "nameFr": "Bus Sortie", "tiers": ["ULV","LV","MV","HV","EV","IV","LuV","ZPM","UV"], "function": "Sortie items multiblocs"},
+        {"id": "input_hatch", "name": "Input Hatch", "nameFr": "Trappe Entrée", "tiers": ["ULV","LV","MV","HV","EV","IV","LuV","ZPM","UV"], "function": "Entrée fluides multiblocs"},
+        {"id": "output_hatch", "name": "Output Hatch", "nameFr": "Trappe Sortie", "tiers": ["ULV","LV","MV","HV","EV","IV","LuV","ZPM","UV"], "function": "Sortie fluides multiblocs"},
+        {"id": "maintenance_hatch", "name": "Maintenance Hatch", "nameFr": "Trappe Maintenance", "tiers": ["all"], "function": "Maintenance multiblocs"},
+        {"id": "muffler_hatch", "name": "Muffler Hatch", "nameFr": "Trappe Silencieux", "tiers": ["LV","MV","HV","EV","IV","LuV","ZPM","UV"], "function": "Réduit pollution"}
+      ]
+    },
+    "multiblocks": [
+      {"id": "ebf", "name": "Electric Blast Furnace", "nameFr": "Four Électrique", "tier": "LV", "critical": true, "size": "3x3x4", "description": "Essentiel pour fondre matériaux haute température"},
+      {"id": "bbf", "name": "Bricked Blast Furnace", "nameFr": "Haut Fourneau", "tier": "Steam", "critical": true, "size": "3x3x4", "description": "Premier multibloc - produit acier sans électricité"},
+      {"id": "coke_oven", "name": "Coke Oven", "nameFr": "Four à Coke", "tier": "Steam", "size": "3x3x3", "description": "Produit coke et créosote"},
+      {"id": "pyrolyse_oven", "name": "Pyrolyse Oven", "nameFr": "Four Pyrolyse", "tier": "MV", "size": "5x4x5", "description": "Produit charbon et gaz de bois"},
+      {"id": "lcr", "name": "Large Chemical Reactor", "nameFr": "Grand Réacteur Chimique", "tier": "HV", "critical": true, "size": "3x3x3", "description": "Overclocks parfaits - critique pour chimie"},
+      {"id": "distillation_tower", "name": "Distillation Tower", "nameFr": "Tour Distillation", "tier": "HV", "size": "3x3xN", "description": "Distillation efficace pétrole"},
+      {"id": "vacuum_freezer", "name": "Vacuum Freezer", "nameFr": "Congélateur Vide", "tier": "HV", "critical": true, "size": "3x3x3", "description": "Gèle matériaux - critique pour Titane"},
+      {"id": "oil_cracker", "name": "Oil Cracking Unit", "nameFr": "Unité Craquage", "tier": "HV", "size": "5x3x3", "description": "Craque pétrole pour meilleur carburant"},
+      {"id": "implosion_compressor", "name": "Implosion Compressor", "nameFr": "Compresseur Implosion", "tier": "HV", "size": "3x3x3", "description": "Utilise TNT pour comprimer"},
+      {"id": "cleanroom", "name": "Cleanroom", "nameFr": "Salle Blanche", "tier": "HV", "critical": true, "size": "Variable", "description": "Requis pour circuits avancés"},
+      {"id": "assembly_line", "name": "Assembly Line", "nameFr": "Ligne Assemblage", "tier": "IV", "critical": true, "size": "Variable", "description": "Crafts complexes - porte vers LuV"},
+      {"id": "fusion_mk1", "name": "Fusion Reactor Mk I", "nameFr": "Réacteur Fusion Mk I", "tier": "LuV", "size": "15x15x3", "description": "Première fusion - Europium, Hélium Plasma"},
+      {"id": "fusion_mk2", "name": "Fusion Reactor Mk II", "nameFr": "Réacteur Fusion Mk II", "tier": "ZPM", "size": "15x15x3", "description": "Fusion avancée - Américium"},
+      {"id": "fusion_mk3", "name": "Fusion Reactor Mk III", "nameFr": "Réacteur Fusion Mk III", "tier": "UV", "size": "15x15x3", "description": "Fusion ultime - recettes plasma avancées"},
+      {"id": "large_boiler_bronze", "name": "Large Bronze Boiler", "nameFr": "Grande Chaudière Bronze", "tier": "Steam", "size": "3x3x5", "description": "400 EU/t équivalent vapeur"},
+      {"id": "large_boiler_steel", "name": "Large Steel Boiler", "nameFr": "Grande Chaudière Acier", "tier": "LV", "size": "3x3x5", "description": "1000 EU/t équivalent vapeur"},
+      {"id": "large_steam_turbine", "name": "Large Steam Turbine", "nameFr": "Grande Turbine Vapeur", "tier": "HV", "size": "3x3x4", "description": "Génération vapeur grande échelle"},
+      {"id": "large_gas_turbine", "name": "Large Gas Turbine", "nameFr": "Grande Turbine Gaz", "tier": "EV", "size": "3x3x4", "description": "Génération gaz efficace"},
+      {"id": "large_combustion_engine", "name": "Large Combustion Engine", "nameFr": "Grand Moteur Combustion", "tier": "EV", "size": "3x3x4", "description": "Génération carburant"},
+      {"id": "large_plasma_turbine", "name": "Large Plasma Turbine", "nameFr": "Grande Turbine Plasma", "tier": "LuV", "size": "3x3x4", "description": "2.56M EU/t avec hélium plasma"},
+      {"id": "industrial_centrifuge", "name": "Industrial Centrifuge", "nameFr": "Centrifugeuse Industrielle", "tier": "EV", "mod": "gtplusplus", "description": "Centrifugation masse - 6 parallèles/tier"},
+      {"id": "industrial_electrolyzer", "name": "Industrial Electrolyzer", "nameFr": "Électrolyseur Industriel", "tier": "EV", "mod": "gtplusplus", "description": "Électrolyse masse - 2 parallèles/tier"},
+      {"id": "industrial_mixer", "name": "Industrial Mixer", "nameFr": "Mixeur Industriel", "tier": "EV", "mod": "gtplusplus", "description": "Mixage masse - 8 parallèles/tier"},
+      {"id": "maceration_stack", "name": "Maceration Stack", "nameFr": "Pile Macération", "tier": "EV", "mod": "gtplusplus", "description": "Broyage masse - 8 parallèles/tier"},
+      {"id": "ore_washing_plant", "name": "Ore Washing Plant", "nameFr": "Usine Lavage Minerai", "tier": "EV", "mod": "gtplusplus", "description": "Lavage grande échelle"},
+      {"id": "volcanus", "name": "Volcanus", "nameFr": "Volcanus", "tier": "IV", "mod": "gtplusplus", "description": "EBF amélioré - 8 parallèles"},
+      {"id": "mega_vacuum_freezer", "name": "Mega Vacuum Freezer", "nameFr": "Méga Congélateur", "tier": "IV", "mod": "gtplusplus", "description": "256 recettes parallèles"},
+      {"id": "void_miner", "name": "Void Miner", "nameFr": "Mineur du Vide", "tier": "ZPM", "description": "Génération minerai infinie"},
+      {"id": "stargate", "name": "Stargate", "nameFr": "Porte des Étoiles", "tier": "MAX", "description": "Objectif ultime du modpack"}
+    ],
+    "steamMachines": [
+      {"id": "small_coal_boiler", "name": "Small Coal Boiler", "nameFr": "Petite Chaudière Charbon", "output": "6 L/t vapeur (3 EU/t)"},
+      {"id": "hp_coal_boiler", "name": "HP Coal Boiler", "nameFr": "Chaudière HP Charbon", "output": "15 L/t vapeur (7.5 EU/t)"},
+      {"id": "simple_solar_boiler", "name": "Simple Solar Boiler", "nameFr": "Chaudière Solaire Simple", "output": "6 L/t vapeur (3 EU/t)"},
+      {"id": "hp_solar_boiler", "name": "HP Solar Boiler", "nameFr": "Chaudière Solaire HP", "output": "18 L/t vapeur (9 EU/t)"},
+      {"id": "hp_lava_boiler", "name": "HP Lava Boiler", "nameFr": "Chaudière Lave HP", "output": "30 L/t vapeur (15 EU/t)"},
+      {"id": "steam_alloy_smelter", "name": "Steam Alloy Smelter", "nameFr": "Fonderie Vapeur", "steamUsage": "32 L/t max"},
+      {"id": "steam_forge_hammer", "name": "Steam Forge Hammer", "nameFr": "Marteau Vapeur", "steamUsage": "32 L/t"},
+      {"id": "steam_macerator", "name": "Steam Macerator", "nameFr": "Macérateur Vapeur", "steamUsage": "4 L/t"},
+      {"id": "steam_extractor", "name": "Steam Extractor", "nameFr": "Extracteur Vapeur", "steamUsage": "4 L/t"},
+      {"id": "steam_compressor", "name": "Steam Compressor", "nameFr": "Compresseur Vapeur", "steamUsage": "4 L/t"}
+    ]
+  },
+  "ae2": {
+    "machines": [
+      {"id": "me_controller", "name": "ME Controller", "nameFr": "Contrôleur ME", "category": "core", "description": "Cerveau du réseau ME"},
+      {"id": "me_drive", "name": "ME Drive", "nameFr": "Lecteur ME", "category": "storage", "description": "Stocke cellules de stockage"},
+      {"id": "me_chest", "name": "ME Chest", "nameFr": "Coffre ME", "category": "storage", "description": "Accès stockage simple"},
+      {"id": "me_interface", "name": "ME Interface", "nameFr": "Interface ME", "category": "automation", "description": "Interface réseau-monde"},
+      {"id": "molecular_assembler", "name": "Molecular Assembler", "nameFr": "Assembleur Moléculaire", "category": "crafting", "description": "Craft automatique patterns"},
+      {"id": "inscriber", "name": "Inscriber", "nameFr": "Inscripteur", "category": "processing", "description": "Crée processeurs et circuits"},
+      {"id": "charger", "name": "Charger", "nameFr": "Chargeur", "category": "utility", "description": "Charge certus quartz"},
+      {"id": "energy_acceptor", "name": "Energy Acceptor", "nameFr": "Accepteur Énergie", "category": "power", "description": "Convertit EU en AE"},
+      {"id": "energy_cell", "name": "Energy Cell", "nameFr": "Cellule Énergie", "category": "power", "description": "Stocke énergie AE"},
+      {"id": "dense_energy_cell", "name": "Dense Energy Cell", "nameFr": "Cellule Dense", "category": "power", "description": "Grande capacité énergie"},
+      {"id": "crafting_unit", "name": "Crafting Unit", "nameFr": "Unité Craft", "category": "crafting", "description": "Base CPU autocrafting"},
+      {"id": "crafting_storage_1k", "name": "1k Crafting Storage", "nameFr": "Stockage Craft 1k", "category": "crafting", "description": "1024 bytes craft"},
+      {"id": "crafting_storage_4k", "name": "4k Crafting Storage", "nameFr": "Stockage Craft 4k", "category": "crafting", "description": "4096 bytes craft"},
+      {"id": "crafting_storage_16k", "name": "16k Crafting Storage", "nameFr": "Stockage Craft 16k", "category": "crafting", "description": "16384 bytes craft"},
+      {"id": "crafting_storage_64k", "name": "64k Crafting Storage", "nameFr": "Stockage Craft 64k", "category": "crafting", "description": "65536 bytes craft"},
+      {"id": "crafting_coprocessor", "name": "Crafting Co-Processor", "nameFr": "Co-Processeur", "category": "crafting", "description": "Parallélise crafting"},
+      {"id": "crafting_monitor", "name": "Crafting Monitor", "nameFr": "Moniteur Craft", "category": "crafting", "description": "Affiche status craft"},
+      {"id": "me_terminal", "name": "ME Terminal", "nameFr": "Terminal ME", "category": "terminal", "description": "Accès items réseau"},
+      {"id": "crafting_terminal", "name": "Crafting Terminal", "nameFr": "Terminal Craft", "category": "terminal", "description": "Terminal avec grille craft"},
+      {"id": "pattern_terminal", "name": "Pattern Terminal", "nameFr": "Terminal Patterns", "category": "terminal", "description": "Crée patterns autocrafting"},
+      {"id": "interface_terminal", "name": "Interface Terminal", "nameFr": "Terminal Interfaces", "category": "terminal", "description": "Configure interfaces"},
+      {"id": "import_bus", "name": "Import Bus", "nameFr": "Bus Import", "category": "transport", "description": "Importe items dans réseau"},
+      {"id": "export_bus", "name": "Export Bus", "nameFr": "Bus Export", "category": "transport", "description": "Exporte items du réseau"},
+      {"id": "storage_bus", "name": "Storage Bus", "nameFr": "Bus Stockage", "category": "transport", "description": "Accède stockage externe"},
+      {"id": "level_emitter", "name": "Level Emitter", "nameFr": "Émetteur Niveau", "category": "control", "description": "Signal redstone sur quantité"},
+      {"id": "toggle_bus", "name": "Toggle Bus", "nameFr": "Bus Toggle", "category": "transport", "description": "Active/désactive connexion"},
+      {"id": "quartz_fiber", "name": "Quartz Fiber", "nameFr": "Fibre Quartz", "category": "transport", "description": "Transmet énergie, pas canaux"},
+      {"id": "fluix_cable", "name": "Fluix Cable", "nameFr": "Câble Fluix", "category": "transport", "description": "8 canaux"},
+      {"id": "dense_cable", "name": "Dense Cable", "nameFr": "Câble Dense", "category": "transport", "description": "32 canaux"},
+      {"id": "spatial_io_port", "name": "Spatial IO Port", "nameFr": "Port IO Spatial", "category": "spatial", "description": "Interface stockage spatial"},
+      {"id": "spatial_pylon", "name": "Spatial Pylon", "nameFr": "Pylône Spatial", "category": "spatial", "description": "Définit zone spatiale"},
+      {"id": "matter_condenser", "name": "Matter Condenser", "nameFr": "Condenseur Matière", "category": "utility", "description": "Détruit items, crée singularités"},
+      {"id": "quartz_grindstone", "name": "Quartz Grindstone", "nameFr": "Meule Quartz", "category": "processing", "description": "Broie certus quartz"}
+    ],
+    "cells": [
+      {"id": "1k_cell", "name": "1k ME Storage Cell", "nameFr": "Cellule 1k", "bytes": 1024},
+      {"id": "4k_cell", "name": "4k ME Storage Cell", "nameFr": "Cellule 4k", "bytes": 4096},
+      {"id": "16k_cell", "name": "16k ME Storage Cell", "nameFr": "Cellule 16k", "bytes": 16384},
+      {"id": "64k_cell", "name": "64k ME Storage Cell", "nameFr": "Cellule 64k", "bytes": 65536}
+    ]
+  },
+  "tinkers": {
+    "machines": [
+      {"id": "smeltery_controller", "name": "Smeltery Controller", "nameFr": "Contrôleur Fonderie", "category": "core", "description": "Contrôle la fonderie"},
+      {"id": "seared_tank", "name": "Seared Tank", "nameFr": "Réservoir Brûlé", "category": "structure", "description": "Stocke métal fondu"},
+      {"id": "seared_drain", "name": "Seared Drain", "nameFr": "Drain Brûlé", "category": "structure", "description": "Entrée/sortie fluides"},
+      {"id": "casting_table", "name": "Casting Table", "nameFr": "Table de Coulée", "category": "processing", "description": "Coule petites pièces"},
+      {"id": "casting_basin", "name": "Casting Basin", "nameFr": "Bassin Coulée", "category": "processing", "description": "Coule blocs"},
+      {"id": "seared_faucet", "name": "Seared Faucet", "nameFr": "Robinet Brûlé", "category": "structure", "description": "Verse métal fondu"},
+      {"id": "tool_station", "name": "Tool Station", "nameFr": "Station Outils", "category": "crafting", "description": "Assemble outils basiques"},
+      {"id": "tool_forge", "name": "Tool Forge", "nameFr": "Forge Outils", "category": "crafting", "description": "Assemble outils avancés"},
+      {"id": "part_builder", "name": "Part Builder", "nameFr": "Constructeur Pièces", "category": "crafting", "description": "Crée pièces d'outils"},
+      {"id": "stencil_table", "name": "Stencil Table", "nameFr": "Table Pochoirs", "category": "crafting", "description": "Crée pochoirs"},
+      {"id": "pattern_chest", "name": "Pattern Chest", "nameFr": "Coffre Patterns", "category": "storage", "description": "Stocke patterns"},
+      {"id": "crafting_station", "name": "Crafting Station", "nameFr": "Station Craft", "category": "crafting", "description": "Établi amélioré"},
+      {"id": "drying_rack", "name": "Drying Rack", "nameFr": "Séchoir", "category": "processing", "description": "Sèche viande, cuir"}
+    ]
+  },
+  "thaumcraft": {
+    "machines": [
+      {"id": "crucible", "name": "Crucible", "nameFr": "Creuset", "category": "alchemy", "description": "Alchimie basique - dissout items"},
+      {"id": "arcane_workbench", "name": "Arcane Workbench", "nameFr": "Établi Arcanique", "category": "crafting", "description": "Craft avec vis"},
+      {"id": "research_table", "name": "Research Table", "nameFr": "Table Recherche", "category": "research", "description": "Recherche thaumaturgie"},
+      {"id": "infusion_altar", "name": "Infusion Altar", "nameFr": "Autel Infusion", "category": "crafting", "description": "Craft infusé puissant"},
+      {"id": "arcane_pedestal", "name": "Arcane Pedestal", "nameFr": "Piédestal Arcanique", "category": "utility", "description": "Support items infusion"},
+      {"id": "runic_matrix", "name": "Runic Matrix", "nameFr": "Matrice Runique", "category": "crafting", "description": "Centre autel infusion"},
+      {"id": "wand_pedestal", "name": "Wand Pedestal", "nameFr": "Piédestal Baguette", "category": "utility", "description": "Recharge baguettes"},
+      {"id": "alchemical_furnace", "name": "Alchemical Furnace", "nameFr": "Fourneau Alchimique", "category": "processing", "description": "Extrait essentia"},
+      {"id": "arcane_alembic", "name": "Arcane Alembic", "nameFr": "Alambic Arcanique", "category": "processing", "description": "Collecte essentia"},
+      {"id": "essentia_tube", "name": "Essentia Tube", "nameFr": "Tube Essentia", "category": "transport", "description": "Transporte essentia"},
+      {"id": "essentia_valve", "name": "Essentia Valve", "nameFr": "Valve Essentia", "category": "transport", "description": "Contrôle flux essentia"},
+      {"id": "essentia_buffer", "name": "Essentia Buffer", "nameFr": "Buffer Essentia", "category": "transport", "description": "Stocke essentia temporaire"},
+      {"id": "essentia_reservoir", "name": "Essentia Reservoir", "nameFr": "Réservoir Essentia", "category": "storage", "description": "Stocke essentia"},
+      {"id": "thaumatorium", "name": "Thaumatorium", "nameFr": "Thaumatorium", "category": "processing", "description": "Alchimie automatisée"},
+      {"id": "infernal_furnace", "name": "Infernal Furnace", "nameFr": "Fourneau Infernal", "category": "processing", "description": "Four puissant vis"},
+      {"id": "hungry_chest", "name": "Hungry Chest", "nameFr": "Coffre Affamé", "category": "storage", "description": "Absorbe items proches"},
+      {"id": "brain_jar", "name": "Brain in a Jar", "nameFr": "Cerveau en Bocal", "category": "utility", "description": "Stocke XP"},
+      {"id": "arcane_bore", "name": "Arcane Bore", "nameFr": "Foreuse Arcanique", "category": "mining", "description": "Mine automatique"},
+      {"id": "golem_press", "name": "Golem Press", "nameFr": "Presse Golem", "category": "crafting", "description": "Crée golems"},
+      {"id": "node_stabilizer", "name": "Node Stabilizer", "nameFr": "Stabilisateur Noeud", "category": "node", "description": "Empêche dégradation noeud"},
+      {"id": "node_transducer", "name": "Node Transducer", "nameFr": "Transducteur Noeud", "category": "node", "description": "Manipule noeuds vis"}
+    ]
+  },
+  "enderio": {
+    "machines": [
+      {"id": "sag_mill", "name": "SAG Mill", "nameFr": "Broyeur SAG", "category": "processing", "description": "Broie minerais efficacement"},
+      {"id": "alloy_smelter", "name": "Alloy Smelter", "nameFr": "Fonderie Alliages", "category": "processing", "description": "Crée alliages EnderIO"},
+      {"id": "painter", "name": "Painting Machine", "nameFr": "Machine Peinture", "category": "utility", "description": "Peint façades conduits"},
+      {"id": "crafter", "name": "Crafter", "nameFr": "Crafteur", "category": "automation", "description": "Craft automatique"},
+      {"id": "slice_n_splice", "name": "Slice'N'Splice", "nameFr": "Découpeur", "category": "processing", "description": "Crée têtes zombies"},
+      {"id": "soul_binder", "name": "Soul Binder", "nameFr": "Lieur d'Âmes", "category": "processing", "description": "Lie âmes aux items"},
+      {"id": "the_vat", "name": "The Vat", "nameFr": "La Cuve", "category": "processing", "description": "Crée fluides spéciaux"},
+      {"id": "stirling_generator", "name": "Stirling Generator", "nameFr": "Générateur Stirling", "category": "power", "description": "Génère RF avec charbon"},
+      {"id": "combustion_generator", "name": "Combustion Generator", "nameFr": "Générateur Combustion", "category": "power", "description": "Génère RF avec carburant"},
+      {"id": "zombie_generator", "name": "Zombie Generator", "nameFr": "Générateur Zombie", "category": "power", "description": "Génère RF avec nutrient"},
+      {"id": "capacitor_bank", "name": "Capacitor Bank", "nameFr": "Banc Condensateurs", "category": "power", "description": "Stocke RF"},
+      {"id": "powered_spawner", "name": "Powered Spawner", "nameFr": "Spawner Alimenté", "category": "utility", "description": "Spawn mobs avec RF"},
+      {"id": "killer_joe", "name": "Killer Joe", "nameFr": "Killer Joe", "category": "utility", "description": "Tue mobs automatiquement"},
+      {"id": "farming_station", "name": "Farming Station", "nameFr": "Station Fermière", "category": "farming", "description": "Ferme automatique"},
+      {"id": "vacuum_chest", "name": "Vacuum Chest", "nameFr": "Coffre Aspirateur", "category": "utility", "description": "Aspire items proches"},
+      {"id": "item_buffer", "name": "Item Buffer", "nameFr": "Buffer Items", "category": "storage", "description": "Buffer items"},
+      {"id": "reservoir", "name": "Reservoir", "nameFr": "Réservoir", "category": "storage", "description": "Stocke fluides, source infinie"},
+      {"id": "travel_anchor", "name": "Travel Anchor", "nameFr": "Ancre Voyage", "category": "transport", "description": "Téléportation courte"},
+      {"id": "dimensional_transceiver", "name": "Dimensional Transceiver", "nameFr": "Émetteur Dimensionnel", "category": "transport", "description": "Transport items/fluides/RF cross-dim"}
+    ],
+    "conduits": [
+      {"id": "energy_conduit", "name": "Energy Conduit", "nameFr": "Conduit Énergie", "tiers": ["Basic","Enhanced","Ender"], "description": "Transporte RF"},
+      {"id": "fluid_conduit", "name": "Fluid Conduit", "nameFr": "Conduit Fluide", "tiers": ["Basic","Pressurized","Ender"], "description": "Transporte fluides"},
+      {"id": "item_conduit", "name": "Item Conduit", "nameFr": "Conduit Items", "tiers": ["Standard"], "description": "Transporte items"},
+      {"id": "redstone_conduit", "name": "Redstone Conduit", "nameFr": "Conduit Redstone", "tiers": ["Standard","Insulated"], "description": "Signal redstone"},
+      {"id": "me_conduit", "name": "ME Conduit", "nameFr": "Conduit ME", "tiers": ["Standard","Dense"], "description": "Canaux AE2"}
+    ]
+  },
+  "forestry": {
+    "machines": [
+      {"id": "carpenter", "name": "Carpenter", "nameFr": "Menuisier", "category": "crafting", "description": "Craft avec fluides"},
+      {"id": "centrifuge", "name": "Centrifuge", "nameFr": "Centrifugeuse", "category": "processing", "description": "Sépare produits abeilles"},
+      {"id": "squeezer", "name": "Squeezer", "nameFr": "Pressoir", "category": "processing", "description": "Extrait fluides"},
+      {"id": "fermenter", "name": "Fermenter", "nameFr": "Fermenteur", "category": "processing", "description": "Crée biomasse"},
+      {"id": "still", "name": "Still", "nameFr": "Alambic", "category": "processing", "description": "Distille éthanol"},
+      {"id": "bottler", "name": "Bottler", "nameFr": "Embouteilleur", "category": "processing", "description": "Remplit containers"},
+      {"id": "moistener", "name": "Moistener", "nameFr": "Humidificateur", "category": "processing", "description": "Humidifie items"},
+      {"id": "thermionic_fabricator", "name": "Thermionic Fabricator", "nameFr": "Fabricateur Thermionique", "category": "crafting", "description": "Crée tubes électroniques"},
+      {"id": "apiary", "name": "Apiary", "nameFr": "Rucher", "category": "bees", "description": "Élève abeilles"},
+      {"id": "bee_house", "name": "Bee House", "nameFr": "Maison Abeilles", "category": "bees", "description": "Rucher simple"},
+      {"id": "alveary", "name": "Alveary", "nameFr": "Alvéaire", "category": "bees", "description": "Rucher multibloc avancé"},
+      {"id": "analyzer", "name": "Analyzer", "nameFr": "Analyseur", "category": "bees", "description": "Analyse génétique"},
+      {"id": "escritoire", "name": "Escritoire", "nameFr": "Écritoire", "category": "bees", "description": "Recherche mutations"},
+      {"id": "farm_block", "name": "Farm Block", "nameFr": "Bloc Ferme", "category": "farming", "description": "Structure multiferme"},
+      {"id": "biogas_engine", "name": "Biogas Engine", "nameFr": "Moteur Biogaz", "category": "power", "description": "Génère RF avec biomasse"},
+      {"id": "peat_engine", "name": "Peat Engine", "nameFr": "Moteur Tourbe", "category": "power", "description": "Génère RF avec tourbe"},
+      {"id": "electrical_engine", "name": "Electrical Engine", "nameFr": "Moteur Électrique", "category": "power", "description": "Convertit EU en MJ/RF"},
+      {"id": "raintank", "name": "Raintank", "nameFr": "Réservoir Pluie", "category": "utility", "description": "Collecte eau de pluie"}
+    ]
+  },
+  "railcraft": {
+    "machines": [
+      {"id": "rolling_machine", "name": "Rolling Machine", "nameFr": "Laminoir", "category": "processing", "description": "Roule rails et plaques"},
+      {"id": "rock_crusher", "name": "Rock Crusher", "nameFr": "Concasseur Roche", "category": "processing", "description": "Broie pierres et minerais"},
+      {"id": "steam_oven", "name": "Steam Oven", "nameFr": "Four Vapeur", "category": "processing", "description": "Four multibloc vapeur"},
+      {"id": "blast_furnace", "name": "Blast Furnace", "nameFr": "Haut Fourneau", "category": "processing", "description": "Produit acier"},
+      {"id": "coke_oven", "name": "Coke Oven", "nameFr": "Four à Coke", "category": "processing", "description": "Produit charite et créosote"},
+      {"id": "item_loader", "name": "Item Loader", "nameFr": "Chargeur Items", "category": "transport", "description": "Charge wagons"},
+      {"id": "item_unloader", "name": "Item Unloader", "nameFr": "Déchargeur Items", "category": "transport", "description": "Décharge wagons"},
+      {"id": "liquid_loader", "name": "Liquid Loader", "nameFr": "Chargeur Liquides", "category": "transport", "description": "Charge wagons-citernes"},
+      {"id": "liquid_unloader", "name": "Liquid Unloader", "nameFr": "Déchargeur Liquides", "category": "transport", "description": "Décharge wagons-citernes"},
+      {"id": "cart_dispenser", "name": "Cart Dispenser", "nameFr": "Distributeur Wagons", "category": "transport", "description": "Place wagons sur rails"},
+      {"id": "train_dispenser", "name": "Train Dispenser", "nameFr": "Distributeur Trains", "category": "transport", "description": "Place trains entiers"},
+      {"id": "steam_boiler", "name": "Steam Boiler", "nameFr": "Chaudière Vapeur", "category": "power", "description": "Génère vapeur"},
+      {"id": "steam_turbine", "name": "Steam Turbine", "nameFr": "Turbine Vapeur", "category": "power", "description": "Convertit vapeur en RF"},
+      {"id": "feed_station", "name": "Feed Station", "nameFr": "Station Alimentation", "category": "utility", "description": "Nourrit animaux proches"}
+    ]
+  },
+  "galacticraft": {
+    "machines": [
+      {"id": "coal_generator", "name": "Coal Generator", "nameFr": "Générateur Charbon", "category": "power", "description": "Génère énergie avec charbon"},
+      {"id": "basic_solar_panel", "name": "Basic Solar Panel", "nameFr": "Panneau Solaire Basique", "category": "power", "description": "Génère énergie solaire"},
+      {"id": "advanced_solar_panel", "name": "Advanced Solar Panel", "nameFr": "Panneau Solaire Avancé", "category": "power", "description": "Génère plus d'énergie solaire"},
+      {"id": "geothermal_generator", "name": "Geothermal Generator", "nameFr": "Générateur Géothermique", "category": "power", "description": "Génère énergie avec lave"},
+      {"id": "energy_storage", "name": "Energy Storage Module", "nameFr": "Module Stockage Énergie", "category": "power", "description": "Stocke énergie GC"},
+      {"id": "circuit_fabricator", "name": "Circuit Fabricator", "nameFr": "Fabricateur Circuits", "category": "processing", "description": "Crée circuits spatiaux"},
+      {"id": "compressor", "name": "Compressor", "nameFr": "Compresseur", "category": "processing", "description": "Compresse plaques"},
+      {"id": "electric_compressor", "name": "Electric Compressor", "nameFr": "Compresseur Électrique", "category": "processing", "description": "Compresse automatiquement"},
+      {"id": "electric_furnace", "name": "Electric Furnace", "nameFr": "Four Électrique", "category": "processing", "description": "Four galactique"},
+      {"id": "arc_furnace", "name": "Electric Arc Furnace", "nameFr": "Four Arc Électrique", "category": "processing", "description": "Fond métaux efficacement"},
+      {"id": "refinery", "name": "Refinery", "nameFr": "Raffinerie", "category": "processing", "description": "Raffine pétrole en carburant"},
+      {"id": "nasa_workbench", "name": "NASA Workbench", "nameFr": "Établi NASA", "category": "crafting", "description": "Construit fusées et véhicules"},
+      {"id": "oxygen_collector", "name": "Oxygen Collector", "nameFr": "Collecteur Oxygène", "category": "life_support", "description": "Collecte oxygène des feuilles"},
+      {"id": "oxygen_compressor", "name": "Oxygen Compressor", "nameFr": "Compresseur Oxygène", "category": "life_support", "description": "Remplit réservoirs O2"},
+      {"id": "oxygen_sealer", "name": "Oxygen Sealer", "nameFr": "Scelleur Oxygène", "category": "life_support", "description": "Scelle pièces avec O2"},
+      {"id": "fuel_loader", "name": "Fuel Loader", "nameFr": "Chargeur Carburant", "category": "transport", "description": "Charge fusées"},
+      {"id": "cargo_loader", "name": "Cargo Loader", "nameFr": "Chargeur Cargo", "category": "transport", "description": "Charge cargo fusées"},
+      {"id": "launch_pad", "name": "Launch Pad", "nameFr": "Plateforme Lancement", "category": "transport", "description": "Plateforme décollage"},
+      {"id": "terraformer", "name": "Terraformer", "nameFr": "Terraformeur", "category": "utility", "description": "Modifie environnement planète"},
+      {"id": "cryogenic_chamber", "name": "Cryogenic Chamber", "nameFr": "Chambre Cryogénique", "category": "utility", "description": "Saute temps voyage spatial"}
+    ]
+  },
+  "bloodmagic": {
+    "machines": [
+      {"id": "blood_altar", "name": "Blood Altar", "nameFr": "Autel de Sang", "category": "core", "description": "Craft principal et source LP"},
+      {"id": "alchemic_chemistry_set", "name": "Alchemic Chemistry Set", "nameFr": "Set Chimie Alchimique", "category": "crafting", "description": "Crée potions et réactifs"},
+      {"id": "soul_forge", "name": "Soul Forge", "nameFr": "Forge d'Âmes", "category": "crafting", "description": "Crée items âme"},
+      {"id": "teleposer", "name": "Teleposer", "nameFr": "Téléposeur", "category": "utility", "description": "Téléporte blocs/entités"},
+      {"id": "spell_table", "name": "Spell Table", "nameFr": "Table Sorts", "category": "crafting", "description": "Crée sorts"},
+      {"id": "ritual_stone", "name": "Ritual Stone", "nameFr": "Pierre Rituelle", "category": "ritual", "description": "Compose rituels"},
+      {"id": "master_ritual_stone", "name": "Master Ritual Stone", "nameFr": "Pierre Rituelle Maître", "category": "ritual", "description": "Centre des rituels"},
+      {"id": "incense_altar", "name": "Incense Altar", "nameFr": "Autel Encens", "category": "utility", "description": "Boost sacrifice"},
+      {"id": "demon_crystal", "name": "Demon Crystal", "nameFr": "Cristal Démon", "category": "utility", "description": "Génère will démon"},
+      {"id": "routing_node", "name": "Routing Node", "nameFr": "Noeud Routage", "category": "transport", "description": "Connecte items LP réseau"}
+    ],
+    "runes": [
+      {"id": "speed_rune", "name": "Speed Rune", "nameFr": "Rune Vitesse", "effect": "Accélère altar"},
+      {"id": "capacity_rune", "name": "Capacity Rune", "nameFr": "Rune Capacité", "effect": "Augmente capacité LP"},
+      {"id": "sacrifice_rune", "name": "Sacrifice Rune", "nameFr": "Rune Sacrifice", "effect": "Boost sacrifice mobs"},
+      {"id": "self_sacrifice_rune", "name": "Self-Sacrifice Rune", "nameFr": "Rune Auto-Sacrifice", "effect": "Boost auto-sacrifice"},
+      {"id": "dislocation_rune", "name": "Dislocation Rune", "nameFr": "Rune Dislocation", "effect": "Transfert LP automatique"},
+      {"id": "orb_rune", "name": "Orb Rune", "nameFr": "Rune Orbe", "effect": "Boost recharge orbe"}
+    ]
+  },
+  "botania": {
+    "devices": [
+      {"id": "mana_pool", "name": "Mana Pool", "nameFr": "Bassin Mana", "category": "storage", "description": "Stocke mana"},
+      {"id": "mana_spreader", "name": "Mana Spreader", "nameFr": "Émetteur Mana", "category": "transport", "description": "Tire bursts mana"},
+      {"id": "mana_distributor", "name": "Mana Distributor", "nameFr": "Distributeur Mana", "category": "transport", "description": "Distribue mana équitablement"},
+      {"id": "spark", "name": "Spark", "nameFr": "Étincelle", "category": "transport", "description": "Transfert mana sans câbles"},
+      {"id": "runic_altar", "name": "Runic Altar", "nameFr": "Autel Runique", "category": "crafting", "description": "Crée runes"},
+      {"id": "petal_apothecary", "name": "Petal Apothecary", "nameFr": "Apothicaire Pétales", "category": "crafting", "description": "Crée fleurs"},
+      {"id": "alfheim_portal", "name": "Alfheim Portal", "nameFr": "Portail Alfheim", "category": "utility", "description": "Commerce avec Alfheim"},
+      {"id": "terrestrial_agglomeration", "name": "Terrestrial Agglomeration Plate", "nameFr": "Plaque Agglomération", "category": "crafting", "description": "Crée terrasteel"},
+      {"id": "open_crate", "name": "Open Crate", "nameFr": "Caisse Ouverte", "category": "automation", "description": "Lâche items"},
+      {"id": "crafty_crate", "name": "Crafty Crate", "nameFr": "Caisse Rusée", "category": "automation", "description": "Craft automatique"},
+      {"id": "hopperhock", "name": "Hopperhock", "nameFr": "Hopperhock", "category": "automation", "description": "Collecte items au sol"},
+      {"id": "rannuncarpus", "name": "Rannuncarpus", "nameFr": "Rannuncarpus", "category": "automation", "description": "Place blocs"},
+      {"id": "orechid", "name": "Orechid", "nameFr": "Orechid", "category": "generation", "description": "Génère minerais"},
+      {"id": "orechid_ignem", "name": "Orechid Ignem", "nameFr": "Orechid Ignem", "category": "generation", "description": "Génère minerais nether"},
+      {"id": "endoflame", "name": "Endoflame", "nameFr": "Endoflame", "category": "generation", "description": "Génère mana avec charbon"},
+      {"id": "thermalily", "name": "Thermalily", "nameFr": "Thermalily", "category": "generation", "description": "Génère mana avec lave"},
+      {"id": "rosa_arcana", "name": "Rosa Arcana", "nameFr": "Rosa Arcana", "category": "generation", "description": "Génère mana avec XP"},
+      {"id": "gourmaryllis", "name": "Gourmaryllis", "nameFr": "Gourmaryllis", "category": "generation", "description": "Génère mana avec nourriture"},
+      {"id": "kekimurus", "name": "Kekimurus", "nameFr": "Kekimurus", "category": "generation", "description": "Génère mana avec gâteaux"},
+      {"id": "entropinnyum", "name": "Entropinnyum", "nameFr": "Entropinnyum", "category": "generation", "description": "Génère mana avec TNT"},
+      {"id": "agricarnation", "name": "Agricarnation", "nameFr": "Agricarnation", "category": "utility", "description": "Accélère croissance"},
+      {"id": "bellethorne", "name": "Bellethorne", "nameFr": "Bellethorne", "category": "utility", "description": "Blesse mobs hostiles"},
+      {"id": "corporea_index", "name": "Corporea Index", "nameFr": "Index Corporea", "category": "storage", "description": "Interface vocale stockage"},
+      {"id": "corporea_spark", "name": "Corporea Spark", "nameFr": "Étincelle Corporea", "category": "storage", "description": "Connecte au réseau corporea"}
+    ]
+  },
+  "ic2": {
+    "machines": [
+      {"id": "macerator", "name": "Macerator", "nameFr": "Macérateur", "category": "processing", "description": "Double minerais"},
+      {"id": "extractor", "name": "Extractor", "nameFr": "Extracteur", "category": "processing", "description": "Extrait caoutchouc"},
+      {"id": "compressor", "name": "Compressor", "nameFr": "Compresseur", "category": "processing", "description": "Compresse items"},
+      {"id": "electric_furnace", "name": "Electric Furnace", "nameFr": "Four Électrique", "category": "processing", "description": "Four EU"},
+      {"id": "canning_machine", "name": "Canning Machine", "nameFr": "Machine Mise en Boîte", "category": "processing", "description": "Remplit containers"},
+      {"id": "metal_former", "name": "Metal Former", "nameFr": "Formeur Métal", "category": "processing", "description": "Forme plaques/câbles"},
+      {"id": "ore_washing_plant", "name": "Ore Washing Plant", "nameFr": "Laveur Minerai", "category": "processing", "description": "Lave minerais"},
+      {"id": "thermal_centrifuge", "name": "Thermal Centrifuge", "nameFr": "Centrifugeuse Thermique", "category": "processing", "description": "Centrifuge chaude"},
+      {"id": "recycler", "name": "Recycler", "nameFr": "Recycleur", "category": "utility", "description": "Crée scrap"},
+      {"id": "mass_fabricator", "name": "Mass Fabricator", "nameFr": "Fabricateur Masse", "category": "utility", "description": "Crée UU-Matter"},
+      {"id": "generator", "name": "Generator", "nameFr": "Générateur", "category": "power", "description": "Génère EU avec charbon"},
+      {"id": "geothermal_generator", "name": "Geothermal Generator", "nameFr": "Générateur Géothermique", "category": "power", "description": "Génère EU avec lave"},
+      {"id": "solar_panel", "name": "Solar Panel", "nameFr": "Panneau Solaire", "category": "power", "description": "Génère EU solaire"},
+      {"id": "wind_generator", "name": "Wind Generator", "nameFr": "Éolienne", "category": "power", "description": "Génère EU avec vent"},
+      {"id": "water_generator", "name": "Water Generator", "nameFr": "Hydrolienne", "category": "power", "description": "Génère EU avec eau"},
+      {"id": "nuclear_reactor", "name": "Nuclear Reactor", "nameFr": "Réacteur Nucléaire", "category": "power", "description": "Génère massive EU"},
+      {"id": "mfsu", "name": "MFSU", "nameFr": "MFSU", "category": "storage", "description": "Stockage EU haute capacité"},
+      {"id": "mfe", "name": "MFE", "nameFr": "MFE", "category": "storage", "description": "Stockage EU moyen"},
+      {"id": "batbox", "name": "BatBox", "nameFr": "BatBox", "category": "storage", "description": "Stockage EU basique"},
+      {"id": "transformer", "name": "Transformer", "nameFr": "Transformateur", "category": "power", "description": "Convertit voltage"}
+    ]
+  }
+}
