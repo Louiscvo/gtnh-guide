@@ -1,0 +1,562 @@
+{
+  "singleblocks": {
+    "processing": [
+      {"name": "Assembler", "tiers": ["LV", "MV", "HV", "EV", "IV", "LuV", "ZPM", "UV"], "function": "Assemble components into items", "euPerTick": "varies by tier"},
+      {"name": "Circuit Assembler", "tiers": ["LV", "MV", "HV", "EV", "IV", "LuV", "ZPM", "UV"], "function": "Assemble circuits", "priority": "high"},
+      {"name": "Mixer", "tiers": ["LV", "MV", "HV", "EV", "IV"], "function": "Mix materials together"},
+      {"name": "Laser Engraver", "tiers": ["MV", "HV", "EV", "IV", "LuV", "ZPM", "UV"], "function": "Engrave wafers and circuits"},
+      {"name": "Cutting Machine", "tiers": ["LV", "MV", "HV", "EV", "IV"], "function": "Cut materials into shapes"},
+      {"name": "Slicer", "tiers": ["LV", "MV", "HV", "EV"], "function": "Slice materials"},
+      {"name": "Compressor", "tiers": ["LV", "MV", "HV", "EV", "IV"], "function": "Compress items into blocks"},
+      {"name": "Autoclave", "tiers": ["LV", "MV", "HV", "EV", "IV", "LuV", "ZPM", "UV"], "function": "Process materials under pressure"},
+      {"name": "Auto Workbench", "tiers": ["LV"], "function": "Automated crafting table"}
+    ],
+    "forging": [
+      {"name": "Bending Machine", "tiers": ["LV", "MV", "HV", "EV", "IV"], "function": "Create plates, rods, cables", "priority": "high"},
+      {"name": "Forming Press", "tiers": ["LV", "MV", "HV", "EV", "IV"], "function": "Form materials into shapes"},
+      {"name": "Forge Hammer", "tiers": ["LV", "MV", "HV", "EV", "IV"], "function": "Crush ores, create plates (2 plates from 3 ingots)"},
+      {"name": "Extruder", "tiers": ["MV", "HV", "EV", "IV", "LuV"], "function": "Extrude materials into shapes"},
+      {"name": "Lathe", "tiers": ["LV", "MV", "HV", "EV", "IV"], "function": "Create rods and bolts"},
+      {"name": "Wiremill", "tiers": ["LV", "MV", "HV", "EV", "IV"], "function": "Produce wires for cables", "priority": "high"},
+      {"name": "Fluid Solidifier", "tiers": ["LV", "MV", "HV", "EV", "IV"], "function": "Solidify fluids into items"},
+      {"name": "Tool Cast", "tiers": ["LV"], "function": "Cast tools from molten metal"}
+    ],
+    "separating": [
+      {"name": "Extractor", "tiers": ["LV", "MV", "HV", "EV", "IV"], "function": "Extract items from blocks"},
+      {"name": "Fluid Extractor", "tiers": ["LV", "MV", "HV", "EV", "IV"], "function": "Extract fluids from items"},
+      {"name": "Centrifuge", "tiers": ["LV", "MV", "HV", "EV", "IV"], "function": "Separate materials by density"},
+      {"name": "Electrolyzer", "tiers": ["LV", "MV", "HV", "EV", "IV"], "function": "Electrolyze materials", "priority": "high"},
+      {"name": "Electromagnetic Separator", "tiers": ["LV", "MV", "HV", "EV", "IV"], "function": "Separate magnetic materials"},
+      {"name": "Electromagnetic Polarizer", "tiers": ["LV", "MV", "HV", "EV", "IV"], "function": "Polarize materials"},
+      {"name": "Dehydrator", "tiers": ["MV", "HV", "EV", "IV"], "function": "Remove water from materials"}
+    ],
+    "chemistry": [
+      {"name": "Chemical Reactor", "tiers": ["LV", "MV", "HV", "EV", "IV"], "function": "Chemical reactions", "priority": "high"},
+      {"name": "Distillery", "tiers": ["LV", "MV", "HV", "EV", "IV"], "function": "Distill fluids"},
+      {"name": "Brewery", "tiers": ["LV", "MV", "HV"], "function": "Brew potions and fluids"},
+      {"name": "Fermenter", "tiers": ["LV", "MV", "HV", "EV"], "function": "Ferment materials"},
+      {"name": "Bio Lab", "tiers": ["HV", "EV", "IV"], "function": "Biological processing"},
+      {"name": "Cold Trap", "tiers": ["HV", "EV", "IV"], "function": "Cool materials"},
+      {"name": "Reactor Processing Unit", "tiers": ["EV", "IV", "LuV"], "function": "Process nuclear materials"}
+    ],
+    "heating": [
+      {"name": "Electric Furnace", "tiers": ["LV", "MV", "HV", "EV", "IV"], "function": "Smelt items"},
+      {"name": "Electric Oven", "tiers": ["LV", "MV", "HV"], "function": "Cook food"},
+      {"name": "Microwave", "tiers": ["LV", "MV"], "function": "Quick heating"},
+      {"name": "Alloy Smelter", "tiers": ["LV", "MV", "HV", "EV", "IV"], "function": "Smelt alloys", "priority": "high"},
+      {"name": "Fluid Heater", "tiers": ["LV", "MV", "HV", "EV", "IV"], "function": "Heat fluids"},
+      {"name": "Arc Furnace", "tiers": ["LV", "MV", "HV", "EV", "IV"], "function": "Melt metals quickly"},
+      {"name": "Plasma Arc Furnace", "tiers": ["IV", "LuV", "ZPM", "UV"], "function": "Melt with plasma"}
+    ],
+    "oreProcessing": [
+      {"name": "Seismic Prospector", "tiers": ["LV", "MV", "HV", "EV"], "function": "Find ore veins underground"},
+      {"name": "Pump", "tiers": ["LV", "MV", "HV", "EV", "IV"], "function": "Pump fluids from ground"},
+      {"name": "Miner", "tiers": ["LV", "MV", "HV", "EV", "IV"], "function": "Automated mining"},
+      {"name": "Macerator", "tiers": ["LV", "MV", "HV", "EV", "IV"], "function": "Double ore yield", "priority": "critical"},
+      {"name": "Simple Washer", "tiers": ["LV"], "function": "Basic ore washing"},
+      {"name": "Ore Washer", "tiers": ["LV", "MV", "HV", "EV", "IV"], "function": "Wash ores for better yields"},
+      {"name": "Chemical Bath", "tiers": ["LV", "MV", "HV", "EV", "IV"], "function": "Process ores with chemicals"},
+      {"name": "Sifter", "tiers": ["LV", "MV", "HV", "EV", "IV"], "function": "Sift materials"},
+      {"name": "Thermal Centrifuge", "tiers": ["MV", "HV", "EV", "IV"], "function": "Heat and centrifuge ores"}
+    ],
+    "packaging": [
+      {"name": "Canner", "tiers": ["LV", "MV", "HV", "EV"], "function": "Can items"},
+      {"name": "Fluid Canner", "tiers": ["LV", "MV", "HV", "EV", "IV"], "function": "Can fluids"},
+      {"name": "Packager", "tiers": ["LV", "MV", "HV", "EV"], "function": "Package items"},
+      {"name": "Unpackager", "tiers": ["LV", "MV", "HV", "EV"], "function": "Unpackage items"}
+    ],
+    "fabricating": [
+      {"name": "Recycler", "tiers": ["LV", "MV", "HV", "EV", "IV"], "function": "Recycle items into scrap"},
+      {"name": "Matter Amplifier", "tiers": ["EV", "IV", "LuV"], "function": "Amplify UU-Matter production"},
+      {"name": "Mass Fabricator", "tiers": ["EV", "IV", "LuV", "ZPM", "UV"], "function": "Create UU-Matter"},
+      {"name": "Replicator", "tiers": ["EV", "IV", "LuV", "ZPM", "UV"], "function": "Replicate items from UU-Matter"}
+    ],
+    "crops": [
+      {"name": "Crop Manager", "tiers": ["LV", "MV", "HV"], "function": "Manage IC2 crops"},
+      {"name": "Crop Weed Picker", "tiers": ["LV", "MV", "HV"], "function": "Remove weeds automatically"},
+      {"name": "Crop Gene Extractor", "tiers": ["MV", "HV", "EV"], "function": "Extract crop genes"},
+      {"name": "Crop Synthesizer", "tiers": ["HV", "EV", "IV"], "function": "Synthesize new crops"},
+      {"name": "Crop Replicator", "tiers": ["EV", "IV"], "function": "Replicate crops"}
+    ],
+    "other": [
+      {"name": "World Accelerator", "tiers": ["LV", "MV", "HV", "EV", "IV", "LuV", "ZPM", "UV"], "function": "Accelerate block updates"},
+      {"name": "Rock Breaker", "tiers": ["LV", "MV", "HV", "EV", "IV"], "function": "Generate cobblestone/stone"},
+      {"name": "Locker", "tiers": ["LV"], "function": "Store and auto-equip armor"},
+      {"name": "Wireless Charger", "tiers": ["LV", "MV", "HV", "EV", "IV"], "function": "Charge items in inventory"},
+      {"name": "Pollution Scrubber", "tiers": ["LV", "MV", "HV", "EV", "IV"], "function": "Remove pollution"},
+      {"name": "Scanner", "tiers": ["HV", "EV", "IV", "LuV"], "function": "Scan items for replication"},
+      {"name": "Printer", "tiers": ["LV", "MV", "HV"], "function": "Print data"},
+      {"name": "Monster Repellator", "tiers": ["LV", "MV", "HV", "EV", "IV"], "function": "Repel hostile mobs"}
+    ]
+  },
+  "multiblocks": [
+    {
+      "name": "Electric Blast Furnace",
+      "id": "ebf",
+      "category": "processing",
+      "unlockTier": "LV",
+      "description": "Essential multiblock for smelting high-temperature materials",
+      "structure": {
+        "dimensions": "3x3x4",
+        "controller": "Electric Blast Furnace Controller",
+        "mainBlocks": "Heat Proof Machine Casing",
+        "coils": ["Cupronickel (1800K)", "Kanthal (2700K)", "Nichrome (3600K)", "TPV-Alloy (4500K)", "HSS-G (5400K)", "Naquadah (7200K)", "Naquadah Alloy (8600K)", "Trinium (9900K)", "Tritanium (10800K)"]
+      },
+      "hatches": ["Input Bus", "Output Bus", "Input Hatch", "Output Hatch", "Energy Hatch", "Maintenance Hatch", "Muffler Hatch"],
+      "tips": ["All coils must be same tier", "Muffler Hatch on top center", "Output Hatch collects fluids (bottom) or gases (top)"],
+      "wikiUrl": "https://gtnh.miraheze.org/wiki/Electric_Blast_Furnace",
+      "imageUrl": "https://static.wikitide.net/gtnhwiki/4/4c/EBF.png"
+    },
+    {
+      "name": "Bricked Blast Furnace",
+      "id": "bbf",
+      "category": "processing",
+      "unlockTier": "Steam",
+      "description": "First multiblock - produces steel without electricity",
+      "structure": {
+        "dimensions": "3x3x4",
+        "controller": "Bricked Blast Furnace Controller",
+        "mainBlocks": "Firebricks"
+      },
+      "wikiUrl": "https://gtnh.miraheze.org/wiki/Bricked_Blast_Furnace"
+    },
+    {
+      "name": "Coke Oven",
+      "id": "coke_oven",
+      "category": "processing",
+      "unlockTier": "Steam",
+      "description": "Produces coke and creosote oil",
+      "wikiUrl": "https://gtnh.miraheze.org/wiki/Coke_Oven"
+    },
+    {
+      "name": "Pyrolyse Oven",
+      "id": "pyrolyse_oven",
+      "category": "processing",
+      "unlockTier": "MV",
+      "description": "Produces charcoal and wood gas, essential for ethylene",
+      "wikiUrl": "https://gtnh.miraheze.org/wiki/Pyrolyse_Oven"
+    },
+    {
+      "name": "Large Chemical Reactor",
+      "id": "lcr",
+      "category": "processing",
+      "unlockTier": "HV",
+      "description": "Perfect overclocks - critical for chemical production",
+      "bonus": "Perfect overclocks (4x speed for 4x power)",
+      "wikiUrl": "https://gtnh.miraheze.org/wiki/Large_Chemical_Reactor"
+    },
+    {
+      "name": "Distillation Tower",
+      "id": "distillation_tower",
+      "category": "processing",
+      "unlockTier": "HV",
+      "description": "Efficient oil and fluid distillation",
+      "cost": "~56 stainless steel per layer",
+      "wikiUrl": "https://gtnh.miraheze.org/wiki/Distillation_Tower"
+    },
+    {
+      "name": "Vacuum Freezer",
+      "id": "vacuum_freezer",
+      "category": "processing",
+      "unlockTier": "HV",
+      "description": "Freeze materials - critical for Titanium",
+      "wikiUrl": "https://gtnh.miraheze.org/wiki/Vacuum_Freezer"
+    },
+    {
+      "name": "Oil Cracking Unit",
+      "id": "oil_cracker",
+      "category": "processing",
+      "unlockTier": "HV",
+      "description": "Crack oil for more efficient fuel",
+      "wikiUrl": "https://gtnh.miraheze.org/wiki/Oil_Cracking_Unit"
+    },
+    {
+      "name": "Implosion Compressor",
+      "id": "implosion_compressor",
+      "category": "processing",
+      "unlockTier": "HV",
+      "description": "Use TNT/ITNT to compress materials",
+      "wikiUrl": "https://gtnh.miraheze.org/wiki/Implosion_Compressor"
+    },
+    {
+      "name": "Cleanroom",
+      "id": "cleanroom",
+      "category": "utility",
+      "unlockTier": "HV",
+      "description": "Required for advanced circuit production",
+      "structure": {
+        "dimensions": "Variable (min 3x3x4)",
+        "mainBlocks": "Plascrete, Filter Casing"
+      },
+      "wikiUrl": "https://gtnh.miraheze.org/wiki/Cleanroom"
+    },
+    {
+      "name": "Assembly Line",
+      "id": "assembly_line",
+      "category": "processing",
+      "unlockTier": "IV",
+      "description": "Complex crafts - gateway to LuV tier",
+      "structure": {
+        "dimensions": "Variable length",
+        "mainBlocks": "Assembly Line Casing"
+      },
+      "wikiUrl": "https://gtnh.miraheze.org/wiki/Assembly_Line"
+    },
+    {
+      "name": "Precise Assembler",
+      "id": "precise_assembler",
+      "category": "processing",
+      "unlockTier": "IV",
+      "description": "Double speed, 16 parallels for assembly",
+      "bonus": "200% speed, 16 parallels"
+    },
+    {
+      "name": "Volcanus",
+      "id": "volcanus",
+      "category": "processing",
+      "unlockTier": "IV",
+      "description": "Improved EBF, requires Blazing Pyrotheum",
+      "bonus": "20% faster, 90% EU, 8 parallels all tiers"
+    },
+    {
+      "name": "Mega Vacuum Freezer",
+      "id": "mega_vacuum_freezer",
+      "category": "processing",
+      "unlockTier": "IV",
+      "description": "256 parallel recipes",
+      "bonus": "256 parallels"
+    },
+    {
+      "name": "Industrial Centrifuge",
+      "id": "industrial_centrifuge",
+      "category": "gt++",
+      "unlockTier": "EV",
+      "description": "Mass centrifugation",
+      "bonus": "125% faster, 90% EU, 6 parallels/tier"
+    },
+    {
+      "name": "Industrial Electrolyzer",
+      "id": "industrial_electrolyzer",
+      "category": "gt++",
+      "unlockTier": "EV",
+      "description": "Mass electrolysis",
+      "bonus": "180% faster, 90% EU, 2 parallels/tier"
+    },
+    {
+      "name": "Industrial Mixing Machine",
+      "id": "industrial_mixer",
+      "category": "gt++",
+      "unlockTier": "EV",
+      "description": "Mass mixing",
+      "bonus": "250% faster, 100% EU, 8 parallels/tier"
+    },
+    {
+      "name": "Industrial Maceration Stack",
+      "id": "maceration_stack",
+      "category": "gt++",
+      "unlockTier": "EV",
+      "description": "Mass ore crushing",
+      "bonus": "60% faster, 100% EU, 8 parallels/tier"
+    },
+    {
+      "name": "Industrial Wire Factory",
+      "id": "wire_factory",
+      "category": "gt++",
+      "unlockTier": "IV",
+      "description": "Automated wire production",
+      "bonus": "200% faster, 75% EU, 4 parallels/tier"
+    },
+    {
+      "name": "Ore Washing Plant",
+      "id": "ore_washing_plant",
+      "category": "gt++",
+      "unlockTier": "EV",
+      "description": "Large-scale ore washing",
+      "bonus": "400% faster, 100% EU, 4 parallels/tier"
+    },
+    {
+      "name": "Large Sifter",
+      "id": "large_sifter",
+      "category": "gt++",
+      "unlockTier": "EV",
+      "description": "Mass sifting",
+      "bonus": "400% faster, 75% EU, 4 parallels/tier"
+    },
+    {
+      "name": "Cryogenic Freezer",
+      "id": "cryogenic_freezer",
+      "category": "gt++",
+      "unlockTier": "EV",
+      "description": "Advanced freezing",
+      "bonus": "100% faster, 100% EU, 4 parallels all tiers"
+    },
+    {
+      "name": "Fusion Reactor Mk I",
+      "id": "fusion_mk1",
+      "category": "generator",
+      "unlockTier": "LuV",
+      "description": "First fusion - produces Europium, Helium Plasma, Duranium",
+      "outputs": ["Europium", "Helium Plasma", "Duranium"],
+      "wikiUrl": "https://gtnh.miraheze.org/wiki/Fusion_Reactor"
+    },
+    {
+      "name": "Fusion Reactor Mk II",
+      "id": "fusion_mk2",
+      "category": "generator",
+      "unlockTier": "ZPM",
+      "description": "Advanced fusion - produces Americium",
+      "outputs": ["Americium"],
+      "wikiUrl": "https://gtnh.miraheze.org/wiki/Fusion_Reactor"
+    },
+    {
+      "name": "Fusion Reactor Mk III",
+      "id": "fusion_mk3",
+      "category": "generator",
+      "unlockTier": "UV",
+      "description": "Ultimate fusion - advanced plasma recipes",
+      "wikiUrl": "https://gtnh.miraheze.org/wiki/Fusion_Reactor"
+    },
+    {
+      "name": "Neutron Activator",
+      "id": "neutron_activator",
+      "category": "processing",
+      "unlockTier": "LuV",
+      "description": "Naquadah processing hub"
+    },
+    {
+      "name": "Circuit Assembly Line",
+      "id": "circuit_assembly_line",
+      "category": "processing",
+      "unlockTier": "LuV",
+      "description": "Advanced circuit production"
+    },
+    {
+      "name": "Cyclotron",
+      "id": "cyclotron",
+      "category": "processing",
+      "unlockTier": "LuV",
+      "description": "Particle production"
+    },
+    {
+      "name": "Hot Isostatic Pressurization Unit",
+      "id": "hip",
+      "category": "processing",
+      "unlockTier": "ZPM",
+      "description": "Creates superdense plates for ZPM+"
+    },
+    {
+      "name": "Large Naquadah Reactor",
+      "id": "large_naquadah_reactor",
+      "category": "generator",
+      "unlockTier": "ZPM",
+      "description": "42.9M-101.2M EU/t depending on fuel",
+      "euOutput": "42.9M-101.2M EU/t"
+    },
+    {
+      "name": "Void Miner",
+      "id": "void_miner",
+      "category": "resource",
+      "unlockTier": "ZPM",
+      "description": "Infinite ore generation in any dimension"
+    },
+    {
+      "name": "Data Bank",
+      "id": "data_bank",
+      "category": "utility",
+      "unlockTier": "ZPM",
+      "description": "Distribute data sticks for Assembly Lines"
+    },
+    {
+      "name": "Research Station",
+      "id": "research_station",
+      "category": "processing",
+      "unlockTier": "UV",
+      "description": "Replaces Scanner for Assembly Line recipe scans"
+    },
+    {
+      "name": "Quantum Computer",
+      "id": "quantum_computer",
+      "category": "processing",
+      "unlockTier": "UV",
+      "description": "Produces computation for Research Station"
+    },
+    {
+      "name": "Bacterial Vat",
+      "id": "bacterial_vat",
+      "category": "processing",
+      "unlockTier": "UV",
+      "description": "Required for Wetware circuits"
+    },
+    {
+      "name": "PCB Factory",
+      "id": "pcb_factory",
+      "category": "processing",
+      "unlockTier": "UV",
+      "description": "Creates Wetware Circuit Boards with Biochamber"
+    },
+    {
+      "name": "Component Assembly Line",
+      "id": "component_assembly_line",
+      "category": "processing",
+      "unlockTier": "UV",
+      "description": "Assembles motors, arms, sensors - 25% discount",
+      "bonus": "25% resource/time discount"
+    },
+    {
+      "name": "Space Elevator",
+      "id": "space_elevator",
+      "category": "resource",
+      "unlockTier": "UV",
+      "description": "Modular mining system using computation and plasma"
+    },
+    {
+      "name": "Nano Forge",
+      "id": "nano_forge",
+      "category": "processing",
+      "unlockTier": "UV",
+      "description": "Fabricates nanites for circuit advancement"
+    },
+    {
+      "name": "Matter Fabrication CPU",
+      "id": "matter_fab_cpu",
+      "category": "processing",
+      "unlockTier": "UV",
+      "description": "Produces UU-Matter at scale with parallels"
+    },
+    {
+      "name": "Mothership",
+      "id": "mothership",
+      "category": "endgame",
+      "unlockTier": "UHV",
+      "description": "Endgame structure for Tier 9 planets and UEV"
+    },
+    {
+      "name": "Electric Implosion Compressor",
+      "id": "electric_implosion",
+      "category": "processing",
+      "unlockTier": "UHV",
+      "description": "Energy-based alternative to TNT compressor"
+    },
+    {
+      "name": "Integrated Ore Factory",
+      "id": "integrated_ore_factory",
+      "category": "processing",
+      "unlockTier": "UHV",
+      "description": "Processes thousands of ores per second"
+    },
+    {
+      "name": "Compact Fusion Reactors",
+      "id": "compact_fusion",
+      "category": "generator",
+      "unlockTier": "UHV",
+      "description": "64 reactors condensed into one multiblock"
+    },
+    {
+      "name": "Stargate",
+      "id": "stargate",
+      "category": "endgame",
+      "unlockTier": "MAX",
+      "description": "Ultimate goal - reward for most dedicated players"
+    },
+    {
+      "name": "Large Boiler (Bronze)",
+      "id": "large_boiler_bronze",
+      "category": "generator",
+      "unlockTier": "Steam",
+      "description": "400 EU/t equivalent steam",
+      "euOutput": "400 EU/t"
+    },
+    {
+      "name": "Large Boiler (Steel)",
+      "id": "large_boiler_steel",
+      "category": "generator",
+      "unlockTier": "LV",
+      "description": "1000 EU/t equivalent steam",
+      "euOutput": "1000 EU/t"
+    },
+    {
+      "name": "Large Gas Turbine",
+      "id": "large_gas_turbine",
+      "category": "generator",
+      "unlockTier": "EV",
+      "description": "Efficient gas-based power"
+    },
+    {
+      "name": "Large Steam Turbine",
+      "id": "large_steam_turbine",
+      "category": "generator",
+      "unlockTier": "HV",
+      "description": "Steam-based power generation"
+    },
+    {
+      "name": "Large Combustion Engine",
+      "id": "large_combustion_engine",
+      "category": "generator",
+      "unlockTier": "EV",
+      "description": "Fuel-based power generation"
+    },
+    {
+      "name": "Extreme Combustion Engine",
+      "id": "extreme_combustion_engine",
+      "category": "generator",
+      "unlockTier": "IV",
+      "description": "High-output combustion"
+    },
+    {
+      "name": "Large Plasma Turbine",
+      "id": "large_plasma_turbine",
+      "category": "generator",
+      "unlockTier": "LuV",
+      "description": "2,560,000 EU/t with helium plasma on MK3",
+      "euOutput": "2,560,000 EU/t"
+    },
+    {
+      "name": "XL Turbo Gas Turbine",
+      "id": "xl_gas_turbine",
+      "category": "generator",
+      "unlockTier": "LuV",
+      "description": "Massive gas-based power"
+    },
+    {
+      "name": "XL Plasma Turbine",
+      "id": "xl_plasma_turbine",
+      "category": "generator",
+      "unlockTier": "LuV",
+      "description": "5,480,928 EU/t with tin plasma on MK3",
+      "euOutput": "5,480,928 EU/t"
+    },
+    {
+      "name": "Nuclear Reactor",
+      "id": "nuclear_reactor",
+      "category": "generator",
+      "unlockTier": "EV",
+      "description": "IC2 nuclear power - variable output"
+    },
+    {
+      "name": "Lapotronic Supercapacitor",
+      "id": "lapotronic_supercapacitor",
+      "category": "storage",
+      "unlockTier": "EV",
+      "description": "Massive energy storage"
+    },
+    {
+      "name": "Active Transformer",
+      "id": "active_transformer",
+      "category": "utility",
+      "unlockTier": "ZPM",
+      "description": "Laser power distribution"
+    }
+  ],
+  "steamMachines": [
+    {"name": "Small Coal Boiler", "type": "generator", "output": "6 L/t steam (3 EU/t)"},
+    {"name": "High Pressure Coal Boiler", "type": "generator", "output": "15 L/t steam (7.5 EU/t)"},
+    {"name": "Simple Solar Boiler", "type": "generator", "output": "6 L/t steam (3 EU/t)"},
+    {"name": "High Pressure Solar Boiler", "type": "generator", "output": "18 L/t steam (9 EU/t)"},
+    {"name": "High Pressure Lava Boiler", "type": "generator", "output": "30 L/t steam (15 EU/t)"},
+    {"name": "Steam Alloy Smelter", "type": "processor", "steamUsage": "32 L/t max"},
+    {"name": "Steam Forge Hammer", "type": "processor", "steamUsage": "32 L/t"},
+    {"name": "Steam Macerator", "type": "processor", "steamUsage": "4 L/t"},
+    {"name": "Steam Extractor", "type": "processor", "steamUsage": "4 L/t"},
+    {"name": "Steam Compressor", "type": "processor", "steamUsage": "4 L/t"}
+  ]
+}

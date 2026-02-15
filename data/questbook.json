@@ -1,0 +1,215 @@
+{
+  "questbook": {
+    "overview": {
+      "totalQuests": 3900,
+      "system": "Better Questing",
+      "hotkeyDefault": "Open Quests (configurable)",
+      "onlineVersion": "https://gtnhquestsbook.top"
+    },
+    "questTypes": {
+      "retrieval": "Have required items in inventory",
+      "crafting": "Must actually craft the item (not just have it)",
+      "secret": "Only show after specific action or obtaining item"
+    },
+    "features": [
+      "Search button (bottom left) - search quest names AND items",
+      "View mode - see all quests ahead (except secret)",
+      "Main quests (pointy corners, thick lines) - Required",
+      "Optional quests - Enhancement and guidance"
+    ]
+  },
+  "chapters": [
+    {
+      "id": "tutorial",
+      "name": "And So, It Begins",
+      "description": "Tutorial chapter - basics of survival and the modpack",
+      "tier": "Tutorial",
+      "questCount": "~50",
+      "mainGoals": ["Basic survival", "First tools", "Understanding the questbook"]
+    },
+    {
+      "id": "stone_age",
+      "name": "Stone Age",
+      "description": "First technological age - primitive tools and bronze preparation",
+      "tier": "Stone",
+      "questCount": "~100",
+      "mainGoals": ["Find copper and tin veins", "Create flint tools", "Survive hostile mobs", "Prepare for Steam Age"]
+    },
+    {
+      "id": "steam_age",
+      "name": "Steam Age",
+      "description": "Bronze and steam power - first automation",
+      "tier": "Steam",
+      "questCount": "~150",
+      "mainGoals": ["Build boilers", "Create steam machines", "Bricked Blast Furnace", "Produce steel", "Access Nether"]
+    },
+    {
+      "id": "lv",
+      "name": "Low Voltage",
+      "description": "First electric tier - transition to electricity",
+      "tier": "LV",
+      "voltage": 32,
+      "questCount": "~200",
+      "mainGoals": ["Electric Blast Furnace", "Basic circuits", "Gallium/Arsenic/Aluminum", "Prepare for MV"]
+    },
+    {
+      "id": "mv",
+      "name": "Medium Voltage",
+      "description": "Stainless Steel and Polyethylene automation",
+      "tier": "MV",
+      "voltage": 128,
+      "questCount": "~200",
+      "mainGoals": ["Kanthal coils", "Stainless Steel", "Polyethylene automation", "HV circuits"]
+    },
+    {
+      "id": "hv",
+      "name": "High Voltage",
+      "description": "Cleanroom, multiblocks, and space preparation",
+      "tier": "HV",
+      "voltage": 512,
+      "questCount": "~250",
+      "mainGoals": ["Cleanroom", "Major multiblocks", "First rocket to Moon", "Titanium"]
+    },
+    {
+      "id": "ev",
+      "name": "Extreme Voltage",
+      "description": "AE2, Nuclear, Mars exploration",
+      "tier": "EV",
+      "voltage": 2048,
+      "questCount": "~300",
+      "mainGoals": ["AE2 system", "Nuclear reactors", "Mars travel", "Mass Titanium production"]
+    },
+    {
+      "id": "iv",
+      "name": "Insane Voltage",
+      "description": "The hardest tier - Assembly Line and Platline",
+      "tier": "IV",
+      "voltage": 8192,
+      "questCount": "~350",
+      "mainGoals": ["Assembly Line", "Platline (~50 steps)", "PBI production", "Tier 3-4 rockets"],
+      "warning": "Most players burn out here"
+    },
+    {
+      "id": "luv",
+      "name": "Ludicrous Voltage",
+      "description": "Fusion Reactor Mk I and Europium",
+      "tier": "LuV",
+      "voltage": 32768,
+      "questCount": "~300",
+      "mainGoals": ["Fusion Reactor Mk I", "Europium production", "Naquadah processing", "Full AE2 automation"]
+    },
+    {
+      "id": "zpm",
+      "name": "Zero Point Module",
+      "description": "Fusion Mk II, Void Miners, laser infrastructure",
+      "tier": "ZPM",
+      "voltage": 131072,
+      "questCount": "~250",
+      "mainGoals": ["Fusion Reactor Mk II", "Void Miners", "Americium production", "Laser distribution"]
+    },
+    {
+      "id": "uv",
+      "name": "Ultimate Voltage",
+      "description": "Research Station, Wetware circuits, Fusion Mk III",
+      "tier": "UV",
+      "voltage": 524288,
+      "questCount": "~250",
+      "mainGoals": ["Research Station", "Wetware circuits", "Fusion Mk III", "Tier 7 rocket"]
+    },
+    {
+      "id": "uhv",
+      "name": "Highly Ultimate Voltage",
+      "description": "Endgame - Mothership, Infinity, UEV preparation",
+      "tier": "UHV",
+      "voltage": 2097152,
+      "questCount": "~200",
+      "mainGoals": ["Mothership", "Infinity Ingots", "Bio Circuits", "Amun-Ra system"]
+    },
+    {
+      "id": "endgame",
+      "name": "Endgame Goals",
+      "description": "UEV, UIV, UMV, UXV, MAX - Final challenges",
+      "tier": "UEV+",
+      "questCount": "~300",
+      "mainGoals": ["Higher voltage tiers", "Ultimate materials", "STARGATE"]
+    }
+  ],
+  "modSpecificTabs": [
+    {
+      "name": "Thaumcraft",
+      "description": "Magic mod progression",
+      "unlockTier": "MV",
+      "quests": ["Research", "Wands", "Infusion", "Kami gear"]
+    },
+    {
+      "name": "Blood Magic",
+      "description": "Blood-based magic system",
+      "unlockTier": "HV",
+      "quests": ["Altar tiers", "Rituals", "Demons", "Armor"]
+    },
+    {
+      "name": "Botania",
+      "description": "Nature magic mod",
+      "unlockTier": "MV",
+      "quests": ["Mana generation", "Flowers", "Relics", "Gaia"]
+    },
+    {
+      "name": "Applied Energistics 2",
+      "description": "Digital storage and autocrafting",
+      "unlockTier": "EV",
+      "quests": ["Controllers", "Storage", "Autocrafting", "P2P"]
+    },
+    {
+      "name": "Galacticraft",
+      "description": "Space exploration",
+      "unlockTier": "HV",
+      "quests": ["Rockets T1-T8", "Moon", "Mars", "Planets", "Space stations"]
+    },
+    {
+      "name": "IC2 Crops",
+      "description": "Crop breeding system",
+      "unlockTier": "HV",
+      "quests": ["Breeding", "Stats", "Rare crops", "Automation"]
+    },
+    {
+      "name": "Bees",
+      "description": "Forestry bees progression",
+      "unlockTier": "LV",
+      "quests": ["Breeding", "Mutations", "Products", "Industrial Apiaries"]
+    }
+  ],
+  "thematicTabs": [
+    {
+      "name": "Space Race",
+      "description": "Rocket progression across all planets",
+      "content": ["Rocket tiers", "Planet requirements", "Resources per planet"]
+    },
+    {
+      "name": "Platline",
+      "description": "Complete platinum group metal processing",
+      "content": ["~50 processing steps", "All platinum metals", "Byproducts"]
+    },
+    {
+      "name": "Circuits",
+      "description": "Circuit progression through all tiers",
+      "content": ["ULV to MAX circuits", "Components", "Materials"]
+    },
+    {
+      "name": "Getting Around",
+      "description": "Movement and transportation items",
+      "content": ["Jetpacks", "Teleportation", "Vehicles"]
+    },
+    {
+      "name": "Coin Shop",
+      "description": "Quest rewards and coin system",
+      "content": ["Earn coins from quests", "Buy rewards", "Special items"]
+    }
+  ],
+  "tips": [
+    "Not all quests required for progression - focus on main quests",
+    "Use search to find explanations on specific topics",
+    "View mode helps plan ahead",
+    "Secret quests unlock with specific achievements",
+    "Coin rewards can buy useful items early"
+  ]
+}

@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GTNH Guide Complet - GregTech New Horizons</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="sidebar" id="sidebar">
+        <div class="logo">
+            <h1>GTNH</h1>
+            <span>Guide Complet</span>
+        </div>
+        <ul class="nav-menu">
+            <li><a href="#" data-section="home" class="active"><span class="icon">🏠</span> Accueil</a></li>
+            <li><a href="#" data-section="progression"><span class="icon">📈</span> Progression</a></li>
+            <li><a href="#" data-section="machines"><span class="icon">⚙️</span> Machines</a></li>
+            <li><a href="#" data-section="multiblocks"><span class="icon">🏗️</span> Multiblocks</a></li>
+            <li><a href="#" data-section="ores"><span class="icon">💎</span> Minerais</a></li>
+            <li><a href="#" data-section="quests"><span class="icon">📜</span> Quêtes</a></li>
+            <li><a href="#" data-section="space"><span class="icon">🚀</span> Espace</a></li>
+            <li><a href="#" data-section="tools"><span class="icon">🔧</span> Outils</a></li>
+        </ul>
+        <div class="external-links">
+            <a href="https://gtnh.miraheze.org/wiki/Main_Page" target="_blank">Wiki Officiel</a>
+            <a href="https://gtnhmultiblocks.pythonanywhere.com/" target="_blank">Calculateur Multiblocks</a>
+            <a href="https://gtnhquestsbook.top" target="_blank">Questbook Online</a>
+        </div>
+    </nav>
+
+    <main class="content" id="content">
+        <!-- Home Section -->
+        <section id="home" class="section active">
+            <div class="hero">
+                <h1>GregTech: New Horizons</h1>
+                <p class="subtitle">Le guide ultime pour le modpack le plus complexe de Minecraft</p>
+                <div class="stats">
+                    <div class="stat">
+                        <span class="number">3900+</span>
+                        <span class="label">Quêtes</span>
+                    </div>
+                    <div class="stat">
+                        <span class="number">300+</span>
+                        <span class="label">Mods</span>
+                    </div>
+                    <div class="stat">
+                        <span class="number">2500h</span>
+                        <span class="label">Solo</span>
+                    </div>
+                    <div class="stat">
+                        <span class="number">15</span>
+                        <span class="label">Tiers</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tier-overview">
+                <h2>Progression des Tiers</h2>
+                <div class="tier-grid" id="tierGrid">
+                    <!-- Dynamically populated -->
+                </div>
+            </div>
+
+            <div class="quick-links">
+                <h2>Accès Rapide</h2>
+                <div class="link-grid">
+                    <a href="#" data-section="progression" data-tier="steam" class="quick-link steam">
+                        <span class="tier-name">Steam Age</span>
+                        <span class="tier-desc">Premier pas vers l'automatisation</span>
+                    </a>
+                    <a href="#" data-section="multiblocks" data-filter="ebf" class="quick-link lv">
+                        <span class="tier-name">Electric Blast Furnace</span>
+                        <span class="tier-desc">Multiblock essentiel</span>
+                    </a>
+                    <a href="#" data-section="ores" class="quick-link mv">
+                        <span class="tier-name">Veines de Minerais</span>
+                        <span class="tier-desc">79 types de veines</span>
+                    </a>
+                    <a href="#" data-section="space" class="quick-link hv">
+                        <span class="tier-name">Exploration Spatiale</span>
+                        <span class="tier-desc">De la Lune au Stargate</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Progression Section -->
+        <section id="progression" class="section">
+            <h1>Progression par Tier</h1>
+            <div class="tier-selector">
+                <button class="tier-btn active" data-tier="all">Tous</button>
+                <button class="tier-btn" data-tier="stone_age">Stone</button>
+                <button class="tier-btn" data-tier="steam_age">Steam</button>
+                <button class="tier-btn" data-tier="lv">LV</button>
+                <button class="tier-btn" data-tier="mv">MV</button>
+                <button class="tier-btn" data-tier="hv">HV</button>
+                <button class="tier-btn" data-tier="ev">EV</button>
+                <button class="tier-btn" data-tier="iv">IV</button>
+                <button class="tier-btn" data-tier="luv">LuV</button>
+                <button class="tier-btn" data-tier="zpm">ZPM</button>
+                <button class="tier-btn" data-tier="uv">UV</button>
+                <button class="tier-btn" data-tier="uhv">UHV</button>
+            </div>
+            <div class="tier-details" id="tierDetails">
+                <!-- Dynamically populated -->
+            </div>
+        </section>
+
+        <!-- Machines Section -->
+        <section id="machines" class="section">
+            <h1>Machines GregTech</h1>
+            <div class="search-bar">
+                <input type="text" id="machineSearch" placeholder="Rechercher une machine...">
+            </div>
+            <div class="category-tabs">
+                <button class="cat-btn active" data-cat="all">Toutes</button>
+                <button class="cat-btn" data-cat="processing">Processing</button>
+                <button class="cat-btn" data-cat="forging">Forging</button>
+                <button class="cat-btn" data-cat="separating">Separating</button>
+                <button class="cat-btn" data-cat="chemistry">Chemistry</button>
+                <button class="cat-btn" data-cat="heating">Heating</button>
+                <button class="cat-btn" data-cat="oreProcessing">Ore Processing</button>
+                <button class="cat-btn" data-cat="steam">Steam</button>
+            </div>
+            <div class="machines-grid" id="machinesGrid">
+                <!-- Dynamically populated -->
+            </div>
+        </section>
+
+        <!-- Multiblocks Section -->
+        <section id="multiblocks" class="section">
+            <h1>Multiblocks (198 structures)</h1>
+            <div class="search-bar">
+                <input type="text" id="multiblockSearch" placeholder="Rechercher un multiblock...">
+            </div>
+            <div class="filter-row">
+                <select id="multiblockTier">
+                    <option value="all">Tous les tiers</option>
+                    <option value="Steam">Steam</option>
+                    <option value="LV">LV</option>
+                    <option value="MV">MV</option>
+                    <option value="HV">HV</option>
+                    <option value="EV">EV</option>
+                    <option value="IV">IV</option>
+                    <option value="LuV">LuV</option>
+                    <option value="ZPM">ZPM</option>
+                    <option value="UV">UV</option>
+                    <option value="UHV">UHV</option>
+                </select>
+                <select id="multiblockCategory">
+                    <option value="all">Toutes catégories</option>
+                    <option value="processing">Processing</option>
+                    <option value="generator">Générateurs</option>
+                    <option value="gt++">GT++</option>
+                    <option value="utility">Utilitaires</option>
+                    <option value="resource">Ressources</option>
+                    <option value="storage">Stockage</option>
+                    <option value="endgame">Endgame</option>
+                </select>
+            </div>
+            <div class="multiblocks-grid" id="multiblocksGrid">
+                <!-- Dynamically populated -->
+            </div>
+            <div class="multiblock-detail" id="multiblockDetail" style="display:none;">
+                <!-- Detail view -->
+            </div>
+        </section>
+
+        <!-- Ores Section -->
+        <section id="ores" class="section">
+            <h1>Veines de Minerais (79 types)</h1>
+            <div class="ore-info">
+                <div class="info-card">
+                    <h3>Structure des Veines</h3>
+                    <ul>
+                        <li><strong>Hauteur:</strong> 9 blocs</li>
+                        <li><strong>Espacement:</strong> Tous les 3 chunks</li>
+                        <li><strong>Primary:</strong> Couches supérieures (2-4)</li>
+                        <li><strong>Secondary:</strong> Couches inférieures (2-4)</li>
+                        <li><strong>Between:</strong> Couches centrales (2-4)</li>
+                        <li><strong>Sporadic:</strong> Aléatoire dans la veine</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h3>Tips Mining</h3>
+                    <ul>
+                        <li>Petits minerais = veine proche</li>
+                        <li>Nether = 2x output</li>
+                        <li>Prospector's Scanner pour trouver</li>
+                        <li>NEI montre les données des veines</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="filter-row">
+                <select id="oreDimension">
+                    <option value="all">Toutes dimensions</option>
+                    <option value="Overworld">Overworld</option>
+                    <option value="Nether">Nether</option>
+                    <option value="Twilight Forest">Twilight Forest</option>
+                    <option value="End">End</option>
+                    <option value="Moon">Moon</option>
+                    <option value="Mars">Mars</option>
+                    <option value="Space">Space</option>
+                </select>
+                <select id="oreStage">
+                    <option value="all">Tous les stades</option>
+                    <option value="earlyGame">Early Game</option>
+                    <option value="midGame">Mid Game</option>
+                    <option value="advancedGame">Advanced</option>
+                    <option value="lateGame">Late Game</option>
+                </select>
+            </div>
+            <div class="ores-grid" id="oresGrid">
+                <!-- Dynamically populated -->
+            </div>
+        </section>
+
+        <!-- Quests Section -->
+        <section id="quests" class="section">
+            <h1>Questbook (3900+ quêtes)</h1>
+            <div class="quest-info">
+                <p>Le questbook guide votre progression à travers le modpack. Utilisez <a href="https://gtnhquestsbook.top" target="_blank">le questbook en ligne</a> pour explorer toutes les quêtes.</p>
+            </div>
+            <div class="chapters-grid" id="chaptersGrid">
+                <!-- Dynamically populated -->
+            </div>
+            <div class="mod-tabs">
+                <h2>Onglets par Mod</h2>
+                <div class="mod-grid" id="modGrid">
+                    <!-- Dynamically populated -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Space Section -->
+        <section id="space" class="section">
+            <h1>Exploration Spatiale</h1>
+            <div class="rocket-tiers">
+                <h2>Progression des Fusées</h2>
+                <div class="rocket-grid" id="rocketGrid">
+                    <div class="rocket-card" data-tier="1">
+                        <div class="rocket-header">Tier 1</div>
+                        <div class="rocket-body">
+                            <h3>Moon</h3>
+                            <p>Unlock: HV</p>
+                            <ul>
+                                <li>Bauxite/Ilmenite (TITANIUM)</li>
+                                <li>Uranium veins</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="rocket-card" data-tier="2">
+                        <div class="rocket-header">Tier 2</div>
+                        <div class="rocket-body">
+                            <h3>Mars</h3>
+                            <p>Unlock: EV</p>
+                            <ul>
+                                <li>Tungsten veins</li>
+                                <li>Desh for rockets</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="rocket-card" data-tier="3">
+                        <div class="rocket-header">Tier 3</div>
+                        <div class="rocket-body">
+                            <h3>Asteroids</h3>
+                            <p>Unlock: IV</p>
+                            <ul>
+                                <li>Platinum group</li>
+                                <li>Osmium, Iridium</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="rocket-card" data-tier="4">
+                        <div class="rocket-header">Tier 4</div>
+                        <div class="rocket-body">
+                            <h3>Venus/Jupiter Moons</h3>
+                            <p>Unlock: IV (Assembly Line)</p>
+                            <ul>
+                                <li>Rare materials</li>
+                                <li>Dense Hydrazine fuel</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="rocket-card" data-tier="5-6">
+                        <div class="rocket-header">Tier 5-6</div>
+                        <div class="rocket-body">
+                            <h3>Saturn/Uranus Moons</h3>
+                            <p>Unlock: LuV-ZPM</p>
+                            <ul>
+                                <li>Advanced resources</li>
+                                <li>Naquadah sources</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="rocket-card" data-tier="7">
+                        <div class="rocket-header">Tier 7</div>
+                        <div class="rocket-body">
+                            <h3>Pluto/Haumea/Makemake</h3>
+                            <p>Unlock: UV</p>
+                            <ul>
+                                <li>Cosmic Neutronium</li>
+                                <li>Endgame materials</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="rocket-card" data-tier="8">
+                        <div class="rocket-header">Tier 8</div>
+                        <div class="rocket-body">
+                            <h3>Exoplanets</h3>
+                            <p>Unlock: UHV</p>
+                            <ul>
+                                <li>T Ceti E, Barnarda C, Vega B</li>
+                                <li>Infinity components</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="rocket-card mothership" data-tier="9">
+                        <div class="rocket-header">Mothership</div>
+                        <div class="rocket-body">
+                            <h3>Amun-Ra System</h3>
+                            <p>Unlock: UHV+</p>
+                            <ul>
+                                <li>Seth → Tengam → UEV</li>
+                                <li>Final frontier</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tools Section -->
+        <section id="tools" class="section">
+            <h1>Outils & Ressources Externes</h1>
+            <div class="tools-grid">
+                <a href="https://gtnh.miraheze.org/wiki/Main_Page" target="_blank" class="tool-card">
+                    <h3>Wiki Officiel GTNH</h3>
+                    <p>Documentation complète du modpack</p>
+                </a>
+                <a href="https://gtnhmultiblocks.pythonanywhere.com/" target="_blank" class="tool-card">
+                    <h3>Calculateur Multiblocks</h3>
+                    <p>Calcul des ressources nécessaires</p>
+                </a>
+                <a href="https://shadowtheage.github.io/gtnh/" target="_blank" class="tool-card">
+                    <h3>GTNH Calculator</h3>
+                    <p>Calculateur général</p>
+                </a>
+                <a href="https://gtnhquestsbook.top" target="_blank" class="tool-card">
+                    <h3>Questbook Online</h3>
+                    <p>Toutes les quêtes accessibles en ligne</p>
+                </a>
+                <a href="https://github.com/OrderedSet86/gtnh-flow" target="_blank" class="tool-card">
+                    <h3>GTNH Flow</h3>
+                    <p>Flowcharts de production</p>
+                </a>
+                <a href="https://www.curseforge.com/minecraft/modpacks/gt-new-horizons" target="_blank" class="tool-card">
+                    <h3>CurseForge</h3>
+                    <p>Téléchargement du modpack</p>
+                </a>
+                <a href="https://discord.gg/gtnh" target="_blank" class="tool-card">
+                    <h3>Discord GTNH</h3>
+                    <p>Communauté et support</p>
+                </a>
+                <a href="https://github.com/GTNewHorizons/GT-New-Horizons-Modpack" target="_blank" class="tool-card">
+                    <h3>GitHub</h3>
+                    <p>Code source et issues</p>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <button class="menu-toggle" id="menuToggle">☰</button>
+
+    <script src="data/gtnh-database.json" type="application/json" id="mainData"></script>
+    <script src="data/machines.json" type="application/json" id="machineData"></script>
+    <script src="data/ore-veins.json" type="application/json" id="oreData"></script>
+    <script src="data/questbook.json" type="application/json" id="questData"></script>
+    <script src="app.js"></script>
+</body>
+</html>

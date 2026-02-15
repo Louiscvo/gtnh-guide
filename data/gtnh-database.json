@@ -1,0 +1,841 @@
+{
+  "modpack": {
+    "name": "GregTech: New Horizons",
+    "version": "2.7.x",
+    "minecraft": "1.7.10",
+    "estimatedHours": {
+      "solo": 2500,
+      "team": 1600,
+      "speedrun": 5000
+    },
+    "wikiUrl": "https://gtnh.miraheze.org/wiki/Main_Page",
+    "discordUrl": "https://discord.gg/gtnh"
+  },
+  "tiers": [
+    {
+      "id": "stone_age",
+      "name": "Stone Age",
+      "nameShort": "Primitive",
+      "voltage": 0,
+      "euPerTick": 0,
+      "color": "#8B7355",
+      "description": "Survie primitive, outils de base, préparation pour le bronze",
+      "goals": [
+        "Obtenir du cuivre et de l'étain",
+        "Créer des outils en silex",
+        "Construire un abri sécurisé",
+        "Trouver des veines de minerais"
+      ],
+      "keyMaterials": ["Flint", "Copper", "Tin", "Wood"],
+      "machines": [],
+      "tips": [
+        "Les minerais spawn en grosses veines - explorez en surface pour les trouver",
+        "Évitez les grottes - elles sont remplies de mobs Infernal",
+        "Priorisez la nourriture et un lit"
+      ]
+    },
+    {
+      "id": "steam_age",
+      "name": "Steam Age",
+      "nameShort": "Steam",
+      "voltage": 0,
+      "euPerTick": 0,
+      "color": "#C0C0C0",
+      "description": "Ère du bronze et de la vapeur - première automatisation",
+      "goals": [
+        "Construire des chaudières (boilers)",
+        "Créer des machines à vapeur",
+        "Construire un Bricked Blast Furnace",
+        "Accéder au Nether"
+      ],
+      "keyMaterials": ["Bronze", "Steam", "Brick", "Steel"],
+      "machines": [
+        {
+          "name": "Small Coal Boiler",
+          "type": "generator",
+          "output": "6 L/t de vapeur",
+          "description": "Première source de vapeur, utilise du charbon"
+        },
+        {
+          "name": "High Pressure Coal Boiler",
+          "type": "generator",
+          "output": "15 L/t de vapeur",
+          "description": "Version améliorée, consomme plus de fuel"
+        },
+        {
+          "name": "Solar Boiler",
+          "type": "generator",
+          "output": "6 L/t de vapeur",
+          "description": "Pas de fuel requis, besoin du ciel"
+        },
+        {
+          "name": "High Pressure Lava Boiler",
+          "type": "generator",
+          "output": "30 L/t de vapeur",
+          "description": "Meilleur single-block, utilise la lave"
+        },
+        {
+          "name": "Steam Alloy Smelter",
+          "type": "processor",
+          "steamUsage": "32 L/t max",
+          "description": "Combine les matériaux (production de bronze)"
+        },
+        {
+          "name": "Steam Forge Hammer",
+          "type": "processor",
+          "steamUsage": "32 L/t",
+          "description": "Écrase les minerais, crée des plaques (2 plaques pour 3 lingots)"
+        },
+        {
+          "name": "Steam Macerator",
+          "type": "processor",
+          "steamUsage": "4 L/t",
+          "description": "Double le rendement des minerais"
+        },
+        {
+          "name": "Steam Extractor",
+          "type": "processor",
+          "steamUsage": "4 L/t",
+          "description": "Extrait le caoutchouc de la pulpe"
+        },
+        {
+          "name": "Steam Compressor",
+          "type": "processor",
+          "steamUsage": "4 L/t",
+          "description": "Compresse les items en blocs"
+        },
+        {
+          "name": "Bricked Blast Furnace",
+          "type": "multiblock",
+          "description": "Premier multiblock - produit de l'acier",
+          "structure": "3x3x4 en briques réfractaires"
+        }
+      ],
+      "tips": [
+        "NE PAS utiliser de pipes en bois pour la vapeur - elles explosent!",
+        "Ne jamais ajouter d'eau à une chaudière chaude et sèche = explosion",
+        "2 Steam = 1 EU pour la conversion d'énergie",
+        "Stockez la vapeur dans des Railcraft Tanks"
+      ],
+      "warnings": [
+        "La vapeur est chaude - contact avec des pipes non couvertes = dégâts",
+        "Si une chaudière chauffe à sec et qu'on ajoute de l'eau = explosion"
+      ]
+    },
+    {
+      "id": "lv",
+      "name": "Low Voltage",
+      "nameShort": "LV",
+      "voltage": 32,
+      "euPerTick": 32,
+      "color": "#DCDCDC",
+      "description": "Premier tier électrique - transition vers l'électricité",
+      "goals": [
+        "Construire l'Electric Blast Furnace (EBF)",
+        "Automatiser la production d'aluminium",
+        "Obtenir du Gallium, Arsenic et Aluminium",
+        "Passer au MV"
+      ],
+      "keyMaterials": ["Tin", "Copper", "Steel", "Rubber", "Lead", "Silver", "Gallium", "Arsenic", "Aluminum"],
+      "machines": [
+        {
+          "name": "Electric Blast Furnace",
+          "type": "multiblock",
+          "priority": "critical",
+          "description": "Multiblock essentiel pour fondre des matériaux haute température",
+          "structure": "3x3x4 avec casings et coils",
+          "wikiUrl": "https://gtnh.miraheze.org/wiki/Electric_Blast_Furnace"
+        },
+        {
+          "name": "Bending Machine",
+          "type": "processor",
+          "priority": "high",
+          "description": "Crée des plaques, tiges, câbles"
+        },
+        {
+          "name": "Wiremill",
+          "type": "processor",
+          "priority": "high",
+          "description": "Produit des fils pour les câbles"
+        },
+        {
+          "name": "Lathe",
+          "type": "processor",
+          "description": "Crée des tiges et boulons"
+        },
+        {
+          "name": "Assembler",
+          "type": "processor",
+          "description": "Assemble des composants"
+        },
+        {
+          "name": "Electrolyzer",
+          "type": "processor",
+          "description": "Électrolyse des matériaux"
+        },
+        {
+          "name": "Chemical Reactor",
+          "type": "processor",
+          "description": "Réactions chimiques de base"
+        },
+        {
+          "name": "Fluid Extractor",
+          "type": "processor",
+          "description": "Extrait les fluides des items"
+        }
+      ],
+      "tips": [
+        "Gardez les câbles courts - 1 volt de perte par bloc avec du câble tin standard",
+        "Utilisez UNIQUEMENT des fils isolés - les fils nus = électrocution",
+        "Placez les machines sous un toit - la pluie cause des explosions",
+        "Le Gallium s'obtient par électrolyse de Sphalerite (11% de chance)"
+      ],
+      "materialGuides": {
+        "gallium": "Électrolyser Sphalerite dust - 11% de chance",
+        "arsenic": "Blast Cobaltite avec oxygène dans l'EBF",
+        "aluminum": "10 Alumina + 5 Cryolite = 4 Aluminum ingots"
+      }
+    },
+    {
+      "id": "mv",
+      "name": "Medium Voltage",
+      "nameShort": "MV",
+      "voltage": 128,
+      "euPerTick": 128,
+      "color": "#FF6400",
+      "description": "Production d'acier inoxydable et automatisation du polyéthylène",
+      "goals": [
+        "Obtenir du Stainless Steel (EBF avec Kanthal coils)",
+        "Automatiser la production de Polyethylene",
+        "Crafter des circuits HV",
+        "Automatiser l'oxygène via fermes de canne à sucre"
+      ],
+      "keyMaterials": ["Aluminum", "Silicon", "Stainless Steel", "Polyethylene", "Kanthal"],
+      "machines": [
+        {
+          "name": "Electrolyzer",
+          "type": "processor",
+          "priority": "high",
+          "description": "Version MV plus rapide"
+        },
+        {
+          "name": "Arc Furnace",
+          "type": "processor",
+          "description": "Fondre rapidement les métaux"
+        },
+        {
+          "name": "Circuit Assembler",
+          "type": "processor",
+          "priority": "high",
+          "description": "Assemble les circuits"
+        },
+        {
+          "name": "Chemical Reactor",
+          "type": "processor",
+          "description": "Pour le polyéthylène"
+        },
+        {
+          "name": "Laser Engraver",
+          "type": "processor",
+          "description": "Grave les wafers et circuits"
+        },
+        {
+          "name": "Pyrolyse Oven",
+          "type": "multiblock",
+          "description": "Produit de l'éthylène pour le polyéthylène"
+        }
+      ],
+      "tips": [
+        "L'oxygène doit être automatisé en premier - fermes de canne à sucre",
+        "Le Stainless Steel nécessite: chrome, manganèse, steel, vanadium",
+        "ATTENTION: donner plus de voltage que prévu = explosion de la machine"
+      ],
+      "warnings": [
+        "Les machines explosent si on leur donne un voltage trop élevé",
+        "Utilisez des Transformers pour convertir les voltages"
+      ]
+    },
+    {
+      "id": "hv",
+      "name": "High Voltage",
+      "nameShort": "HV",
+      "voltage": 512,
+      "euPerTick": 512,
+      "color": "#FFFF00",
+      "description": "Cleanroom, multiblocks majeurs, préparation pour l'espace",
+      "goals": [
+        "Construire une Cleanroom",
+        "Créer des multiblocks majeurs",
+        "Lancer la première fusée vers la Lune",
+        "Obtenir du Titanium"
+      ],
+      "keyMaterials": ["Stainless Steel", "Titanium", "Chlorine", "Rutile"],
+      "machines": [
+        {
+          "name": "Cleanroom",
+          "type": "multiblock",
+          "priority": "critical",
+          "description": "Obligatoire pour la production de circuits avancés",
+          "wikiUrl": "https://gtnh.miraheze.org/wiki/Cleanroom"
+        },
+        {
+          "name": "Large Chemical Reactor",
+          "type": "multiblock",
+          "priority": "high",
+          "description": "Perfect overclocks - essentiel pour l'acide sulfurique",
+          "wikiUrl": "https://gtnh.miraheze.org/wiki/Large_Chemical_Reactor"
+        },
+        {
+          "name": "Distillation Tower",
+          "type": "multiblock",
+          "description": "~56 stainless steel par layer, améliore l'efficacité drastiquement",
+          "wikiUrl": "https://gtnh.miraheze.org/wiki/Distillation_Tower"
+        },
+        {
+          "name": "Vacuum Freezer",
+          "type": "multiblock",
+          "description": "Congèle le Rutile en Titanium",
+          "wikiUrl": "https://gtnh.miraheze.org/wiki/Vacuum_Freezer"
+        },
+        {
+          "name": "Oil Cracking Unit",
+          "type": "multiblock",
+          "description": "Craque le pétrole pour plus de fuel"
+        },
+        {
+          "name": "Implosion Compressor",
+          "type": "multiblock",
+          "description": "Utilise du TNT pour compresser",
+          "wikiUrl": "https://gtnh.miraheze.org/wiki/Implosion_Compressor"
+        },
+        {
+          "name": "NASA Workbench",
+          "type": "special",
+          "description": "Craft des composants de fusée"
+        }
+      ],
+      "tips": [
+        "Le Cetane-Boosted Diesel donne 1M EU par cell",
+        "La Distillation Tower est chère mais indispensable",
+        "Automatisez le chlore via électrolyse",
+        "Collectez les minerais lunaires pour le Rutile"
+      ],
+      "optionalQuests": [
+        "Open Computers Crop Breeding",
+        "Industrial Apiary",
+        "Blood Magic (pour éviter les fusées)",
+        "Thaumcraft progression"
+      ]
+    },
+    {
+      "id": "ev",
+      "name": "Extreme Voltage",
+      "nameShort": "EV",
+      "voltage": 2048,
+      "euPerTick": 2048,
+      "color": "#00FFFF",
+      "description": "AE2, Réacteurs Nucléaires, traitement des minerais en masse",
+      "goals": [
+        "Établir un système AE2",
+        "Voyager sur Mars",
+        "Construire des systèmes de puissance centralisés",
+        "Production massive de Titanium"
+      ],
+      "keyMaterials": ["Titanium", "Tungsten", "HSS-G", "Graphene", "Desh", "Pitchblende", "Nano circuits"],
+      "machines": [
+        {
+          "name": "AE2 System",
+          "type": "system",
+          "priority": "critical",
+          "description": "Controller, drives, câbles, interfaces - autocrafting",
+          "wikiUrl": "https://gtnh.miraheze.org/wiki/Applied_Energistics_2"
+        },
+        {
+          "name": "Industrial Centrifuge",
+          "type": "multiblock",
+          "description": "Centrifugation en parallèle"
+        },
+        {
+          "name": "Maceration Stack",
+          "type": "multiblock",
+          "description": "Macération en masse"
+        },
+        {
+          "name": "Ore Washing Plant",
+          "type": "multiblock",
+          "description": "Lavage des minerais à grande échelle"
+        },
+        {
+          "name": "Nuclear Reactor",
+          "type": "multiblock",
+          "description": "Génération de puissance nucléaire"
+        },
+        {
+          "name": "Lapotronic Supercapacitor",
+          "type": "multiblock",
+          "description": "Stockage d'énergie massif"
+        },
+        {
+          "name": "Large Gas Turbine",
+          "type": "multiblock",
+          "description": "Génération de puissance efficace"
+        },
+        {
+          "name": "Multiblock Combustion Engine",
+          "type": "multiblock",
+          "description": "Résout la première crise énergétique"
+        }
+      ],
+      "tips": [
+        "Augmentez la production de Titanium via ilmenite + acide sulfurique",
+        "8 Nano mainframes nécessaires pour le rocket computer",
+        "Construisez et préparez vos systèmes automatisés AVANT d'avancer",
+        "Surproduisez les composants essentiels"
+      ],
+      "progression": [
+        "1. Augmenter production titanium",
+        "2. Résoudre première crise énergétique",
+        "3. Établir boucle radon (Pu-239 + uranium)",
+        "4. Construire réseau AE2",
+        "5. Craft 2ème fusée pour Mars",
+        "6. Gérer 2ème crise énergétique",
+        "7. Passer à IV avec superconducteurs + graphène"
+      ]
+    },
+    {
+      "id": "iv",
+      "name": "Insane Voltage",
+      "nameShort": "IV",
+      "voltage": 8192,
+      "euPerTick": 8192,
+      "color": "#FF00FF",
+      "description": "Le tier le plus difficile - Assembly Line et Platline",
+      "goals": [
+        "Construire l'Assembly Line",
+        "Établir la Platline (~50 étapes)",
+        "Production de Polybenzimidazole (PBI)",
+        "Fusées Tier 3 et 4"
+      ],
+      "keyMaterials": ["Platinum", "Palladium", "Rhodium", "Ruthenium", "Iridium", "Osmium", "PBI", "Dense Hydrazine"],
+      "machines": [
+        {
+          "name": "Assembly Line",
+          "type": "multiblock",
+          "priority": "critical",
+          "description": "Porte d'entrée vers LuV - crafts complexes",
+          "wikiUrl": "https://gtnh.miraheze.org/wiki/Assembly_Line"
+        },
+        {
+          "name": "Precise Assembler",
+          "type": "multiblock",
+          "description": "Double vitesse, 16 parallels"
+        },
+        {
+          "name": "Volcanus",
+          "type": "multiblock",
+          "description": "EBF amélioré, nécessite Blazing Pyrotheum"
+        },
+        {
+          "name": "Mega Vacuum Freezer",
+          "type": "multiblock",
+          "description": "256 recettes en parallèle"
+        },
+        {
+          "name": "Industrial Electrolyzer",
+          "type": "multiblock",
+          "description": "Électrolyse en masse"
+        },
+        {
+          "name": "Industrial Mixing Machine",
+          "type": "multiblock",
+          "description": "Mixage en parallèle"
+        },
+        {
+          "name": "Wire Factory",
+          "type": "multiblock",
+          "description": "Production de fils automatisée"
+        },
+        {
+          "name": "Ore Drilling Plant T2",
+          "type": "multiblock",
+          "description": "Minage automatique amélioré"
+        },
+        {
+          "name": "Tree Growth Simulator",
+          "type": "multiblock",
+          "description": "Production de bois automatisée"
+        },
+        {
+          "name": "Boldarnator",
+          "type": "multiblock",
+          "description": "Rock breaker amélioré"
+        }
+      ],
+      "tips": [
+        "C'EST LE TIER OÙ LA PLUPART DES JOUEURS ABANDONNENT",
+        "La Platline produit: platinum, palladium, rhodium, ruthenium, iridium, osmium",
+        "Le PBI est nécessaire pour le thermal padding",
+        "Thaumcraft Kami, Blood Magic orbs, Botania deviennent accessibles"
+      ],
+      "warnings": [
+        "Ce tier est beaucoup plus long et intensif en ressources que EV",
+        "Préparez-vous mentalement - c'est un marathon, pas un sprint"
+      ]
+    },
+    {
+      "id": "luv",
+      "name": "Ludicrous Voltage",
+      "nameShort": "LuV",
+      "voltage": 32768,
+      "euPerTick": 32768,
+      "color": "#FF69B4",
+      "description": "Fusion Reactor Mk I et production d'Europium",
+      "goals": [
+        "Construire le Fusion Reactor Mk I",
+        "Produire de l'Europium",
+        "Établir le processing de Naquadah",
+        "Automatisation AE2 complète obligatoire"
+      ],
+      "keyMaterials": ["Europium", "Naquadah", "Helium Plasma", "Duranium", "Crystal circuits"],
+      "machines": [
+        {
+          "name": "Fusion Reactor Mk I",
+          "type": "multiblock",
+          "priority": "critical",
+          "description": "Objectif principal - produit Europium, Helium Plasma, Duranium",
+          "wikiUrl": "https://gtnh.miraheze.org/wiki/Fusion_Reactor"
+        },
+        {
+          "name": "Neutron Activator",
+          "type": "multiblock",
+          "priority": "high",
+          "description": "Hub de processing du Naquadah"
+        },
+        {
+          "name": "Circuit Assembly Line",
+          "type": "multiblock",
+          "description": "Production de circuits avancés"
+        },
+        {
+          "name": "Cyclotron",
+          "type": "multiblock",
+          "description": "Production de particules"
+        },
+        {
+          "name": "Industrial Autoclave",
+          "type": "multiblock",
+          "description": "Autoclavage en masse"
+        },
+        {
+          "name": "XL Turbo Gas Turbine",
+          "type": "multiblock",
+          "description": "Génération de puissance massive"
+        },
+        {
+          "name": "XL Plasma Turbine",
+          "type": "multiblock",
+          "description": "Utilise le plasma pour l'énergie"
+        },
+        {
+          "name": "Water Purification Plant",
+          "type": "multiblock",
+          "description": "Waterline - eau purifiée en masse"
+        }
+      ],
+      "tips": [
+        "Le Fusion Reactor nécessite beaucoup d'EU pour démarrer chaque recette",
+        "Les composants LuV doivent être craftés dans l'Assembly Line",
+        "L'automatisation AE2 on-demand est ABSOLUMENT NÉCESSAIRE",
+        "Établissez la boucle de production de Radon"
+      ]
+    },
+    {
+      "id": "zpm",
+      "name": "Zero Point Module",
+      "nameShort": "ZPM",
+      "voltage": 131072,
+      "euPerTick": 131072,
+      "color": "#00FF00",
+      "description": "Fusion Mk II, Void Miners, infrastructure laser",
+      "goals": [
+        "Construire le Fusion Reactor Mk II",
+        "Établir les Void Miners",
+        "Production d'Americium",
+        "Infrastructure laser"
+      ],
+      "keyMaterials": ["Americium", "Lutetium", "Neutronium", "Naquadah Fuel"],
+      "machines": [
+        {
+          "name": "Fusion Reactor Mk II",
+          "type": "multiblock",
+          "priority": "critical",
+          "description": "Produit Americium pour UV"
+        },
+        {
+          "name": "Hot Isostatic Pressurization Unit (HIP)",
+          "type": "multiblock",
+          "description": "Crée des plaques superdenses pour ZPM+"
+        },
+        {
+          "name": "Large Naquadah Reactor",
+          "type": "multiblock",
+          "description": "42.9M-101.2M EU/t selon le fuel"
+        },
+        {
+          "name": "Void Miner",
+          "type": "multiblock",
+          "description": "Génération infinie de minerais"
+        },
+        {
+          "name": "Data Bank",
+          "type": "multiblock",
+          "description": "Distribution de data sticks pour Assembly Lines"
+        },
+        {
+          "name": "Active Transformer",
+          "type": "multiblock",
+          "description": "Distribution de puissance via lasers"
+        },
+        {
+          "name": "Laser Vacuum Pipes",
+          "type": "system",
+          "description": "Meilleure distribution de puissance que les câbles"
+        }
+      ],
+      "tips": [
+        "L'Americium est TRÈS lent à produire (43.2 sec par lingot) - utilisez plusieurs reacteurs",
+        "Le Neutronium prend 2-4 min à fondre - arrays de smelting passif recommandés",
+        "Les lasers sont bien meilleurs que les câbles pour la distribution"
+      ],
+      "hiddenQuest": "ZPM battery rechargeable - dure 8.8 jours réels, nécessite singularités et creation shards"
+    },
+    {
+      "id": "uv",
+      "name": "Ultimate Voltage",
+      "nameShort": "UV",
+      "voltage": 524288,
+      "euPerTick": 524288,
+      "color": "#FF0000",
+      "description": "Research Station, Wetware circuits, Fusion Mk III",
+      "goals": [
+        "Construire la Research Station",
+        "Développer les Wetware circuits",
+        "Fusion Reactor Mk III",
+        "Fusée Tier 7 vers nouvelles planètes"
+      ],
+      "keyMaterials": ["Wetware circuits", "Cosmic Neutronium", "QPIC Wafers", "Oganesson", "UU-Matter"],
+      "machines": [
+        {
+          "name": "Research Station",
+          "type": "multiblock",
+          "description": "Remplace le Scanner pour les scans Assembly Line"
+        },
+        {
+          "name": "Quantum Computer",
+          "type": "multiblock",
+          "description": "Produit les ressources de computation"
+        },
+        {
+          "name": "Bacterial Vat",
+          "type": "multiblock",
+          "description": "Nécessaire pour Wetware circuits"
+        },
+        {
+          "name": "PCB Factory",
+          "type": "multiblock",
+          "description": "Crée Wetware Circuit Boards avec Biochamber"
+        },
+        {
+          "name": "Mega Alloy Blast Smelter",
+          "type": "multiblock",
+          "description": "256 parallels avec coils tiered"
+        },
+        {
+          "name": "Component Assembly Line",
+          "type": "multiblock",
+          "description": "Assemble moteurs, bras, sensors - 25% discount"
+        },
+        {
+          "name": "Fusion Reactor Mk III",
+          "type": "multiblock",
+          "priority": "critical",
+          "description": "Objectif final - recettes plasma avancées"
+        },
+        {
+          "name": "Space Elevator",
+          "type": "multiblock",
+          "description": "Système de minage modulaire"
+        },
+        {
+          "name": "Nano Forge",
+          "type": "multiblock",
+          "description": "Fabrique des nanites pour circuits"
+        },
+        {
+          "name": "Matter Fabrication CPU",
+          "type": "multiblock",
+          "description": "Produit UU-Matter à grande échelle"
+        }
+      ],
+      "tips": [
+        "Fusée Tier 7 débloque Haumea, Makemake, Pluto",
+        "Le Cosmic Neutronium vient du centrifugeage de Black Plutonium",
+        "Scalez la puissance via Plasma ou Naquadah Fuel"
+      ]
+    },
+    {
+      "id": "uhv",
+      "name": "Highly Ultimate Voltage",
+      "nameShort": "UHV",
+      "voltage": 2097152,
+      "euPerTick": 2097152,
+      "color": "#4B0082",
+      "description": "Endgame - Mothership, Infinity, préparation UEV",
+      "goals": [
+        "Construire le Mothership",
+        "Production d'Infinity Ingots",
+        "Développer les Bio Circuits",
+        "Accéder au système Amun-Ra"
+      ],
+      "keyMaterials": ["Infinity Ingots", "Bio Circuits", "Radox Polymer", "Xenoxene", "Tengam"],
+      "machines": [
+        {
+          "name": "Mothership",
+          "type": "multiblock",
+          "priority": "critical",
+          "description": "Structure endgame pour atteindre les planètes Tier 9"
+        },
+        {
+          "name": "Electric Implosion Compressor",
+          "type": "multiblock",
+          "description": "Alternative énergétique au TNT compressor"
+        },
+        {
+          "name": "Integrated Ore Factory",
+          "type": "multiblock",
+          "description": "Traite des milliers de minerais par seconde"
+        },
+        {
+          "name": "Compact Fusion Reactors",
+          "type": "multiblock",
+          "description": "64 reacteurs condensés en un multiblock"
+        },
+        {
+          "name": "Space Elevator Mk-II",
+          "type": "multiblock",
+          "description": "Meilleure source de Cosmic Neutronium et Infinity Catalyst"
+        },
+        {
+          "name": "Infinite Fluid Drilling Rig",
+          "type": "multiblock",
+          "description": "Production de fluides supérieure jusqu'à UEV"
+        }
+      ],
+      "tips": [
+        "Fusée Tier 8 vers exoplanètes: T Ceti E, Barnarda C, Vega B",
+        "Les chaînes de processing optionnelles deviennent OBLIGATOIRES",
+        "Infrastructure robuste et puissance 24/7 requises",
+        "Seth donne accès au Tengam pour débloquer UEV"
+      ],
+      "endgameGoal": "STARGATE - récompense pour les joueurs les plus dédiés"
+    }
+  ],
+  "multiblocks": [
+    {
+      "name": "Electric Blast Furnace",
+      "id": "ebf",
+      "tier": "lv",
+      "category": "processing",
+      "description": "Multiblock essentiel pour fondre des matériaux haute température",
+      "structure": {
+        "dimensions": "3x3x4",
+        "controller": "Electric Blast Furnace Controller",
+        "casings": "Heat Proof Machine Casing",
+        "coils": "Heating Coils (Cupronickel → Naquadah)",
+        "hatches": ["Input Bus", "Output Bus", "Input Hatch", "Output Hatch", "Energy Hatch", "Maintenance Hatch", "Muffler Hatch"]
+      },
+      "tips": [
+        "Les coils déterminent la capacité de chaleur",
+        "Tous les coils doivent être du même tier",
+        "Le Muffler Hatch va sur le casing central du haut",
+        "L'Output Hatch collecte les fluides en bas, les gaz en haut"
+      ],
+      "wikiUrl": "https://gtnh.miraheze.org/wiki/Electric_Blast_Furnace",
+      "imageUrl": "https://static.wikitide.net/gtnhwiki/4/4c/EBF.png"
+    },
+    {
+      "name": "Large Chemical Reactor",
+      "id": "lcr",
+      "tier": "hv",
+      "category": "processing",
+      "description": "Perfect overclocks - critique pour la production chimique",
+      "wikiUrl": "https://gtnh.miraheze.org/wiki/Large_Chemical_Reactor"
+    },
+    {
+      "name": "Distillation Tower",
+      "id": "distillation_tower",
+      "tier": "hv",
+      "category": "processing",
+      "description": "Distillation efficace de pétrole et fluides",
+      "cost": "~56 stainless steel par layer",
+      "wikiUrl": "https://gtnh.miraheze.org/wiki/Distillation_Tower"
+    },
+    {
+      "name": "Vacuum Freezer",
+      "id": "vacuum_freezer",
+      "tier": "hv",
+      "category": "processing",
+      "description": "Congèle les matériaux - critique pour Titanium",
+      "wikiUrl": "https://gtnh.miraheze.org/wiki/Vacuum_Freezer"
+    },
+    {
+      "name": "Cleanroom",
+      "id": "cleanroom",
+      "tier": "hv",
+      "category": "utility",
+      "description": "Obligatoire pour circuits avancés",
+      "wikiUrl": "https://gtnh.miraheze.org/wiki/Cleanroom"
+    },
+    {
+      "name": "Assembly Line",
+      "id": "assembly_line",
+      "tier": "iv",
+      "category": "processing",
+      "description": "Crafts complexes - porte d'entrée vers LuV",
+      "wikiUrl": "https://gtnh.miraheze.org/wiki/Assembly_Line"
+    },
+    {
+      "name": "Fusion Reactor Mk I",
+      "id": "fusion_mk1",
+      "tier": "luv",
+      "category": "generator",
+      "description": "Première fusion - produit Europium",
+      "wikiUrl": "https://gtnh.miraheze.org/wiki/Fusion_Reactor"
+    },
+    {
+      "name": "Fusion Reactor Mk II",
+      "id": "fusion_mk2",
+      "tier": "zpm",
+      "category": "generator",
+      "description": "Fusion avancée - produit Americium",
+      "wikiUrl": "https://gtnh.miraheze.org/wiki/Fusion_Reactor"
+    },
+    {
+      "name": "Fusion Reactor Mk III",
+      "id": "fusion_mk3",
+      "tier": "uv",
+      "category": "generator",
+      "description": "Fusion ultime - recettes plasma avancées",
+      "wikiUrl": "https://gtnh.miraheze.org/wiki/Fusion_Reactor"
+    }
+  ],
+  "externalResources": {
+    "wiki": "https://gtnh.miraheze.org/wiki/Main_Page",
+    "multiblockCalculator": "https://gtnhmultiblocks.pythonanywhere.com/",
+    "gtnhCalculator": "https://shadowtheage.github.io/gtnh/",
+    "flowcharts": "https://github.com/OrderedSet86/gtnh-flow",
+    "curseforge": "https://www.curseforge.com/minecraft/modpacks/gt-new-horizons",
+    "github": "https://github.com/GTNewHorizons/GT-New-Horizons-Modpack",
+    "discord": "https://discord.gg/gtnh"
+  }
+}

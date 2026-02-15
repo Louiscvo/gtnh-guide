@@ -1,0 +1,298 @@
+{
+  "oreGeneration": {
+    "overview": {
+      "totalVeins": 79,
+      "veinHeight": 9,
+      "spacing": "Every 3 chunks (1 chunk on 0,0 axis)",
+      "structure": {
+        "primary": "Top 2-4 layers",
+        "secondary": "Bottom 2-4 layers",
+        "between": "Middle 2-4 layers",
+        "sporadic": "Random throughout vein"
+      }
+    },
+    "veinSizes": [
+      {"sizeValue": 8, "minWidth": 16, "maxWidth": 32},
+      {"sizeValue": 12, "minWidth": 16, "maxWidth": 40},
+      {"sizeValue": 16, "minWidth": 16, "maxWidth": 48},
+      {"sizeValue": 24, "minWidth": 16, "maxWidth": 64},
+      {"sizeValue": 26, "minWidth": 16, "maxWidth": 68},
+      {"sizeValue": 30, "minWidth": 16, "maxWidth": 76},
+      {"sizeValue": 32, "minWidth": 16, "maxWidth": 78}
+    ],
+    "formula": "maxWidth = (2 × size) + 16"
+  },
+  "veins": {
+    "earlyGame": [
+      {
+        "name": "Copper Vein",
+        "primary": "Chalcopyrite",
+        "secondary": "Iron",
+        "between": "Pyrite",
+        "sporadic": "Copper",
+        "dimensions": ["Overworld", "Nether", "Twilight Forest"],
+        "yRange": {"min": 10, "max": 60},
+        "importance": 80,
+        "products": ["Copper", "Iron", "Sulfur"]
+      },
+      {
+        "name": "Iron Vein",
+        "primary": "Brown Limonite",
+        "secondary": "Yellow Limonite",
+        "between": "Banded Iron",
+        "sporadic": "Malachite",
+        "dimensions": ["Overworld", "Nether", "Twilight Forest"],
+        "yRange": {"min": 10, "max": 40},
+        "importance": 80,
+        "products": ["Iron", "Copper"]
+      },
+      {
+        "name": "Tin Vein (Mica)",
+        "primary": "Kyanite",
+        "secondary": "Mica",
+        "between": "Cassiterite",
+        "sporadic": "Pollucite",
+        "dimensions": ["Overworld", "Twilight Forest"],
+        "yRange": {"min": 10, "max": 60},
+        "importance": 80,
+        "products": ["Tin", "Aluminum", "Lithium", "Cesium"]
+      },
+      {
+        "name": "Coal Vein",
+        "primary": "Coal",
+        "secondary": "Coal",
+        "between": "Coal",
+        "sporadic": "Lignite",
+        "dimensions": ["Overworld"],
+        "yRange": {"min": 10, "max": 80},
+        "importance": 80,
+        "products": ["Coal", "Carbon"]
+      }
+    ],
+    "midGame": [
+      {
+        "name": "Redstone Vein",
+        "primary": "Redstone",
+        "secondary": "Ruby",
+        "between": "Cinnabar",
+        "sporadic": "Redstone",
+        "dimensions": ["Overworld", "Nether"],
+        "yRange": {"min": 5, "max": 40},
+        "importance": 60,
+        "products": ["Redstone", "Chrome", "Silicon", "Mercury"]
+      },
+      {
+        "name": "Lapis Vein",
+        "primary": "Lazurite",
+        "secondary": "Sodalite",
+        "between": "Lapis",
+        "sporadic": "Calcite",
+        "dimensions": ["Overworld", "End"],
+        "yRange": {"min": 10, "max": 40},
+        "importance": 40,
+        "products": ["Lapis", "Calcite", "Sodium", "Aluminum"]
+      },
+      {
+        "name": "Gold Vein",
+        "primary": "Magnetite",
+        "secondary": "Gold",
+        "between": "Vanadium Magnetite",
+        "sporadic": "Gold",
+        "dimensions": ["Overworld", "Nether"],
+        "yRange": {"min": 30, "max": 60},
+        "importance": 60,
+        "products": ["Gold", "Iron", "Vanadium"]
+      },
+      {
+        "name": "Diamond Vein",
+        "primary": "Graphite",
+        "secondary": "Diamond",
+        "between": "Coal",
+        "sporadic": "Diamond",
+        "dimensions": ["Overworld", "Twilight Forest"],
+        "yRange": {"min": 5, "max": 20},
+        "importance": 40,
+        "products": ["Diamond", "Carbon", "Graphite"]
+      },
+      {
+        "name": "Nickel Vein",
+        "primary": "Garnierite",
+        "secondary": "Nickel",
+        "between": "Cobaltite",
+        "sporadic": "Pentlandite",
+        "dimensions": ["Overworld", "Twilight Forest", "End"],
+        "yRange": {"min": 10, "max": 40},
+        "importance": 40,
+        "products": ["Nickel", "Cobalt", "Arsenic"]
+      }
+    ],
+    "advancedGame": [
+      {
+        "name": "Bauxite Vein",
+        "primary": "Bauxite",
+        "secondary": "Ilmenite",
+        "between": "Aluminum",
+        "sporadic": "Ilmenite",
+        "dimensions": ["Overworld", "Moon"],
+        "yRange": {"min": 50, "max": 90},
+        "importance": 80,
+        "products": ["Aluminum", "Titanium", "Rutile"],
+        "note": "PRIORITY on Moon - Titanium source"
+      },
+      {
+        "name": "Tungsten Vein",
+        "primary": "Scheelite",
+        "secondary": "Tungsten",
+        "between": "Lithium",
+        "sporadic": "Tungsten",
+        "dimensions": ["End", "Mars"],
+        "yRange": {"min": 10, "max": 60},
+        "importance": 30,
+        "products": ["Tungsten", "Lithium", "Calcium"]
+      },
+      {
+        "name": "Platinum Vein",
+        "primary": "Cooperite",
+        "secondary": "Palladium",
+        "between": "Platinum",
+        "sporadic": "Iridium",
+        "dimensions": ["End", "Asteroids"],
+        "yRange": {"min": 40, "max": 60},
+        "importance": 20,
+        "products": ["Platinum", "Palladium", "Iridium", "Osmium"]
+      },
+      {
+        "name": "Osmium Vein",
+        "primary": "Osmium",
+        "secondary": "Iridium",
+        "between": "Osmium",
+        "sporadic": "Osmium",
+        "dimensions": ["End", "Asteroids"],
+        "yRange": {"min": 30, "max": 60},
+        "importance": 20,
+        "products": ["Osmium", "Iridium"]
+      }
+    ],
+    "lateGame": [
+      {
+        "name": "Nether Sulfur Vein",
+        "primary": "Sulfur",
+        "secondary": "Pyrite",
+        "between": "Sphalerite",
+        "sporadic": "Sulfur",
+        "dimensions": ["Nether"],
+        "yRange": {"min": 5, "max": 20},
+        "importance": 60,
+        "products": ["Sulfur", "Iron", "Zinc", "Gallium"],
+        "note": "Best Gallium source"
+      },
+      {
+        "name": "Nether Quartz Vein",
+        "primary": "Nether Quartz",
+        "secondary": "Quartzite",
+        "between": "Nether Quartz",
+        "sporadic": "Quartzite",
+        "dimensions": ["Nether"],
+        "yRange": {"min": 40, "max": 80},
+        "importance": 60,
+        "products": ["Quartz", "Silicon"]
+      },
+      {
+        "name": "Uranium Vein",
+        "primary": "Uraninite",
+        "secondary": "Uranium",
+        "between": "Uraninite",
+        "sporadic": "Uranium",
+        "dimensions": ["Moon", "Mars", "Space"],
+        "yRange": {"min": 20, "max": 50},
+        "importance": 20,
+        "products": ["Uranium-238", "Uranium-235"]
+      },
+      {
+        "name": "Plutonium Vein",
+        "primary": "Plutonium",
+        "secondary": "Uranium",
+        "between": "Plutonium",
+        "sporadic": "Plutonium",
+        "dimensions": ["Space Planets"],
+        "yRange": {"min": 20, "max": 50},
+        "importance": 10,
+        "products": ["Plutonium-239", "Plutonium-241"]
+      },
+      {
+        "name": "Naquadah Vein",
+        "primary": "Naquadah",
+        "secondary": "Naquadah Enriched",
+        "between": "Naquadah",
+        "sporadic": "Naquadria",
+        "dimensions": ["Deep Space"],
+        "yRange": {"min": 10, "max": 60},
+        "importance": 5,
+        "products": ["Naquadah", "Naquadah Enriched", "Naquadria"]
+      },
+      {
+        "name": "Neutronium Vein",
+        "primary": "Neutronium",
+        "secondary": "Neutronium",
+        "between": "Neutronium",
+        "sporadic": "Neutronium",
+        "dimensions": ["Endgame Planets"],
+        "yRange": {"min": 5, "max": 30},
+        "importance": 5,
+        "products": ["Neutronium"]
+      }
+    ]
+  },
+  "dimensions": {
+    "overworld": {
+      "name": "Overworld",
+      "notableVeins": ["Copper", "Iron", "Tin", "Coal", "Redstone", "Gold", "Diamond", "Bauxite"],
+      "tips": ["Find veins on surface via small ore indicators", "Avoid caves - Infernal mobs"]
+    },
+    "nether": {
+      "name": "Nether",
+      "bonus": "2x ore output compared to Overworld",
+      "notableVeins": ["Sulfur", "Quartz", "Tetrahedrite", "Redstone"],
+      "tips": ["Mine horizontally at y5-20 for Sulfur", "Zombie Pigmen aggro when mining - use Miners"]
+    },
+    "twilightForest": {
+      "name": "Twilight Forest",
+      "notableVeins": ["Galena (Lead/Silver)", "Nickel", "Sapphire", "Diamond"],
+      "access": "2x2 water pool with flowers, throw diamond",
+      "tips": ["Good for early Lead and Silver", "Has Thaumcraft shards"]
+    },
+    "end": {
+      "name": "The End",
+      "notableVeins": ["Tungsten", "Platinum", "Osmium", "Lapis"],
+      "tips": ["Essential for Tungsten before Mars"]
+    },
+    "moon": {
+      "name": "Moon (Galacticraft)",
+      "rocketTier": 1,
+      "notableVeins": ["Bauxite/Ilmenite (TITANIUM)", "Uranium"],
+      "tips": ["PRIORITY: Bauxite/Ilmenite vein for Titanium"]
+    },
+    "mars": {
+      "name": "Mars (Galacticraft)",
+      "rocketTier": 2,
+      "notableVeins": ["Tungsten", "Desh", "Uranium"],
+      "tips": ["Main Tungsten source", "Desh for rocket components"]
+    },
+    "asteroids": {
+      "name": "Asteroids",
+      "rocketTier": 3,
+      "notableVeins": ["Platinum", "Osmium", "Iridium"],
+      "tips": ["Rich in platinum group metals"]
+    }
+  },
+  "miningTips": [
+    "Use NEI to see ore vein data (weight, dimensions, composition)",
+    "Install 'Show GT Ore Veins' mod for overlay",
+    "Use Prospector's Scanner to find veins",
+    "Small ores indicate nearby veins",
+    "Veins generate every 3 chunks - dig at chunk centers",
+    "In Nether, veins give 2x output",
+    "Use Miners in Nether to avoid Pigman aggro",
+    "Mining at y12 with hammer exposes most vein types"
+  ]
+}
