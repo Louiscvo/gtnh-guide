@@ -445,6 +445,268 @@
         "en": "• Congratulations if you're building this!\n• You've completed the modpack!",
         "fr": "• Félicitations si vous construisez ça !\n• Vous avez terminé le modpack !"
       }
+    },
+    {
+      "id": "mega_vacuum_freezer",
+      "wikiUrl": "https://gtnh.miraheze.org/wiki/Mega_Vacuum_Freezer",
+      "unlockTier": "IV",
+      "category": "processing",
+      "names": {
+        "en": "Mega Vacuum Freezer",
+        "fr": "Méga Congélateur sous Vide"
+      },
+      "usage": {
+        "en": "Massive upgrade to Vacuum Freezer with 256 parallel recipes. Essential for high-volume Titanium and Tungstensteel production.",
+        "fr": "Amélioration massive du Vacuum Freezer avec 256 recettes parallèles. Essentiel pour production volume élevé de Titane et Tungstensteel."
+      },
+      "dangers": {
+        "en": "⚠️ EXPENSIVE: Requires many IV-tier components\n⚠️ POWER: Draws massive power with all parallels running",
+        "fr": "⚠️ COÛTEUX : Nécessite beaucoup de composants tier IV\n⚠️ ÉNERGIE : Consomme énormément avec tous les parallèles"
+      }
+    },
+    {
+      "id": "volcanus",
+      "wikiUrl": "https://gtnh.miraheze.org/wiki/Volcanus",
+      "unlockTier": "IV",
+      "category": "processing",
+      "names": {
+        "en": "Volcanus",
+        "fr": "Volcanus"
+      },
+      "usage": {
+        "en": "Upgraded EBF with 256 parallels. Runs all EBF recipes at massive scale. Essential for IV+ metal production.",
+        "fr": "EBF amélioré avec 256 parallèles. Exécute toutes les recettes EBF à grande échelle. Essentiel pour production métaux IV+."
+      }
+    },
+    {
+      "id": "industrial_centrifuge",
+      "wikiUrl": "https://gtnh.miraheze.org/wiki/Industrial_Centrifuge",
+      "unlockTier": "EV",
+      "category": "processing",
+      "names": {
+        "en": "Industrial Centrifuge",
+        "fr": "Centrifugeuse Industrielle"
+      },
+      "usage": {
+        "en": "Multi-block centrifuge with parallel processing. More efficient than single blocks for large operations.",
+        "fr": "Centrifugeuse multi-bloc avec traitement parallèle. Plus efficace que les blocs simples pour grandes opérations."
+      }
+    },
+    {
+      "id": "industrial_electrolyzer",
+      "wikiUrl": "https://gtnh.miraheze.org/wiki/Industrial_Electrolyzer",
+      "unlockTier": "EV",
+      "category": "processing",
+      "names": {
+        "en": "Industrial Electrolyzer",
+        "fr": "Électrolyseur Industriel"
+      },
+      "usage": {
+        "en": "Multi-block electrolyzer for mass electrolysis. Essential for bulk material separation.",
+        "fr": "Électrolyseur multi-bloc pour électrolyse de masse. Essentiel pour séparation de matériaux en vrac."
+      }
+    },
+    {
+      "id": "industrial_mixer",
+      "wikiUrl": "https://gtnh.miraheze.org/wiki/Industrial_Mixing_Machine",
+      "unlockTier": "EV",
+      "category": "processing",
+      "names": {
+        "en": "Industrial Mixing Machine",
+        "fr": "Mélangeur Industriel"
+      },
+      "usage": {
+        "en": "High-throughput mixing for alloys and materials. Perfect overclocks available.",
+        "fr": "Mélange haut débit pour alliages et matériaux. Overclocks parfaits disponibles."
+      }
+    },
+    {
+      "id": "maceration_stack",
+      "wikiUrl": "https://gtnh.miraheze.org/wiki/Industrial_Maceration_Stack",
+      "unlockTier": "EV",
+      "category": "processing",
+      "names": {
+        "en": "Industrial Maceration Stack",
+        "fr": "Pile de Macération Industrielle"
+      },
+      "usage": {
+        "en": "Mass ore processing with multiple parallels. Essential upgrade from single Macerators.",
+        "fr": "Traitement de minerais en masse avec parallèles multiples. Amélioration essentielle des Macérateurs simples."
+      }
+    },
+    {
+      "id": "ore_washing_plant",
+      "wikiUrl": "https://gtnh.miraheze.org/wiki/Ore_Washing_Plant",
+      "unlockTier": "EV",
+      "category": "processing",
+      "names": {
+        "en": "Ore Washing Plant",
+        "fr": "Usine de Lavage de Minerais"
+      },
+      "usage": {
+        "en": "Industrial ore washing with high throughput. Processes crushed ores into purified piles.",
+        "fr": "Lavage industriel de minerais à haut débit. Transforme les minerais broyés en piles purifiées."
+      }
+    },
+    {
+      "id": "large_sifter",
+      "wikiUrl": "https://gtnh.miraheze.org/wiki/Large_Sifter",
+      "unlockTier": "EV",
+      "category": "processing",
+      "names": {
+        "en": "Large Sifter",
+        "fr": "Grand Tamis"
+      },
+      "usage": {
+        "en": "High-speed sifting for gems and materials. Essential for gem processing at scale.",
+        "fr": "Tamisage haute vitesse pour gemmes et matériaux. Essentiel pour traitement de gemmes à grande échelle."
+      }
+    },
+    {
+      "id": "circuit_assembly_line",
+      "wikiUrl": "https://gtnh.miraheze.org/wiki/Circuit_Assembly_Line",
+      "unlockTier": "ZPM",
+      "category": "endgame",
+      "names": {
+        "en": "Circuit Assembly Line",
+        "fr": "Chaîne d'Assemblage de Circuits"
+      },
+      "usage": {
+        "en": "Mass circuit production for endgame. Produces circuits much faster than single machines.",
+        "fr": "Production de circuits en masse pour l'endgame. Produit des circuits bien plus vite que les machines simples."
+      }
+    },
+    {
+      "id": "research_station",
+      "wikiUrl": "https://gtnh.miraheze.org/wiki/Research_Station",
+      "unlockTier": "IV",
+      "category": "utility",
+      "names": {
+        "en": "Research Station",
+        "fr": "Station de Recherche"
+      },
+      "usage": {
+        "en": "Scans items to create Data Sticks for Assembly Line recipes. Required before using Assembly Line.",
+        "fr": "Scanne les items pour créer des Data Sticks pour recettes Assembly Line. Requis avant d'utiliser l'Assembly Line."
+      },
+      "tips": {
+        "en": "• Scan EVERY Assembly Line recipe before building\n• Keep Data Sticks organized in drawers",
+        "fr": "• Scannez CHAQUE recette Assembly Line avant de construire\n• Gardez les Data Sticks organisés dans des tiroirs"
+      }
+    },
+    {
+      "id": "data_bank",
+      "wikiUrl": "https://gtnh.miraheze.org/wiki/Data_Bank",
+      "unlockTier": "IV",
+      "category": "utility",
+      "names": {
+        "en": "Data Bank",
+        "fr": "Banque de Données"
+      },
+      "usage": {
+        "en": "Stores Data Sticks for Assembly Line. Connects wirelessly to Assembly Lines.",
+        "fr": "Stocke les Data Sticks pour l'Assembly Line. Se connecte sans fil aux Assembly Lines."
+      }
+    },
+    {
+      "id": "fusion_mk2",
+      "image": "textures/machines/FusionReactorT2.png",
+      "wikiUrl": "https://gtnh.miraheze.org/wiki/Fusion_Reactor",
+      "unlockTier": "ZPM",
+      "category": "endgame",
+      "names": {
+        "en": "Fusion Reactor Mk II",
+        "fr": "Réacteur à Fusion Mk II"
+      },
+      "usage": {
+        "en": "Upgraded fusion reactor. Better recipes and higher output than Mk I.",
+        "fr": "Réacteur à fusion amélioré. Meilleures recettes et sortie plus élevée que Mk I."
+      }
+    },
+    {
+      "id": "fusion_mk3",
+      "image": "textures/machines/FusionReactorT3.png",
+      "wikiUrl": "https://gtnh.miraheze.org/wiki/Fusion_Reactor",
+      "unlockTier": "UV",
+      "category": "endgame",
+      "names": {
+        "en": "Fusion Reactor Mk III",
+        "fr": "Réacteur à Fusion Mk III"
+      },
+      "usage": {
+        "en": "Ultimate fusion reactor. Access to all fusion recipes including Neutronium.",
+        "fr": "Réacteur à fusion ultime. Accès à toutes les recettes de fusion incluant Neutronium."
+      }
+    },
+    {
+      "id": "large_combustion_engine",
+      "wikiUrl": "https://gtnh.miraheze.org/wiki/Large_Combustion_Engine",
+      "unlockTier": "EV",
+      "category": "generator",
+      "names": {
+        "en": "Large Combustion Engine",
+        "fr": "Grand Moteur à Combustion"
+      },
+      "usage": {
+        "en": "Burns liquid fuels (diesel, cetane, nitro-diesel) for high EU output. Main power source for EV-IV.",
+        "fr": "Brûle des carburants liquides (diesel, cétane, nitro-diesel) pour haute sortie EU. Source d'énergie principale EV-IV."
+      }
+    },
+    {
+      "id": "large_steam_turbine",
+      "wikiUrl": "https://gtnh.miraheze.org/wiki/Large_Steam_Turbine",
+      "unlockTier": "HV",
+      "category": "generator",
+      "names": {
+        "en": "Large Steam Turbine",
+        "fr": "Grande Turbine à Vapeur"
+      },
+      "usage": {
+        "en": "Converts steam to EU efficiently. Works with Large Boilers for complete power setup.",
+        "fr": "Convertit la vapeur en EU efficacement. Fonctionne avec les Grandes Chaudières pour setup complet."
+      }
+    },
+    {
+      "id": "lapotronic_supercapacitor",
+      "wikiUrl": "https://gtnh.miraheze.org/wiki/Lapotronic_Supercapacitor",
+      "unlockTier": "LuV",
+      "category": "storage",
+      "names": {
+        "en": "Lapotronic Supercapacitor",
+        "fr": "Supercondensateur Lapotronique"
+      },
+      "usage": {
+        "en": "Massive energy storage. Essential for Fusion Reactor startup (160M EU buffer needed).",
+        "fr": "Stockage d'énergie massif. Essentiel pour démarrage Réacteur à Fusion (buffer 160M EU nécessaire)."
+      }
+    },
+    {
+      "id": "space_elevator",
+      "wikiUrl": "https://gtnh.miraheze.org/wiki/Space_Elevator",
+      "unlockTier": "UV",
+      "category": "endgame",
+      "names": {
+        "en": "Space Elevator",
+        "fr": "Ascenseur Spatial"
+      },
+      "usage": {
+        "en": "Alternative to rockets for space travel. Requires massive resources but enables easy dimension access.",
+        "fr": "Alternative aux fusées pour voyage spatial. Nécessite ressources massives mais permet accès facile aux dimensions."
+      }
+    },
+    {
+      "id": "mothership",
+      "wikiUrl": "https://gtnh.miraheze.org/wiki/Mothership",
+      "unlockTier": "UHV",
+      "category": "endgame",
+      "names": {
+        "en": "Mothership",
+        "fr": "Vaisseau Mère"
+      },
+      "usage": {
+        "en": "Ultimate spacecraft. Enables travel to endgame dimensions including Seth for Tengam.",
+        "fr": "Vaisseau spatial ultime. Permet voyage vers dimensions endgame incluant Seth pour Tengam."
+      }
     }
   ],
 
