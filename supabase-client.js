@@ -1,8 +1,8 @@
 // Supabase Client for GTNH Guide
 // Configuration - Replace with your Supabase project credentials
 
-const SUPABASE_URL = 'YOUR_SUPABASE_URL'; // e.g., 'https://xxxx.supabase.co'
-const SUPABASE_ANON_KEY = 'YOUR_SUPABASE_ANON_KEY';
+const SUPABASE_URL = 'https://tkdahbclnagzdeuaydzk.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRrZGFoYmNsbmFnemRldWF5ZHprIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzExMTY3NjgsImV4cCI6MjA4NjY5Mjc2OH0.oFKroPYqFzVRbfK9E7ygNyyyBm_xBL7vjLhjAsxuXl0';
 
 // Check if Supabase is configured
 const isSupabaseConfigured = SUPABASE_URL !== 'YOUR_SUPABASE_URL' && SUPABASE_ANON_KEY !== 'YOUR_SUPABASE_ANON_KEY';
